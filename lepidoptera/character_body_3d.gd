@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 var gravity = 30        # increased from default so jump feels heavier
 var speed = 7
+#crouching stuff again
+var crouch_speed = 2.5
 var jump_speed = 12      # slightly higher so player can still jump
 var mouse_sensitivity = 0.002
 
@@ -37,8 +39,13 @@ func _physics_process(delta):
 	# get movement input
 	var input = Input.get_vector("left","right","forward","back")
 	var movement = transform.basis * Vector3(input.x,0,input.y)
-	velocity.x = movement.x * speed
-	velocity.z = movement.z * speed
+	#crouching speed n stuff
+	if !crouching:
+		velocity.x = movement.x * speed
+		velocity.z = movement.z * speed
+	elif crouching:
+		velocity.x = movement.x * crouch_speed
+		velocity.z = movement.z * speed
 
 	# move character
 	move_and_slide()
