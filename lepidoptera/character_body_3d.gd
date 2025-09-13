@@ -1,36 +1,60 @@
 extends CharacterBody3D
 
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var speed = 5
-var jump_speed = 5
+var gravity = 30        # increased from default so jump feels heavier
+var speed = 7
+var jump_speed = 12      # slightly higher so player can still jump
 var mouse_sensitivity = 0.002
 
-#rotation n movement i believe
+# crouch height
+var crouch_height = 0.5
+var crouching = false
+var stand_height = 2.0
+var collision_shape: CapsuleShape3D  # added minimal variable
+
+func _ready():
+	# capture the mouse so input works
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	# get a reference to the collision shape
+	collision_shape = $CollisionShape3D.shape as CapsuleShape3D
+
+# crouching
+func crouch():
+	if Input.is_action_just_pressed("crouch"):
+		crouching = !crouching
+		if crouching:
+			collision_shape.height = crouch_height
+		else:
+			collision_shape.height = stand_height
+
+# rotation n movement i believe
 func _physics_process(delta):
+	#IDK IF THIS IS THE RIGHT PLACE
+	
+	crouch()
 	# apply gravity
-	velocity.y -= gravity * delta   # minimal change
+	velocity.y -= gravity * delta
 
-	# movement input
-	var input = Input.get_vector("left", "right", "forward", "back")
-	var movement_dir = transform.basis * Vector3(input.x, 0, input.y)
-	velocity.x = movement_dir.x * speed
-	velocity.z = movement_dir.z * speed
+	# get movement input
+	var input = Input.get_vector("left","right","forward","back")
+	var movement = transform.basis * Vector3(input.x,0,input.y)
+	velocity.x = movement.x * speed
+	velocity.z = movement.z * speed
 
-	# move character (Godot 4 style) because why the FREAK do all tutorials use ye olde ancient Godot versions
-	move_and_slide()  # minimal change
-
+	# move character
+	move_and_slide()
+	
 	# jump
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = jump_speed
 
-#mouse character
+# mouse character whY IS THIS SO fdhfjdh OVERVOMPLICATED
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		# rotate body left/right
 		rotate_y(-event.relative.x * mouse_sensitivity)
-
-		# rotate camera up/down using rotation_degrees
-		var cam_rot = $Camera3D.rotation_degrees
-		cam_rot.x -= event.relative.y * mouse_sensitivity * 180 / PI  # convert rad to deg
-		cam_rot.x = clamp(cam_rot.x, -70, 70)
-		$Camera3D.rotation_degrees = cam_rot
+		
+		# rotate camera up/down using pivot
+		var pivot_rot = $CameraPivot.rotation_degrees
+		pivot_rot.x -= event.relative.y * mouse_sensitivity * 180 / PI  # convert rad to deg
+		pivot_rot.x = clamp(pivot_rot.x, -70, 70)  # clamp vertical angle
+		$CameraPivot.rotation_degrees = pivot_rot
