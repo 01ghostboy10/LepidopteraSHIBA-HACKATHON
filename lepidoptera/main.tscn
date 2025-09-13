@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=26 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="1_7mycd"]
 [ext_resource type="Texture2D" uid="uid://cv6bqu77y1t46" path="res://textures/wood_cabinet_worn_long_nor_gl_2k.png" id="2_272bh"]
@@ -6,6 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://cpfrx0makaoqq" path="res://textures/painted_plaster_wall_nor_gl_2k.png" id="4_kek77"]
 [ext_resource type="Texture2D" uid="uid://bkc13wh0e2ur8" path="res://textures/wood_table_worn_disp_2k.png" id="5_4c57u"]
 [ext_resource type="Texture2D" uid="uid://dk23f5nw2auce" path="res://textures/wood_table_worn_nor_gl_2k.png" id="6_efxa6"]
+[ext_resource type="Script" uid="uid://n6sb66bjik3b" path="res://character_body_3d.gd" id="7_272bh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7mycd"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_272bh"]
+sky_material = SubResource("ProceduralSkyMaterial_7mycd")
+
+[sub_resource type="Environment" id="Environment_5vw27"]
+background_mode = 2
+sky = SubResource("Sky_272bh")
+tonemap_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dg77c"]
 albedo_color = Color(0.274145, 0.134052, 0.0436349, 1)
@@ -16,6 +29,8 @@ normal_texture = ExtResource("2_272bh")
 uv1_scale = Vector3(16, 16, 16)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ycdy4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mycd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w48qg"]
 albedo_color = Color(0.233374, 0.217827, 0, 1)
@@ -67,21 +82,31 @@ normal_scale = 2.5
 normal_texture = ExtResource("4_kek77")
 uv1_scale = Vector3(2.5, 2.5, 2.5)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_0odxb"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5vw27"]
 
 [node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5vw27")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 28.8, 6.5, 7)
 shadow_enabled = true
 
 [node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(23.6315, 0, 0, 0, 0.17472, 0, 0, 0, 29.5501, 30.2614, 3.14933, 29.0705)
+transform = Transform3D(33.793, 0, 0, 0, 0.24985, 0, 0, 0, 38.031, 27.2421, 2.26559, 33.3526)
 material_overlay = SubResource("StandardMaterial3D_dg77c")
 mesh = SubResource("PlaneMesh_ycdy4")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_7mycd")
+
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(9.58003, 0, 0, 0, 6.56393, 0, 0, 0, 0.315706, 30.1942, 6.50933, 4.47528)
+transform = Transform3D(12.454, 0, 0, 0, 8.53311, 0, 0, 0, 0.410418, 27.1548, 6.50359, 1.3788)
 material_overlay = SubResource("StandardMaterial3D_w48qg")
 use_collision = true
 
@@ -90,7 +115,7 @@ transform = Transform3D(0.453704, 0, 0, 0, -3.49055e-09, -0.675422, 0, 1.66028, 
 operation = 2
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(-6.15793, 0, -0.21766, 0, 6.56393, 0, 7.33873, 0, -0.182638, 22.3318, 6.50933, 8.17128)
+transform = Transform3D(-8.00531, 0, -0.282958, 0, 8.53311, 0, 9.54035, 0, -0.237429, 16.9337, 6.50359, 6.1836)
 material_overlay = SubResource("StandardMaterial3D_w48qg")
 use_collision = true
 
@@ -99,7 +124,7 @@ transform = Transform3D(0.453704, 0, 0, 0, -3.49055e-09, -0.675422, 0, 1.66028, 
 operation = 2
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="."]
-transform = Transform3D(-6.15792, 0, 0.21766, 0, 6.56393, 0, -7.33873, 0, -0.182638, 38.0566, 6.34213, 8.10408)
+transform = Transform3D(-8.0053, 0, 0.282958, 0, 8.53311, 0, -9.54035, 0, -0.237429, 37.3759, 6.41623, 6.09624)
 material_overlay = SubResource("StandardMaterial3D_w48qg")
 use_collision = true
 
@@ -108,7 +133,7 @@ transform = Transform3D(0.453704, 0, 0, 0, -3.49055e-09, -0.675422, 0, 1.66028, 
 operation = 2
 
 [node name="Archway" type="CSGBox3D" parent="."]
-transform = Transform3D(-3.48699, 0, -0.145235, 0, 6.56393, 0, 2.92593, 0, -0.173085, 39.3046, 6.44213, 13.1921)
+transform = Transform3D(-4.53309, 0, -0.188805, 0, 8.53311, 0, 3.80371, 0, -0.22501, 38.9983, 6.54623, 12.7107)
 material_overlay = SubResource("StandardMaterial3D_vivmo")
 use_collision = true
 
@@ -118,72 +143,72 @@ operation = 2
 sides = 12
 
 [node name="Wall" type="MeshInstance3D" parent="."]
-transform = Transform3D(-7.80021, 0, -2.14577e-08, 0, 6.56393, 0, -3.92212e-07, 0, -0.225946, 44.9686, 6.46613, 11.6801)
+transform = Transform3D(-10.1403, 0, -2.7895e-08, 0, 8.53311, 0, -5.09876e-07, 0, -0.29373, 46.3615, 6.57743, 10.7451)
 material_overlay = SubResource("StandardMaterial3D_2cqfq")
 mesh = SubResource("BoxMesh_yaehf")
 
 [node name="Wall2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-9.75026, 0, -2.14577e-08, 0, 6.56393, 0, -4.90265e-07, 0, -0.225946, 43.3371, 6.44213, 21.9721)
+transform = Transform3D(-12.6753, 0, -2.7895e-08, 0, 8.53311, 0, -6.37344e-07, 0, -0.29373, 44.2405, 6.54623, 24.1247)
 material_overlay = SubResource("StandardMaterial3D_2cqfq")
 mesh = SubResource("BoxMesh_074og")
 
 [node name="Wall3" type="MeshInstance3D" parent="."]
-transform = Transform3D(-3.27885, 0, 0.19061, 0, 6.56393, 0, -3.90758, 0, -0.159941, 50.3926, 6.44213, 13.6721)
+transform = Transform3D(-4.26251, 0, 0.247793, 0, 8.53311, 0, -5.07985, 0, -0.207923, 53.4127, 6.54623, 13.3347)
 material_overlay = SubResource("StandardMaterial3D_2cqfq")
 mesh = SubResource("BoxMesh_cegan")
 
 [node name="Wall4" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.12619e-06, 0, 0.225946, 0, 6.56393, 0, -22.6206, 0, -1.15813e-08, 51.9046, 6.44213, 26.8001)
+transform = Transform3D(2.76405e-06, 0, 0.29373, 0, 8.53311, 0, -29.4068, 0, -1.50557e-08, 55.3783, 6.54623, 30.4011)
 material_overlay = SubResource("StandardMaterial3D_2cqfq")
 mesh = SubResource("BoxMesh_82xsv")
 
 [node name="Wall5" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.93268e-07, 0, 0.225946, 0, 6.56393, 0, -3.12008, 0, -1.15813e-08, 48.5246, 6.44213, 20.5601)
+transform = Transform3D(3.81248e-07, 0, 0.29373, 0, 8.53311, 0, -4.0561, 0, -1.50557e-08, 50.9843, 6.54623, 22.2891)
 material_overlay = SubResource("StandardMaterial3D_2cqfq")
 mesh = SubResource("BoxMesh_getpj")
 
 [node name="Pillar" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.74102, 0, -6.52313e-08, 0, 6.56393, 0, -3.72601e-08, 0, -0.686875, 48.5246, 6.44213, 19.2401)
+transform = Transform3D(-0.963326, 0, -8.48007e-08, 0, 8.53311, 0, -4.84381e-08, 0, -0.892937, 50.9843, 6.54623, 20.5731)
 material_overlay = SubResource("StandardMaterial3D_ryguw")
 mesh = SubResource("BoxMesh_d13ii")
 
 [node name="Pillar2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.641742, 0, 0.343437, 0, 6.56393, 0, -0.37051, 0, -0.594851, 34.9046, 6.44213, 4.52008)
+transform = Transform3D(-0.834265, 0, 0.446468, 0, 8.53311, 0, -0.481663, 0, -0.773306, 33.2783, 6.54623, 1.43704)
 material_overlay = SubResource("StandardMaterial3D_ryguw")
 mesh = SubResource("BoxMesh_d13ii")
 
 [node name="Pillar3" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.641742, 0, -0.343438, 0, 6.56393, 0, 0.37051, 0, -0.594851, 25.4646, 6.44213, 4.52008)
+transform = Transform3D(-0.834265, 0, -0.446469, 0, 8.53311, 0, 0.481663, 0, -0.773306, 21.0063, 6.54623, 1.43704)
 material_overlay = SubResource("StandardMaterial3D_ryguw")
 mesh = SubResource("BoxMesh_d13ii")
 
 [node name="Pillar4" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.729762, 0, -0.119275, 0, 6.56393, 0, 0.128677, 0, -0.67644, 51.9246, 6.44213, 15.5401)
+transform = Transform3D(-0.948691, 0, -0.155058, 0, 8.53311, 0, 0.16728, 0, -0.879372, 55.4043, 6.54623, 15.7631)
 material_overlay = SubResource("StandardMaterial3D_ryguw")
 mesh = SubResource("BoxMesh_d13ii")
 
 [node name="Pillar5" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.641742, 0, 0.343438, 0, 6.56393, 0, -0.37051, 0, -0.594851, 48.7246, 6.44213, 11.6401)
+transform = Transform3D(-0.834265, 0, 0.446469, 0, 8.53311, 0, -0.481663, 0, -0.773306, 51.2443, 6.54623, 10.6931)
 material_overlay = SubResource("StandardMaterial3D_ryguw")
 mesh = SubResource("BoxMesh_d13ii")
 
 [node name="Pillar6" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.74102, 0, -6.52313e-08, 0, 6.56393, 0, -3.72601e-08, 0, -0.686875, 48.5246, 6.44213, 22.0401)
+transform = Transform3D(-0.963326, 0, -8.48007e-08, 0, 8.53311, 0, -4.84381e-08, 0, -0.892937, 50.9843, 6.54623, 24.2131)
 material_overlay = SubResource("StandardMaterial3D_ryguw")
 mesh = SubResource("BoxMesh_d13ii")
 
 [node name="Pillar7" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.74102, 0, -6.52313e-08, 0, 6.56393, 0, -3.72601e-08, 0, -0.686875, 41.0246, 6.44213, 11.6401)
+transform = Transform3D(-0.963326, 0, -8.48007e-08, 0, 8.53311, 0, -4.84381e-08, 0, -0.892937, 41.2343, 6.54623, 10.6931)
 material_overlay = SubResource("StandardMaterial3D_ryguw")
 mesh = SubResource("BoxMesh_d13ii")
 
 [node name="Pillar8" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.74102, 0, -6.52313e-08, 0, 6.56393, 0, -3.72601e-08, 0, -0.686875, 37.6246, 6.44213, 14.6401)
+transform = Transform3D(-0.963326, 0, -8.48007e-08, 0, 8.53311, 0, -4.84381e-08, 0, -0.892937, 36.8143, 6.54623, 14.5931)
 material_overlay = SubResource("StandardMaterial3D_ryguw")
 mesh = SubResource("BoxMesh_d13ii")
 
 [node name="Biosphere" type="CSGCylinder3D" parent="."]
-transform = Transform3D(18.1642, 0, 0, 0, 7.4088, 0, 0, 0, 18.1642, 30.1942, 3.28373, 19.6625)
+transform = Transform3D(23.6135, 0, 0, 0, 9.63144, 0, 0, 0, 23.6135, 27.1548, 2.44031, 21.1222)
 sides = 12
 material = SubResource("StandardMaterial3D_1u8w0")
 
@@ -192,6 +217,12 @@ transform = Transform3D(0.9504, 0, 0, 0, 1.1, 0, 0, 0, 0.9504, 0, 0, 0)
 operation = 2
 sides = 12
 
-[node name="PlayerTEMPORARY?" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.3, 4.7, 6.8)
-mesh = SubResource("CapsuleMesh_0odxb")
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.4, 5.3, 5.9)
+script = ExtResource("7_272bh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_5vw27")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
