@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=45 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="1_7mycd"]
 [ext_resource type="Texture2D" uid="uid://cv6bqu77y1t46" path="res://textures/wood_cabinet_worn_long_nor_gl_2k.png" id="2_272bh"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bkc13wh0e2ur8" path="res://textures/wood_table_worn_disp_2k.png" id="5_4c57u"]
 [ext_resource type="Texture2D" uid="uid://dk23f5nw2auce" path="res://textures/wood_table_worn_nor_gl_2k.png" id="6_efxa6"]
 [ext_resource type="Script" uid="uid://n6sb66bjik3b" path="res://character_body_3d.gd" id="7_272bh"]
+[ext_resource type="Script" uid="uid://dqewfoaodkb3q" path="res://butterfly.gd" id="8_kek77"]
+[ext_resource type="PackedScene" uid="uid://bwfd3ubhm6amt" path="res://butterfly.tscn" id="9_kek77"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7mycd"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -120,7 +122,13 @@ normal_texture = ExtResource("6_efxa6")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d13ii"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1u8w0"]
+[sub_resource type="Curve3D" id="Curve3D_efxa6"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 43, 0.6, 18.7, 0, 0, 0, 0, 0, 0, 42.3, 1.7, 20.4, 0, 0, 0, 0, 0, 0, 43.6666, 1.07278, 20.3632, 0, 0, 0, 0, 0, 0, 43.9, -0.7, 20.4, 0, 0, 0, 0, 0, 0, 44.7644, -1.2, 22.1702, 0, 0, 0, 0, 0, 0, 46.9386, 0.8, 21.7483, 0, 0, 0, 0, 0, 0, 46.4519, -0.9, 19.4118, 0, 0, 0, 0, 0, 0, 48.042, -1.4, 18.2111, 0, 0, 0, 0, 0, 0, 45.9002, 0, 15.0957, 0, 0, 0, 0, 0, 0, 45.8353, 0, 16.5561, 0, 0, 0, 0, 0, 0, 44.2127, 0.6, 16.3938, 0, 0, 0, 0, 0, 0, 43.9855, 0, 14.7388, 0, 0, 0, 0, 0, 0, 42.9, -0.7, 15.5, 0, 0, 0, 0, 0, 0, 41.5, -1.4, 17.1, 0, 0, 0, 0, 0, 0, 41.5, 0.4, 17.3),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 15
 
 [node name="Main" type="Node3D"]
 
@@ -504,9 +512,20 @@ mesh = SubResource("BoxMesh_ryguw")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D11/StaticBody3D"]
 shape = SubResource("BoxShape3D_d13ii")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(2.46917, 0, -0.372657, 0, 1.5, 0, 0.898703, 0, 1.02387, 10.9, 1.4, 12.3)
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.2, 2.3, 4.2)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1, 9.2, 12.1)
-shape = SubResource("ConvexPolygonShape3D_1u8w0")
+[node name="butterflies" type="Node3D" parent="."]
+
+[node name="Path3D" type="Path3D" parent="butterflies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.4, 0)
+curve = SubResource("Curve3D_efxa6")
+script = ExtResource("8_kek77")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
+transform = Transform3D(-0.682281, -0.0709284, -0.727606, 0, 0.995362, -0.0970142, 0.731014, -0.0661999, -0.6791, 42.7064, 0.560851, 18.426)
+progress = 31.646
+rotation_mode = 4
+
+[node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
