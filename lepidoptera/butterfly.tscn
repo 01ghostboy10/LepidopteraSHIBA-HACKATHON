@@ -1,6 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwfd3ubhm6amt"]
+[gd_scene load_steps=12 format=3 uid="uid://bwfd3ubhm6amt"]
 
 [ext_resource type="Texture2D" uid="uid://mgnju1q7t7wb" path="res://items/butterfly_pngegg.png" id="1_l7i6p"]
+
+[sub_resource type="GDScript" id="GDScript_l7i6p"]
+script/source = "extends Area3D
+
+func interact():
+	print(\"hi u interacted with me!\")
+	queue_free()
+"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_l7i6p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_025fl"]
 resource_name = "pngegg"
@@ -136,8 +146,13 @@ _data = {
 &"fly": SubResource("Animation_dg77c")
 }
 
-[node name="butterfly" type="Node3D"]
+[node name="butterfly" type="Area3D"]
 transform = Transform3D(1, 1.49012e-08, 2.08616e-07, -5.96046e-08, 1, 1.19209e-07, -1.49012e-07, 0, 1, 0, 0, 0)
+script = SubResource("GDScript_l7i6p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 5.0822e-21, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_l7i6p")
 
 [node name="left" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.499998, -0.866026, 0, 0.866026, 0.499998, 0, 0, 0, 1, 0, 0, 0)

@@ -30,6 +30,16 @@ func crouch():
 
 # rotation n movement i believe
 func _physics_process(delta):
+	#bruh whyy
+	%InteractText.hide()
+	if %SeeCast.is_colliding():
+		var target = %SeeCast.get_collider()
+		if target != null and target.has_method("interact"):
+			%InteractText.show()
+			if Input.is_action_just_pressed("interact"):
+				target.interact()
+			
+			
 	#IDK IF THIS IS THE RIGHT PLACE
 	
 	crouch()
