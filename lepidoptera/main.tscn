@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=47 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://SkyShader.gdshader" id="1_4c57u"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="1_7mycd"]
@@ -13,6 +13,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_4c57u")
+shader_parameter/skyColor = Vector3(0.05, 0.1, 0.15)
+shader_parameter/horizonColor = Vector3(0.1, 0.15, 0.1)
 
 [sub_resource type="Sky" id="Sky_dg77c"]
 sky_material = SubResource("ShaderMaterial_efxa6")
@@ -31,10 +33,6 @@ normal_enabled = true
 normal_scale = 16.0
 normal_texture = ExtResource("2_272bh")
 uv1_scale = Vector3(5, 5, 5)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_ycdy4"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_82xsv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w48qg"]
 albedo_color = Color(0.233374, 0.217827, 0, 1)
@@ -132,25 +130,47 @@ _data = {
 }
 point_count = 15
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c57u"]
+transparency = 1
+albedo_color = Color(0.792157, 0, 0.301961, 0.721569)
+metallic = 0.7
+roughness = 0.3
+refraction_enabled = true
+refraction_scale = 0.75
+
+[sub_resource type="BoxMesh" id="BoxMesh_4c57u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_82xsv"]
+
 [node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5vw27")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 28.8, 6.5, 7)
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 34.1, 18.8, -1)
 shadow_enabled = true
 
-[node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(27.2507, 0, 0, 0, 0.137418, 0, 0, 0, 25.137, 30.6421, 2.26559, 25.7526)
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(53.9564, 0, 0, 0, 0.15116, 0, 0, 0, 55.3014, 28.4421, 2.26559, 28.6526)
 material_overlay = SubResource("StandardMaterial3D_dg77c")
-mesh = SubResource("PlaneMesh_ycdy4")
+use_collision = true
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(0.272695, 0, 0, 0, 60.8363, 0, 0, 0, 0.199547, 0.371743, 0.22764, -0.425895)
+operation = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
-shape = SubResource("BoxShape3D_82xsv")
+[node name="CSGBox3D2" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(0.138284, 0, 0.201669, 0, 60.8363, 0, -0.116034, 0, 0.240339, 0.199382, 0.22764, -0.500034)
+operation = 2
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(0.138284, 0, 0.201669, 0, 60.8363, 0, -0.116034, 0, 0.240339, 0.477384, 0.22764, -0.387921)
+operation = 2
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(-0.212451, 0, 0.323954, 0, 60.8363, 0, -0.178268, 0, -0.386073, -0.37145, 0.22764, -0.440361)
+operation = 2
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(12.454, 0, 0, 0, 8.53311, 0, 0, 0, 0.410418, 27.1548, 6.50359, 1.3788)
@@ -177,6 +197,15 @@ use_collision = true
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D4"]
 transform = Transform3D(0.453704, 0, 0, 0, -3.49055e-09, -0.675422, 0, 1.66028, -6.13836e-07, 0, 0.0409511, 5.72205e-06)
+operation = 2
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(-11.7029, 0, -0.140371, 0, 8.53311, 0, 4.25952, 0, -0.385667, 49.4248, 6.50359, 47.3788)
+material_overlay = SubResource("StandardMaterial3D_w48qg")
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D5"]
+transform = Transform3D(0.453704, 0, 0, 0, -3.49055e-09, -0.675422, 0, 1.66028, -6.13836e-07, 0, 0.0409511, -0.0760136)
 operation = 2
 
 [node name="Archway" type="CSGBox3D" parent="."]
@@ -382,6 +411,16 @@ mesh = SubResource("BoxMesh_d13ii")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar12/StaticBody3D"]
 shape = SubResource("BoxShape3D_cegan")
 
+[node name="Pillar13" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.619214, 0, -0.68403, 0, 8.53311, 0, 0.737951, 0, -0.573969, 55.1343, 6.54623, 45.1931)
+material_overlay = SubResource("StandardMaterial3D_ryguw")
+mesh = SubResource("BoxMesh_d13ii")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pillar13"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar13/StaticBody3D"]
+shape = SubResource("BoxShape3D_074og")
+
 [node name="Biosphere" type="CSGCylinder3D" parent="."]
 transform = Transform3D(23.6135, 0, 0, 0, 9.63144, 0, 0, 0, 23.6135, 27.1548, 2.44031, 21.1222)
 sides = 12
@@ -425,7 +464,7 @@ mesh = SubResource("BoxMesh_ryguw")
 shape = SubResource("BoxShape3D_d13ii")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(5.27262, 0, -0.795349, 0, 0.9, 0, 4.42425, 0, 0.94786, 14.1, 8.8, 14.1)
+transform = Transform3D(4.9337, 0, -0.734422, 0, 0.9, 0, 4.13986, 0, 0.87525, 14.1, 8.8, 14.1)
 material_overlay = SubResource("StandardMaterial3D_getpj")
 mesh = SubResource("BoxMesh_ryguw")
 
@@ -525,9 +564,21 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("8_kek77")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.999945, -9.69813e-07, -1.07611e-07, 0, 0.11058, -0.993884, 9.74411e-07, -0.995226, -0.110431, 41.4953, 0.377272, 17.2931)
-progress = 29.9622
+transform = Transform3D(0.824, 0.199028, 0.531266, 0, 0.948706, -0.347265, -0.56649, 0.2895, 0.772764, 47.0566, -0.755904, 16.7778)
+progress = 17.2909
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("9_kek77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Window" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.41519, 0, -0.15481, 0, 8.31005, 0, 7.64533, 0, 0.129901, 37.1545, 6.78061, 5.86424)
+material_override = SubResource("StandardMaterial3D_4c57u")
+mesh = SubResource("BoxMesh_4c57u")
+skeleton = NodePath("../butterflies/Path3D/PathFollow3D/butterfly")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Window"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Window/StaticBody3D"]
+transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, 0, 0, 1, 0.037143, 0.144404, 0.893204)
+shape = SubResource("BoxShape3D_82xsv")
