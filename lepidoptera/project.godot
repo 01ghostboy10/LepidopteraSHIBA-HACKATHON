@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Lepidoptera"
-run/main_scene="uid://0vqqs71lujfu"
+run/main_scene="uid://81tjnqvcrco5"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://items/stuff/icon.svg"
 
 [editor_plugins]
 
