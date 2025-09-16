@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://chtn01cddnk8u"]
+[gd_scene load_steps=11 format=3 uid="uid://chtn01cddnk8u"]
 
 [ext_resource type="Texture2D" uid="uid://d2xqf4dfed4w0" path="res://buttons + startscreen art/startscreenTHISONE.png" id="1_ohgnh"]
 [ext_resource type="Script" uid="uid://c0owc6i1xac5l" path="res://Menu/main_menu.gd" id="1_rw3mj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cpbf8v5npakej" path="res://buttons + startscreen art/start1.png" id="3_rw3mj"]
 [ext_resource type="Texture2D" uid="uid://c20qyb8vrqe01" path="res://buttons + startscreen art/about1.png" id="4_cn2sd"]
 [ext_resource type="Texture2D" uid="uid://djgq5xstd27iw" path="res://buttons + startscreen art/about2.png" id="5_cn2sd"]
+[ext_resource type="AudioStream" uid="uid://oll6g7qey14a" path="res://musika/titlemusic.mp3" id="7_cn2sd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vv7ca"]
 texture = ExtResource("1_ohgnh")
@@ -52,6 +53,10 @@ icon_alignment = 1
 layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxTexture_ywk15")
 icon = ExtResource("4_cn2sd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_cn2sd")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/startbutton" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/aboutbutton" to="." method="_on_about_pressed"]
