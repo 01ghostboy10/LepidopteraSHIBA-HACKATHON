@@ -6,11 +6,7 @@
 script/source = "extends Area3D
 
 func interact():
-	
-	var chest = get_tree().get_root().get_node(\"Main/Chest\") # adjust if different path
-	chest.interact()
-	
-	print(\"hi u interacted with me!\")
+	print(\"Hello, you itneracted with me!\")
 	queue_free()
 "
 

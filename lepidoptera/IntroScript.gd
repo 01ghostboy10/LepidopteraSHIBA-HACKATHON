@@ -14,4 +14,4 @@ func black_out():
  
 
 func start_menu_scene():
-	get_tree().change_scene_to_file("res://Menu/Start_menu.tscn")
+	get_tree().change_scene_to_file("res://Menu/main_menu.tscn")

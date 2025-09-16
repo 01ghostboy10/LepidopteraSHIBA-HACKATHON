@@ -1,12 +1,5 @@
 extends CharacterBody3D
 
-
-
-#butterfly inventory:
-var butterflies = 0
-
-
-
 var gravity = 30        # increased from default so jump feels heavier
 var speed = 7
 #crouching stuff again
@@ -45,7 +38,6 @@ func _physics_process(delta):
 			%InteractText.show()
 			if Input.is_action_just_pressed("interact"):
 				target.interact()
-			
 			
 	#IDK IF THIS IS THE RIGHT PLACE
 	
