@@ -21,6 +21,13 @@ func _ready():
 	# get a reference to the collision shape
 	collision_shape = $CollisionShape3D.shape as CapsuleShape3D
 
+#ff9d8fd98fdifsfjsfjsdjfkjs
+func _process(delta):
+	if Input.is_action_just_pressed("quit"):
+		get_tree().quit()
+#shjdjahjshdjahjasdjshdjhaj
+
+
 # crouching
 func crouch():
 	if Input.is_action_just_pressed("crouch"):

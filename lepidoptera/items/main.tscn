@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=56 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Script" uid="uid://bxqyptlmsic3m" path="res://GameManager.gd" id="1_papeh"]
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://b2xmfdb5dvh5e" path="res://items/stuff/Untitled_Artwork 1.png" id="9_yijbk"]
 [ext_resource type="PackedScene" uid="uid://bwfd3ubhm6amt" path="res://items/butterfly.tscn" id="10_mox85"]
 [ext_resource type="Script" uid="uid://cjmptxl0we10g" path="res://items/uiBUTTERFLYCODE.gd" id="11_jbn4t"]
+[ext_resource type="AudioStream" uid="uid://chidm5q0g4ua5" path="res://musika/noises/811719__edgardomoreno__paper-flutter.wav" id="14_haqmq"]
+[ext_resource type="AudioStream" uid="uid://rhhxyk6vam0w" path="res://musika/noises/816989__luisa_sanchez__soccer-net.wav" id="15_m8s6k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_ye7cp")
@@ -162,6 +164,12 @@ refraction_scale = 0.75
 [sub_resource type="BoxMesh" id="BoxMesh_4c57u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_82xsv"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j8k2g"]
+random_pitch = 1.3
+streams_count = 2
+stream_0/stream = ExtResource("14_haqmq")
+stream_1/stream = ExtResource("15_m8s6k")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_papeh")
@@ -751,7 +759,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
 
 [node name="SeeCast" type="RayCast3D" parent="Player/CameraPivot/Camera3D"]
 unique_name_in_owner = true
-transform = Transform3D(0.982483, 0.00285834, -0.186354, -0.186354, 0.0149693, -0.982479, -3.44217e-06, 5.54398, 0.00274888, 0, 0, 0)
+transform = Transform3D(0.99924445, 0.0031398535, -0.18580142, -0.18953325, 0.016443618, -0.9795657, -3.5017729e-06, 6.090004, 0.0027407296, 0, 0, 0)
 collide_with_areas = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]
@@ -797,15 +805,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 389.0
-offset_top = -193.0
-offset_right = 531.0
-offset_bottom = -118.0
+offset_left = 395.0
+offset_top = -249.0
+offset_right = 537.0
+offset_bottom = -122.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "WASD/ movement
 E/ collect butterfly
-SHIFT/ crouch"
+SHIFT/ crouch
+
+ESC/ quit"
 
 [node name="MiniLogo" type="Sprite2D" parent="Player/CanvasLayer"]
 position = Vector2(147, 59)
@@ -947,11 +957,24 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(0.9789305, -0.12303931, 0.16609693, 0, 0.84705883, 0.5801639, -0.2039134, -0.59067684, 0.7973843, 46.70276, -0.023782318, 20.616087)
-progress = 11.8715315
+transform = Transform3D(0.8240003, 0.20564152, 0.5312656, 0, 0.98022944, -0.34726498, -0.56649035, 0.29912013, 0.7727634, 46.340775, -0.28798145, 15.736541)
+progress = 18.637196
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Path3D2" type="Path3D" parent="butterflies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 5.4, 15)
+curve = SubResource("Curve3D_efxa6")
+script = ExtResource("9_mjcg1")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
+transform = Transform3D(0.8240003, 0.20564152, 0.5312656, 0, 0.98022944, -0.34726498, -0.56649035, 0.29912013, 0.7727634, 46.340775, -0.28798145, 15.736541)
+progress = 18.637196
+rotation_mode = 4
+
+[node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Window" type="MeshInstance3D" parent="."]
@@ -1017,7 +1040,7 @@ omni_attenuation = 1.3
 [node name="OmniLight3D7" type="OmniLight3D" parent="."]
 transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, 27.2, 6.3, 5.3)
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 6.0
+light_energy = 2.5
 light_indirect_energy = 10.0
 light_size = 0.4
 light_specular = 2.0
@@ -1121,3 +1144,6 @@ shadow_blur = 3.0
 distance_fade_begin = 0.0
 omni_range = 12.0
 omni_attenuation = 1.3
+
+[node name="butterflynoisess" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_j8k2g")

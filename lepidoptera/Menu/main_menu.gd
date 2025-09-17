@@ -13,3 +13,10 @@ func _on_about_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
+
+
+#ff9d8fd98fdifsfjsfjsdjfkjs
+func _process(delta):
+	if Input.is_action_just_pressed("quit"):
+		get_tree().quit()
+#shjdjahjshdjahjasdjshdjhaj
