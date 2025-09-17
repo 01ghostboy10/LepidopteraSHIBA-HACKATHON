@@ -1,5 +1,6 @@
-[gd_scene load_steps=51 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=53 format=3 uid="uid://0vqqs71lujfu"]
 
+[ext_resource type="Script" uid="uid://bxqyptlmsic3m" path="res://GameManager.gd" id="1_papeh"]
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="2_w6s3w"]
 [ext_resource type="Texture2D" uid="uid://cv6bqu77y1t46" path="res://textures/wood_cabinet_worn_long_nor_gl_2k.png" id="3_yijbk"]
@@ -11,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dqewfoaodkb3q" path="res://items/butterfly.gd" id="9_mjcg1"]
 [ext_resource type="Texture2D" uid="uid://b2xmfdb5dvh5e" path="res://items/stuff/Untitled_Artwork 1.png" id="9_yijbk"]
 [ext_resource type="PackedScene" uid="uid://bwfd3ubhm6amt" path="res://items/butterfly.tscn" id="10_mox85"]
+[ext_resource type="Script" uid="uid://cjmptxl0we10g" path="res://items/uiBUTTERFLYCODE.gd" id="11_jbn4t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_ye7cp")
@@ -162,6 +164,7 @@ refraction_scale = 0.75
 [sub_resource type="BoxShape3D" id="BoxShape3D_82xsv"]
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_papeh")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5vw27")
@@ -788,22 +791,31 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "X"
 
-[node name="Crosshair2" type="Label" parent="Player/CanvasLayer"]
+[node name="Contolstextidk" type="Label" parent="Player/CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 343.0
-offset_top = -180.0
-offset_right = 485.0
-offset_bottom = -131.0
+offset_left = 389.0
+offset_top = -193.0
+offset_right = 531.0
+offset_bottom = -118.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "WASD/ movement
-E/ collect butterfly"
+E/ collect butterfly
+SHIFT/ crouch"
 
-[node name="ButterflyLabel" type="Label" parent="Player/CanvasLayer"]
+[node name="MiniLogo" type="Sprite2D" parent="Player/CanvasLayer"]
+position = Vector2(147, 59)
+scale = Vector2(0.0699771, 0.0699771)
+texture = ExtResource("9_yijbk")
+
+[node name="UI" type="CanvasLayer" parent="Player"]
+script = ExtResource("11_jbn4t")
+
+[node name="ButterflyLabel" type="Label" parent="Player/UI"]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -812,12 +824,7 @@ offset_top = -178.0
 offset_right = 240.0
 offset_bottom = -155.0
 grow_vertical = 2
-text = "Butterflies collected: none!"
-
-[node name="MiniLogo" type="Sprite2D" parent="Player/CanvasLayer"]
-position = Vector2(147, 59)
-scale = Vector2(0.0699771, 0.0699771)
-texture = ExtResource("9_yijbk")
+text = "Butterflies collected: 0"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(4.62152, 0, -0.785665, 0, 0.9, 0, 3.87792, 0, 0.936319, 15.7, 10.3, 12.3)
@@ -940,8 +947,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(0.978931, -0.122873, 0.166097, 0, 0.845915, 0.580164, -0.203913, -0.589879, 0.797384, 46.528, -0.634115, 19.7772)
-progress = 12.9236
+transform = Transform3D(0.9789305, -0.12303931, 0.16609693, 0, 0.84705883, 0.5801639, -0.2039134, -0.59067684, 0.7973843, 46.70276, -0.023782318, 20.616087)
+progress = 11.8715315
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]

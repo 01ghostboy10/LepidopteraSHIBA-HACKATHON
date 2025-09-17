@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+
+
 var gravity = 30        # increased from default so jump feels heavier
 var speed = 7
 #crouching stuff again

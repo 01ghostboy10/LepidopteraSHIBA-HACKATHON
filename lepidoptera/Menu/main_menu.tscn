@@ -54,9 +54,20 @@ layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxTexture_ywk15")
 icon = ExtResource("4_cn2sd")
 
+[node name="exitbutton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 432.0
+offset_right = 214.0
+offset_bottom = 463.0
+scale = Vector2(2.631147, 2.631147)
+text = "EXIT
+"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_cn2sd")
 autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/startbutton" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/aboutbutton" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="exitbutton" to="." method="_on_exit_pressed"]

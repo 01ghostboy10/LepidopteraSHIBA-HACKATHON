@@ -7,6 +7,7 @@ script/source = "extends Area3D
 
 func interact():
 	print(\"Hello, you itneracted with me!\")
+	GameManager.add_butterfly()
 	queue_free()
 "
 
@@ -155,12 +156,12 @@ transform = Transform3D(1, 0, 0, 5.0822e-21, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_l7i6p")
 
 [node name="left" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.499998, -0.866026, 0, 0.866026, 0.499998, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.49999768, -0.8660262, 0, 0.8660262, 0.49999768, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_rvun0")
 skeleton = NodePath("")
 
 [node name="right" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.499998, -0.866026, 0, 0.866026, 0.499998, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.49999768, -0.8660262, 0, 0.8660262, 0.49999768, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_bffyx")
 skeleton = NodePath("")
 
