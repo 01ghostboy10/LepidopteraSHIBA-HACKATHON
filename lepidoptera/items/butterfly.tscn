@@ -7,6 +7,8 @@ script/source = "extends Area3D
 
 func interact():
 	print(\"Hello, you itneracted with me!\")
+	$\"../../../../butterflynoisess\".play()
+	await $\"../../../../butterflynoisess\".finished
 	GameManager.add_butterfly()
 	queue_free()
 "

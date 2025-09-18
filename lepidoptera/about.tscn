@@ -16,7 +16,7 @@ offset_left = -11.0
 offset_top = -7.0
 offset_right = 29.0
 offset_bottom = 33.0
-scale = Vector2(29.24, 16.8)
+scale = Vector2(29.183636, 16.8)
 color = Color(0, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
