@@ -796,6 +796,8 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Contolstextidk" type="Label" parent="Player/CanvasLayer"]
 anchors_preset = 8
@@ -803,10 +805,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 395.0
-offset_top = -249.0
-offset_right = 537.0
-offset_bottom = -122.0
+offset_left = 404.0
+offset_top = -254.0
+offset_right = 546.0
+offset_bottom = -127.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "WASD/ movement
@@ -955,8 +957,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(0.9789307, -0.123708375, 0.16609694, 0, 0.85166454, 0.58016396, -0.2039135, -0.5938887, 0.7973842, 46.65392, -0.19435737, 20.381641)
-progress = 12.165361
+transform = Transform3D(0.19048417, -0.68817544, -0.7285832, 0, 0.776285, -0.67020863, 0.9816323, 0.13353935, 0.1413804, 46.86024, 0.7283869, 21.76442)
+progress = 10.341661
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -968,8 +970,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(0.9789307, -0.123708375, 0.16609694, 0, 0.85166454, 0.58016396, -0.2039135, -0.5938887, 0.7973842, 46.65392, -0.19435737, 20.381641)
-progress = 12.165361
+transform = Transform3D(0.19048417, -0.68817544, -0.7285832, 0, 0.776285, -0.67020863, 0.9816323, 0.13353935, 0.1413804, 46.86024, 0.7283869, 21.76442)
+progress = 10.341661
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
