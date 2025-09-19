@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=57 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Script" uid="uid://bxqyptlmsic3m" path="res://GameManager.gd" id="1_papeh"]
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
@@ -13,7 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://b2xmfdb5dvh5e" path="res://items/stuff/Untitled_Artwork 1.png" id="9_yijbk"]
 [ext_resource type="PackedScene" uid="uid://bwfd3ubhm6amt" path="res://items/butterfly.tscn" id="10_mox85"]
 [ext_resource type="Script" uid="uid://cjmptxl0we10g" path="res://items/uiBUTTERFLYCODE.gd" id="11_jbn4t"]
+[ext_resource type="Script" uid="uid://b0wm8tc438apj" path="res://items/shibaaawebwarningpngthing.gd" id="15_j8k2g"]
 [ext_resource type="AudioStream" uid="uid://rhhxyk6vam0w" path="res://musika/noises/816989__luisa_sanchez__soccer-net.wav" id="15_m8s6k"]
+[ext_resource type="Texture2D" uid="uid://dpqg2iwssit18" path="res://items/NOTICE FOR SHIBA PLAYTESTERS! (2).png" id="16_mjcg1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_ye7cp")
@@ -957,8 +959,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(0.19048417, -0.68817544, -0.7285832, 0, 0.776285, -0.67020863, 0.9816323, 0.13353935, 0.1413804, 46.86024, 0.7283869, 21.76442)
-progress = 10.341661
+transform = Transform3D(-0.89853954, 0.113054916, -0.42530197, 0, 1.0151398, 0.24601027, 0.43876195, 0.2315249, -0.87097484, 44.172478, -0.8576076, 20.957993)
+progress = 6.075732
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -970,8 +972,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(0.19048417, -0.68817544, -0.7285832, 0, 0.776285, -0.67020863, 0.9816323, 0.13353935, 0.1413804, 46.86024, 0.7283869, 21.76442)
-progress = 10.341661
+transform = Transform3D(-0.89853954, 0.113054916, -0.42530197, 0, 1.0151398, 0.24601027, 0.43876195, 0.2315249, -0.87097484, 44.172478, -0.8576076, 20.957993)
+progress = 6.075732
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1147,3 +1149,11 @@ omni_attenuation = 1.3
 
 [node name="butterflynoisess" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_j8k2g")
+
+[node name="shibaaawebwarningpngthing" type="CanvasLayer" parent="."]
+script = ExtResource("15_j8k2g")
+
+[node name="Sprite2D" type="Sprite2D" parent="shibaaawebwarningpngthing"]
+position = Vector2(538, 331)
+scale = Vector2(0.6030456, 0.6030456)
+texture = ExtResource("16_mjcg1")
