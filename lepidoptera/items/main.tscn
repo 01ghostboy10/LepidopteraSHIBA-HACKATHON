@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=61 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Script" uid="uid://bxqyptlmsic3m" path="res://GameManager.gd" id="1_papeh"]
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
@@ -16,6 +16,8 @@
 [ext_resource type="Script" uid="uid://b0wm8tc438apj" path="res://items/shibaaawebwarningpngthing.gd" id="15_j8k2g"]
 [ext_resource type="AudioStream" uid="uid://rhhxyk6vam0w" path="res://musika/noises/816989__luisa_sanchez__soccer-net.wav" id="15_m8s6k"]
 [ext_resource type="Texture2D" uid="uid://dpqg2iwssit18" path="res://items/NOTICE FOR SHIBA PLAYTESTERS! (2).png" id="16_mjcg1"]
+[ext_resource type="Material" uid="uid://dcyjsq4yjy3wb" path="res://portal.tres" id="17_mjcg1"]
+[ext_resource type="Material" uid="uid://dfh5fk7tp32vi" path="res://object.tres" id="18_mox85"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_ye7cp")
@@ -170,6 +172,10 @@ refraction_scale = 0.75
 random_pitch = 1.3
 streams_count = 1
 stream_0/stream = ExtResource("15_m8s6k")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_freth"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2qx8f"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_papeh")
@@ -959,8 +965,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.89853954, 0.113054916, -0.42530197, 0, 1.0151398, 0.24601027, 0.43876195, 0.2315249, -0.87097484, 44.172478, -0.8576076, 20.957993)
-progress = 6.075732
+transform = Transform3D(0.9789306, -0.12505785, 0.16609693, 0, 0.8609548, 0.5801641, -0.20391347, -0.6003671, 0.7973842, 46.908367, 0.69439536, 21.603155)
+progress = 10.637074
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -972,8 +978,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.89853954, 0.113054916, -0.42530197, 0, 1.0151398, 0.24601027, 0.43876195, 0.2315249, -0.87097484, 44.172478, -0.8576076, 20.957993)
-progress = 6.075732
+transform = Transform3D(0.9789306, -0.12505785, 0.16609693, 0, 0.8609548, 0.5801641, -0.20391347, -0.6003671, 0.7973842, 46.908367, 0.69439536, 21.603155)
+progress = 10.637074
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1157,3 +1163,15 @@ script = ExtResource("15_j8k2g")
 position = Vector2(538, 331)
 scale = Vector2(0.6030456, 0.6030456)
 texture = ExtResource("16_mjcg1")
+
+[node name="Portal" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.17172822, -1.2027986, -2.4179208, 3.2786674, 0.019427082, 0.1870267, -0.098552555, -1.4495714, 2.0088048, 39, 13.700001, 12.700001)
+material_override = ExtResource("17_mjcg1")
+transparency = 0.5
+mesh = SubResource("PlaneMesh_freth")
+
+[node name="object" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.5279467, 0, 2.121199, 0, 2.5080001, 0, -2.121199, 0, 2.5279467, 40.7, 12.5, 14.3)
+material_override = ExtResource("18_mox85")
+mesh = SubResource("BoxMesh_2qx8f")
+skeleton = NodePath("../Portal")
