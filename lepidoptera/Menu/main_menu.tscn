@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://chtn01cddnk8u"]
+[gd_scene load_steps=13 format=3 uid="uid://chtn01cddnk8u"]
 
 [ext_resource type="Texture2D" uid="uid://d2xqf4dfed4w0" path="res://buttons + startscreen art/startscreenTHISONE.png" id="1_ohgnh"]
 [ext_resource type="Script" uid="uid://c0owc6i1xac5l" path="res://Menu/main_menu.gd" id="1_rw3mj"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://c20qyb8vrqe01" path="res://buttons + startscreen art/about1.png" id="4_cn2sd"]
 [ext_resource type="Texture2D" uid="uid://djgq5xstd27iw" path="res://buttons + startscreen art/about2.png" id="5_cn2sd"]
 [ext_resource type="AudioStream" uid="uid://oll6g7qey14a" path="res://musika/titlemusic.mp3" id="7_cn2sd"]
+[ext_resource type="AudioStream" uid="uid://byuhbh76kya0n" path="res://musika/noises/477619__joao_janz__heater-fan-snap-button-1_4.wav" id="8_218iu"]
+[ext_resource type="AudioStream" uid="uid://dwbckyejxs46m" path="res://musika/noises/494494__sheyvan__button-clicking-6-single.wav" id="9_ywk15"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vv7ca"]
 texture = ExtResource("1_ohgnh")
@@ -31,8 +33,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -23.0
+offset_right = -17.0
+offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.0237267, 1.1127462)
 theme_override_styles/panel = SubResource("StyleBoxTexture_vv7ca")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -68,6 +75,16 @@ text = "EXIT
 stream = ExtResource("7_cn2sd")
 autoplay = true
 
+[node name="soundeffecthover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_218iu")
+volume_db = -5.0
+
+[node name="soundeffectclick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ywk15")
+
+[connection signal="mouse_entered" from="VBoxContainer/startbutton" to="." method="_on_startbutton_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/startbutton" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/aboutbutton" to="." method="_on_aboutbutton_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/aboutbutton" to="." method="_on_about_pressed"]
+[connection signal="mouse_entered" from="exitbutton" to="." method="_on_exitbutton_mouse_entered"]
 [connection signal="pressed" from="exitbutton" to="." method="_on_exit_pressed"]
