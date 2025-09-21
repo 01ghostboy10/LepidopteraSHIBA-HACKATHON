@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=58 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Script" uid="uid://bxqyptlmsic3m" path="res://GameManager.gd" id="1_papeh"]
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
@@ -126,21 +126,6 @@ normal_scale = 2.5
 normal_texture = ExtResource("5_jbn4t")
 uv1_scale = Vector3(2.5, 2.5, 2.5)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5vw27"]
-
-[sub_resource type="FontFile" id="FontFile_4c57u"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_efxa6"]
-font = SubResource("FontFile_4c57u")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_getpj"]
 albedo_color = Color(0.713186, 0.473791, 0.385651, 1)
 albedo_texture = ExtResource("6_haqmq")
@@ -174,6 +159,12 @@ refraction_scale = 0.75
 random_pitch = 1.3
 streams_count = 1
 stream_0/stream = ExtResource("15_m8s6k")
+
+[sub_resource type="LabelSettings" id="LabelSettings_efxa6"]
+font = ExtResource("10_j8k2g")
+font_size = 25
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5vw27"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_papeh")
@@ -1252,108 +1243,6 @@ transform = Transform3D(0.9504, 0, 0, 0, 1.1, 0, 0, 0, 0.9504, 0, 0, 0)
 operation = 2
 sides = 12
 
-[node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(-0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, -0.984808, 28.4, 5.3, 5.9)
-script = ExtResource("8_j8k2g")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-shape = SubResource("CapsuleShape3D_5vw27")
-
-[node name="CameraPivot" type="Node3D" parent="Player"]
-
-[node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
-
-[node name="SeeCast" type="RayCast3D" parent="Player/CameraPivot/Camera3D"]
-unique_name_in_owner = true
-transform = Transform3D(0.99924445, 0.0031398535, -0.18580142, -0.18953325, 0.016443618, -0.9795657, -3.5017729e-06, 6.090004, 0.0027407296, 0, 0, 0)
-collide_with_areas = true
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Player/CameraPivot/Camera3D"]
-light_color = Color(0.7737941, 0.6120008, 0.32169056, 1)
-light_volumetric_fog_energy = 0.1
-spot_range = 20.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
-
-[node name="BoxContainer" type="BoxContainer" parent="Player/CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -87.0
-offset_top = 16.0
-offset_right = 50.0
-offset_bottom = 56.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="InteractText" type="Label" parent="Player/CanvasLayer/BoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Press 'E' to interact"
-label_settings = SubResource("LabelSettings_efxa6")
-
-[node name="Crosshair" type="Label" parent="Player/CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "X"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Contolstextidk" type="Label" parent="Player/CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 404.0
-offset_top = -254.0
-offset_right = 546.0
-offset_bottom = -127.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("10_j8k2g")
-theme_override_font_sizes/font_size = 22
-text = "WASD/ movement
-E/ collect butterfly
-SHIFT/ crouch
-
-ESC/ quit"
-
-[node name="MiniLogo" type="Sprite2D" parent="Player/CanvasLayer"]
-position = Vector2(147, 59)
-scale = Vector2(0.0699771, 0.0699771)
-texture = ExtResource("9_yijbk")
-
-[node name="UI" type="CanvasLayer" parent="Player"]
-script = ExtResource("11_jbn4t")
-
-[node name="ButterflyLabel" type="Label" parent="Player/UI"]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 33.0
-offset_top = -178.0
-offset_right = 240.0
-offset_bottom = -155.0
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("10_j8k2g")
-theme_override_font_sizes/font_size = 22
-text = "Butterflies collected: 0"
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(4.62152, 0, -0.785665, 0, 0.9, 0, 3.87792, 0, 0.936319, 15.7, 10.3, 12.3)
 material_overlay = SubResource("StandardMaterial3D_getpj")
@@ -1475,8 +1364,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(0.82399994, 0.2109299, 0.5312658, 0, 1.0054375, -0.34726506, -0.5664901, 0.30681247, 0.7727636, 46.307156, -0.2660082, 15.687644)
-progress = 18.70121
+transform = Transform3D(-0.9999449, -1.0403553e-06, -1.07611214e-07, 0, 0.11862358, -0.99388385, 9.744115e-07, -1.0676168, -0.11043106, 41.5, -0.9366538, 17.151484)
+progress = 28.647282
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1488,8 +1377,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(0.82399994, 0.2109299, 0.5312658, 0, 1.0054375, -0.34726506, -0.5664901, 0.30681247, 0.7727636, 46.307156, -0.2660082, 15.687644)
-progress = 18.70121
+transform = Transform3D(-0.9999449, -1.0403553e-06, -1.07611214e-07, 0, 0.11862358, -0.99388385, 9.744115e-07, -1.0676168, -0.11043106, 41.5, -0.9366538, 17.151484)
+progress = 28.647282
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1742,7 +1631,7 @@ stream = SubResource("AudioStreamRandomizer_j8k2g")
 script = ExtResource("15_j8k2g")
 
 [node name="Sprite2D" type="Sprite2D" parent="shibaaawebwarningpngthing"]
-position = Vector2(538, 331)
+position = Vector2(576.00006, 329.00003)
 scale = Vector2(0.6030456, 0.6030456)
 texture = ExtResource("16_mjcg1")
 
@@ -1750,3 +1639,120 @@ texture = ExtResource("16_mjcg1")
 stream = ExtResource("18_mjcg1")
 volume_db = -5.0
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = 13.0
+offset_right = 92.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="InteractText" type="Label" parent="CanvasLayer/BoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Press 'E' to interact"
+label_settings = SubResource("LabelSettings_efxa6")
+
+[node name="Crosshair" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Contolstextidk" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 404.0
+offset_top = -254.0
+offset_right = 546.0
+offset_bottom = -127.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_j8k2g")
+theme_override_font_sizes/font_size = 22
+text = "WASD/ movement
+E/ collect butterfly
+SHIFT/ crouch
+
+ESC/ quit"
+
+[node name="MiniLogo" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(147, 59)
+scale = Vector2(0.0699771, 0.0699771)
+texture = ExtResource("9_yijbk")
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("11_jbn4t")
+
+[node name="ButterflyLabel" type="Label" parent="UI"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 33.0
+offset_top = -178.0
+offset_right = 240.0
+offset_bottom = -155.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_j8k2g")
+theme_override_font_sizes/font_size = 22
+text = "Butterflies collected: 0"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 3
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+size = Vector2i(384, 216)
+
+[node name="Player" type="CharacterBody3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, -0.984808, 28.4, 5.3, 5.9)
+script = ExtResource("8_j8k2g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Player"]
+shape = SubResource("CapsuleShape3D_5vw27")
+
+[node name="CameraPivot" type="Node3D" parent="SubViewportContainer/SubViewport/Player"]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Player/CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+
+[node name="SeeCast" type="RayCast3D" parent="SubViewportContainer/SubViewport/Player/CameraPivot/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(0.99924445, 0.0031398535, -0.18580142, -0.18953325, 0.016443618, -0.9795657, -3.5017729e-06, 6.090004, 0.0027407296, 0, 0, 0)
+collide_with_areas = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Player/CameraPivot/Camera3D"]
+light_color = Color(0.7737941, 0.6120008, 0.32169056, 1)
+light_volumetric_fog_energy = 0.1
+spot_range = 20.0

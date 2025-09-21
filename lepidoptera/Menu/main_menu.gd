@@ -23,6 +23,12 @@ func _process(_delta):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 #shjdjahjshdjahjasdjshdjhaj
+#ff9d8fd98fdifsfjsfjsdjfkjs
+func _input(event):
+	if event.is_action_pressed("startgame"):
+		get_tree().change_scene_to_file("res://items/main.tscn")
+
+#shjdjahjshdjahjasdjshdjhaj
 
 #hoverstuff
 
