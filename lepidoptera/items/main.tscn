@@ -209,6 +209,7 @@ operation = 2
 [node name="Floor2" type="CSGBox3D" parent="."]
 transform = Transform3D(53.9564, 0, 0, 0, 0.15116, 0, 0, 0, 55.3014, 28.4421, 10.79283, 28.6526)
 material_overlay = SubResource("StandardMaterial3D_dg77c")
+cast_shadow = 0
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Floor2"]
@@ -230,6 +231,42 @@ operation = 2
 [node name="CSGBox3D5" type="CSGBox3D" parent="Floor2"]
 transform = Transform3D(-0.36053598, 0, 2.1209873e-07, 0, 60.8363, 0, -4.819986e-07, 0, -0.50398237, -0.32140958, 6.662956, 0.23231637)
 operation = 2
+
+[node name="Floor3" type="CSGBox3D" parent="."]
+transform = Transform3D(53.9564, 0, 0, 0, 0.15116, 0, 0, 0, 55.3014, 28.4421, 18.492832, 28.6526)
+material_overlay = SubResource("StandardMaterial3D_dg77c")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Floor3"]
+transform = Transform3D(0.272695, 0, 0, 0, 60.8363, 0, 0, 0, 0.199547, 0.5563472, 0.22764587, -0.42357594)
+operation = 2
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Floor3"]
+transform = Transform3D(4.418729e-08, 0, 0.4078629, 0, 60.8363, 0, -0.18051702, 0, -6.277191e-07, 0.24571568, 0.22764587, -0.5832145)
+operation = 2
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Floor3"]
+transform = Transform3D(0.138284, 0, 0.201669, 0, 60.8363, 0, -0.11603399, 0, 0.24033898, 0.59305876, 0.22764587, -0.26655626)
+operation = 2
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Floor3"]
+transform = Transform3D(-0.36053598, 0, 2.1209873e-07, 0, 60.8363, 0, -4.819986e-07, 0, -0.50398237, -0.32140958, 6.662956, 0.23231637)
+operation = 2
+
+[node name="Floor4" type="CSGBox3D" parent="."]
+transform = Transform3D(19.424303, 0, 0, 0, 0.12038394, 9.123209, 0, -0.10101411, 10.872618, 13.8421, 23.092833, 32.6526)
+material_overlay = SubResource("StandardMaterial3D_dg77c")
+use_collision = true
+
+[node name="Floor5" type="CSGBox3D" parent="."]
+transform = Transform3D(19.424303, 0, 0, 0, 0.1010141, -10.872619, 0, 0.12038394, 9.123209, 13.8421, 22.792833, 51.752598)
+material_overlay = SubResource("StandardMaterial3D_dg77c")
+use_collision = true
+
+[node name="Floor6" type="CSGBox3D" parent="."]
+transform = Transform3D(-1.2735949e-06, 0.12038394, 9.123209, 0, 0.1010141, -10.872619, -29.136456, -5.2621494e-09, -3.9878813e-07, 19.3421, 23.292833, 41.1526)
+material_overlay = SubResource("StandardMaterial3D_dg77c")
+use_collision = true
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(12.454, 0, 0, 0, 8.53311, 0, 0, 0, 0.410418, 27.1548, 6.50359, 1.3788)
@@ -771,16 +808,16 @@ material_overlay = SubResource("StandardMaterial3D_w48qg")
 use_collision = true
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="."]
-transform = Transform3D(-18.681, 0, 3.05474e-07, 0, 8.53311, 0, 1.85967e-05, 0, -0.410418, 46.1248, 14.703589, 39.9788)
+transform = Transform3D(-6.4432135, 0, 3.0547375e-07, 0, 8.53311, 0, 6.414138e-06, 0, -0.41041765, 52.183456, 14.703589, 39.9788)
 material_overlay = SubResource("StandardMaterial3D_w48qg")
 use_collision = true
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D9"]
-transform = Transform3D(0.299445, 1.77636e-15, -3.30343e-20, 0, -3.49055e-09, -0.675422, -9.09495e-13, 1.66028, -6.13836e-07, 0, 0.0409511, -0.0760117)
+transform = Transform3D(0.43120077, 0, -1.3552527e-20, 0, -3.4905543e-09, -0.33771092, -9.094947e-13, 1.6602824, -3.069179e-07, 0, 0.040951133, -0.07601166)
 operation = 2
 
 [node name="Wall22" type="MeshInstance3D" parent="."]
-transform = Transform3D(-12.6753, 0, -2.7895e-08, 0, 8.53311, 0, -6.37344e-07, 0, -0.29373, 44.2405, 14.74623, 24.1247)
+transform = Transform3D(-12.6753, 0, -2.7895e-08, 0, 8.53311, 0, -6.37344e-07, 0, -0.29373, 49.440502, 14.74623, 24.1247)
 material_overlay = SubResource("StandardMaterial3D_2cqfq")
 mesh = SubResource("BoxMesh_074og")
 
@@ -819,14 +856,24 @@ mesh = SubResource("BoxMesh_82xsv")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall24/StaticBody3D"]
 shape = SubResource("BoxShape3D_4c57u")
 
-[node name="Wall25" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.81248e-07, 0, 0.58746, 0, 8.53311, 0, -4.0561, 0, -3.01114e-08, 50.9843, 14.74623, 22.2891)
+[node name="Wall34" type="MeshInstance3D" parent="."]
+transform = Transform3D(8.093424, 0, -0.53758514, 0, 8.533111, 0, 9.64537, 0, 0.4510875, 39.784298, 14.74623, 5.1891003)
 material_overlay = SubResource("StandardMaterial3D_2cqfq")
 mesh = SubResource("BoxMesh_getpj")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Wall25"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall34"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall25/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall34/StaticBody3D"]
+shape = SubResource("BoxShape3D_efxa6")
+
+[node name="Wall35" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.482056, 0, 0, 0, 8.533111, 0, 4.5776372e-07, 0, 0.7338202, 49.584297, 14.74623, 10.089101)
+material_overlay = SubResource("StandardMaterial3D_2cqfq")
+mesh = SubResource("BoxMesh_getpj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall35"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall35/StaticBody3D"]
 shape = SubResource("BoxShape3D_efxa6")
 
 [node name="Wall27" type="MeshInstance3D" parent="."]
@@ -841,7 +888,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 1.13687e-13, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_272bh")
 
 [node name="Wall28" type="MeshInstance3D" parent="."]
-transform = Transform3D(-8.32635, 0, 0.366832, 0, 9.83014, 0, -4.80722, 0, -0.635372, 35.7615, 13.477429, 48.7451)
+transform = Transform3D(-0.04233658, 0, 0.7332964, 0, 9.830137, 0, -8.6529045, 0, -0.0035880003, 31.6615, 13.477429, 50.9451)
 material_overlay = SubResource("StandardMaterial3D_yijbk")
 mesh = SubResource("BoxMesh_yaehf")
 
@@ -950,25 +997,24 @@ mesh = SubResource("BoxMesh_yaehf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 1.13687e-13, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_272bh")
 
-[node name="Wall40" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.31129, -5.68434e-14, 0.479662, 1.71955e-07, 9.83014, 2.09667e-08, -2.27123, 7.44243e-07, -0.276933, 36.4615, 13.477429, 38.7451)
-material_overlay = SubResource("StandardMaterial3D_2cqfq")
-mesh = SubResource("BoxMesh_yaehf")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Wall40"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall40/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 1.13687e-13, 0, 1, 0, 0, 0)
-shape = SubResource("BoxShape3D_272bh")
-
 [node name="Pillar26" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.963326, 0, -8.48007e-08, 0, 8.53311, 0, -4.84381e-08, 0, -0.892937, 50.9843, 14.74623, 20.5731)
+transform = Transform3D(-0.963326, 0, -8.48007e-08, 0, 8.53311, 0, -4.84381e-08, 0, -0.892937, 46.611298, 14.74623, 17.545637)
 material_overlay = SubResource("StandardMaterial3D_ryguw")
 mesh = SubResource("BoxMesh_d13ii")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Pillar26"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar26/StaticBody3D"]
+shape = SubResource("BoxShape3D_dg77c")
+
+[node name="Pillar41" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.963326, 0, -8.48007e-08, 0, 8.53311, 0, -4.84381e-08, 0, -0.892937, 45.5113, 14.74623, 33.245636)
+material_overlay = SubResource("StandardMaterial3D_ryguw")
+mesh = SubResource("BoxMesh_d13ii")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pillar41"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar41/StaticBody3D"]
 shape = SubResource("BoxShape3D_dg77c")
 
 [node name="Pillar27" type="MeshInstance3D" parent="."]
@@ -1011,8 +1057,38 @@ mesh = SubResource("BoxMesh_d13ii")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar30/StaticBody3D"]
 shape = SubResource("BoxShape3D_2cqfq")
 
+[node name="Pillar32" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.9486911, 0, 0.15505743, 0, 8.53311, 0, -0.16727981, 0, -0.87937146, 43.744297, 14.74623, 9.793099)
+material_overlay = SubResource("StandardMaterial3D_ryguw")
+mesh = SubResource("BoxMesh_d13ii")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pillar32"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar32/StaticBody3D"]
+shape = SubResource("BoxShape3D_2cqfq")
+
+[node name="Pillar33" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.9052305, 0, -0.30540204, 0, 8.533109, 0, 0.32947695, 0, -0.8390867, 48.444298, 14.74623, 10.0931)
+material_overlay = SubResource("StandardMaterial3D_ryguw")
+mesh = SubResource("BoxMesh_d13ii")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pillar33"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar33/StaticBody3D"]
+shape = SubResource("BoxShape3D_2cqfq")
+
+[node name="Pillar40" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.6730435e-08, -4.6155252, 0.15236437, -0.9633262, -1.925087e-07, 4.8319924e-07, -3.715326e-08, -0.8138417, -0.86410123, 45.944298, 18.54623, 9.8931)
+material_overlay = SubResource("StandardMaterial3D_ryguw")
+mesh = SubResource("BoxMesh_d13ii")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pillar40"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar40/StaticBody3D"]
+shape = SubResource("BoxShape3D_2cqfq")
+
 [node name="Pillar31" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.963326, 0, -8.48007e-08, 0, 8.53311, 0, -4.84381e-08, 0, -0.892937, 50.9843, 14.74623, 24.2131)
+transform = Transform3D(-0.963326, 0, -8.48007e-08, 0, 8.53311, 0, -4.84381e-08, 0, -0.892937, 43.3843, 14.74623, 24.2131)
 material_overlay = SubResource("StandardMaterial3D_ryguw")
 mesh = SubResource("BoxMesh_d13ii")
 
@@ -1082,33 +1158,13 @@ mesh = SubResource("BoxMesh_d13ii")
 shape = SubResource("BoxShape3D_cegan")
 
 [node name="Pillar45" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.963326, 0, -8.48007e-08, 0, 8.53311, 0, -4.84381e-08, 0, -0.892937, 31.6143, 14.74623, 46.3931)
+transform = Transform3D(-0.73795056, 0, 0.5739688, 0, 8.533111, 0, -0.61921406, 0, -0.6840296, 31.7143, 14.74623, 46.493103)
 material_overlay = SubResource("StandardMaterial3D_ryguw")
 mesh = SubResource("BoxMesh_d13ii")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Pillar45"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar45/StaticBody3D"]
-shape = SubResource("BoxShape3D_cegan")
-
-[node name="Pillar46" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.481663, 0, -0.773306, 0, 8.53311, 0, 0.834265, 0, -0.446468, 40.0143, 14.74623, 51.1931)
-material_overlay = SubResource("StandardMaterial3D_ryguw")
-mesh = SubResource("BoxMesh_d13ii")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Pillar46"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar46/StaticBody3D"]
-shape = SubResource("BoxShape3D_cegan")
-
-[node name="Pillar47" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.834265, 0, -0.446469, 0, 8.53311, 0, 0.481663, 0, -0.773306, 35.7143, 14.74623, 37.4931)
-material_overlay = SubResource("StandardMaterial3D_ryguw")
-mesh = SubResource("BoxMesh_d13ii")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Pillar47"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar47/StaticBody3D"]
 shape = SubResource("BoxShape3D_cegan")
 
 [node name="Pillar48" type="MeshInstance3D" parent="."]
@@ -1122,7 +1178,7 @@ mesh = SubResource("BoxMesh_d13ii")
 shape = SubResource("BoxShape3D_cegan")
 
 [node name="Pillar49" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.834265, 0, -0.446469, 0, 8.53311, 0, 0.481663, 0, -0.773306, 45.3143, 14.74623, 33.5931)
+transform = Transform3D(-0.96332616, 0, -4.7683716e-07, 0, 8.53311, 0, -1.1920929e-07, 0, -0.8929372, 48.9143, 14.74623, 39.8931)
 material_overlay = SubResource("StandardMaterial3D_ryguw")
 mesh = SubResource("BoxMesh_d13ii")
 
@@ -1419,8 +1475,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(0.19048451, -0.7036082, -0.7285826, 0, 0.7936938, -0.67020816, 0.9816322, 0.1365343, 0.14138056, 46.425755, 0.3282424, 21.847818)
-progress = 9.7473955
+transform = Transform3D(0.82399994, 0.2109299, 0.5312658, 0, 1.0054375, -0.34726506, -0.5664901, 0.30681247, 0.7727636, 46.307156, -0.2660082, 15.687644)
+progress = 18.70121
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1432,8 +1488,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(0.19048451, -0.7036082, -0.7285826, 0, 0.7936938, -0.67020816, 0.9816322, 0.1365343, 0.14138056, 46.425755, 0.3282424, 21.847818)
-progress = 9.7473955
+transform = Transform3D(0.82399994, 0.2109299, 0.5312658, 0, 1.0054375, -0.34726506, -0.5664901, 0.30681247, 0.7727636, 46.307156, -0.2660082, 15.687644)
+progress = 18.70121
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1523,6 +1579,42 @@ distance_fade_begin = 0.0
 omni_range = 12.0
 omni_attenuation = 1.3
 
+[node name="OmniLight3D12" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.9, 15.700001, 15.8)
+light_color = Color(0.70404, 0.546549, 0.362783, 1)
+light_energy = 10.0
+light_indirect_energy = 10.0
+light_size = 0.4
+light_specular = 2.0
+shadow_blur = 3.0
+distance_fade_begin = 0.0
+omni_range = 12.0
+omni_attenuation = 1.3
+
+[node name="OmniLight3D16" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.9, 15.700001, 5.8)
+light_color = Color(0.70404, 0.546549, 0.362783, 1)
+light_energy = 10.0
+light_indirect_energy = 10.0
+light_size = 0.4
+light_specular = 2.0
+shadow_blur = 3.0
+distance_fade_begin = 0.0
+omni_range = 12.0
+omni_attenuation = 1.3
+
+[node name="OmniLight3D17" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.900002, 15.700001, 6.7000003)
+light_color = Color(0.70404, 0.546549, 0.362783, 1)
+light_energy = 10.0
+light_indirect_energy = 10.0
+light_size = 0.4
+light_specular = 2.0
+shadow_blur = 3.0
+distance_fade_begin = 0.0
+omni_range = 100.0
+omni_attenuation = 0.7
+
 [node name="OmniLight3D4" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 7.5, 26.6)
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
@@ -1573,6 +1665,42 @@ omni_attenuation = 1.3
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6, 5.5, 37.7)
+light_color = Color(0.70404, 0.546549, 0.362783, 1)
+light_energy = 12.0
+light_indirect_energy = 10.0
+light_size = 0.4
+light_specular = 2.0
+shadow_blur = 3.0
+distance_fade_begin = 0.0
+omni_range = 4096.0
+omni_attenuation = 1.3
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2, 15.2, 38.9)
+light_color = Color(0.70404, 0.546549, 0.362783, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_size = 0.4
+light_specular = 2.0
+shadow_blur = 3.0
+distance_fade_begin = 0.0
+omni_range = 4096.0
+omni_attenuation = 1.3
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 15.2, 36.9)
+light_color = Color(0.70404, 0.546549, 0.362783, 1)
+light_energy = 12.0
+light_indirect_energy = 10.0
+light_size = 0.4
+light_specular = 2.0
+shadow_blur = 3.0
+distance_fade_begin = 0.0
+omni_range = 4096.0
+omni_attenuation = 1.3
+
+[node name="OmniLight3D15" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.600002, 15.2, 32.4)
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
 light_energy = 12.0
 light_indirect_energy = 10.0
