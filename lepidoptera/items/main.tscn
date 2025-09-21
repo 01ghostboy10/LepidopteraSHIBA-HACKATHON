@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=59 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Script" uid="uid://bxqyptlmsic3m" path="res://GameManager.gd" id="1_papeh"]
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://b0wm8tc438apj" path="res://items/shibaaawebwarningpngthing.gd" id="15_j8k2g"]
 [ext_resource type="AudioStream" uid="uid://rhhxyk6vam0w" path="res://musika/noises/816989__luisa_sanchez__soccer-net.wav" id="15_m8s6k"]
 [ext_resource type="Texture2D" uid="uid://dpqg2iwssit18" path="res://items/NOTICE FOR SHIBA PLAYTESTERS! (2).png" id="16_mjcg1"]
+[ext_resource type="AudioStream" uid="uid://clww7jgqidn5f" path="res://musika/horrorthing.wav" id="18_mjcg1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_ye7cp")
@@ -31,7 +32,9 @@ background_mode = 2
 sky = SubResource("Sky_dg77c")
 ambient_light_source = 3
 reflected_light_source = 2
-tonemap_mode = 2
+tonemap_mode = 3
+adjustment_enabled = true
+adjustment_brightness = 1.4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dg77c"]
 albedo_color = Color(0.274145, 0.134052, 0.0436349, 1)
@@ -764,6 +767,11 @@ unique_name_in_owner = true
 transform = Transform3D(0.99924445, 0.0031398535, -0.18580142, -0.18953325, 0.016443618, -0.9795657, -3.5017729e-06, 6.090004, 0.0027407296, 0, 0, 0)
 collide_with_areas = true
 
+[node name="SpotLight3D" type="SpotLight3D" parent="Player/CameraPivot/Camera3D"]
+light_color = Color(0.7737941, 0.6120008, 0.32169056, 1)
+light_volumetric_fog_energy = 0.1
+spot_range = 20.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]
 
 [node name="BoxContainer" type="BoxContainer" parent="Player/CanvasLayer"]
@@ -965,8 +973,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.89853966, 0.114718564, -0.42530203, 0, 1.0300776, 0.24601033, 0.43876213, 0.23493181, -0.8709748, 44.03088, -0.77570057, 20.66801)
-progress = 5.7434974
+transform = Transform3D(-0.6822814, -0.07554958, -0.7276065, 0, 1.0602136, -0.09701421, 0.73101485, -0.070513025, -0.6791002, 42.64406, 0.55254114, 18.367786)
+progress = 31.562439
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -978,8 +986,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.89853966, 0.114718564, -0.42530203, 0, 1.0300776, 0.24601033, 0.43876213, 0.23493181, -0.8709748, 44.03088, -0.77570057, 20.66801)
-progress = 5.7434974
+transform = Transform3D(-0.6822814, -0.07554958, -0.7276065, 0, 1.0602136, -0.09701421, 0.73101485, -0.070513025, -0.6791002, 42.64406, 0.55254114, 18.367786)
+progress = 31.562439
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1163,3 +1171,8 @@ script = ExtResource("15_j8k2g")
 position = Vector2(538, 331)
 scale = Vector2(0.6030456, 0.6030456)
 texture = ExtResource("16_mjcg1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_mjcg1")
+volume_db = -5.0
+autoplay = true
