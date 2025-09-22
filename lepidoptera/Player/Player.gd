@@ -1,7 +1,5 @@
 extends CharacterBody3D
 
-
-
 var gravity = 30        # increased from default so jump feels heavier
 var speed = 7
 #crouching stuff again
@@ -20,7 +18,8 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	# get a reference to the collision shape
 	collision_shape = $CollisionShape3D.shape as CapsuleShape3D
-
+	
+	
 #ff9d8fd98fdifsfjsfjsdjfkjs
 func _process(_delta):
 	if Input.is_action_just_pressed("quit"):
@@ -47,6 +46,7 @@ func _physics_process(delta):
 			%InteractText.show()
 			if Input.is_action_just_pressed("interact"):
 				target.interact()
+				get_node("../../../orbnode/orb").visible = true
 			
 	#IDK IF THIS IS THE RIGHT PLACE
 	

@@ -2,6 +2,8 @@ extends Node
 
 var butterflies: int = 0
 var label: Label = null
+
+
 #hello world this is   suuposed to play the music notificaiton tone when you or i interatct with w/ a butterfly but apparently that is not the case~
 # why hwyhyh is the godot time more always than the hackatime
 # and would this impact anything ahjdsj
@@ -26,4 +28,4 @@ func add_butterfly():
 	butterflies += 1
 	if label:
 		label.text = "Butterflies collected: " + str(butterflies)
-#broetfasthtshdjhjdhsajhdjshja
+	#broetfasthtshdjhjdhsajhdjshja

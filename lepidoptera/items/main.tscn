@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=65 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Script" uid="uid://bxqyptlmsic3m" path="res://GameManager.gd" id="1_papeh"]
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://dpqg2iwssit18" path="res://items/NOTICE FOR SHIBA PLAYTESTERS! (2).png" id="16_mjcg1"]
 [ext_resource type="AudioStream" uid="uid://clww7jgqidn5f" path="res://musika/horrorthing.wav" id="18_mjcg1"]
 [ext_resource type="AudioStream" uid="uid://crbsxluoo0wva" path="res://musika/noises/indoor-footsteps-6385 (mp3cut.net).mp3" id="19_mox85"]
+[ext_resource type="Script" uid="uid://pvdqpjlsrs0x" path="res://items/orb.gd" id="21_2qx8f"]
+[ext_resource type="AudioStream" uid="uid://bdn57heb8nspy" path="res://musika/noises/orbnoise.wav" id="22_xxkcq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_ye7cp")
@@ -34,6 +36,9 @@ sky = SubResource("Sky_dg77c")
 ambient_light_source = 3
 reflected_light_source = 2
 tonemap_mode = 3
+glow_enabled = true
+glow_hdr_threshold = 0.0
+fog_density = 0.002
 adjustment_enabled = true
 adjustment_brightness = 1.4
 
@@ -147,8 +152,8 @@ point_count = 15
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c57u"]
 transparency = 1
-albedo_color = Color(0.792157, 0, 0.301961, 0.529412)
-roughness = 0.3
+albedo_color = Color(0.7176471, 0.7490196, 0.68235296, 0.29803923)
+roughness = 0.0
 refraction_enabled = true
 refraction_scale = 0.75
 
@@ -164,17 +169,28 @@ stream_0/stream = ExtResource("15_m8s6k")
 [sub_resource type="LabelSettings" id="LabelSettings_efxa6"]
 font = ExtResource("10_j8k2g")
 font_size = 25
+outline_size = 7
+outline_color = Color(0.1120544, 0.12863794, 0.07528155, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5vw27"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mox85"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_freth"]
 albedo_color = Color(0.11711859, 0.7141702, 0.78956306, 1)
 metallic = 1.0
 emission_enabled = true
-emission = Color(0.6572147, 0.38999617, 0.4406312, 1)
-emission_energy_multiplier = 0.59
+emission = Color(0.27136526, 0.41178373, 0.10088859, 1)
+emission_energy_multiplier = 3.0
 
-[sub_resource type="SphereMesh" id="SphereMesh_freth"]
+[sub_resource type="SphereMesh" id="SphereMesh_2qx8f"]
+
+[sub_resource type="GDScript" id="GDScript_2qx8f"]
+script/source = "extends MeshInstance3D
+
+func _ready():
+	visible = false
+"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2qx8f"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_papeh")
@@ -1374,8 +1390,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.9989598, -3.936186e-11, 0.044395667, 0, 1.0868394, 8.157737e-10, -0.044393253, 8.857408e-10, -0.9990141, 45.84987, 0, 16.228233)
-progress = 20.600954
+transform = Transform3D(0.82399976, 0.21592215, 0.5312658, 0, 1.0292342, -0.3472651, -0.56648993, 0.3140741, 0.7727638, 47.401215, -0.9811461, 17.27903)
+progress = 16.643003
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1387,8 +1403,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.9989598, -3.936186e-11, 0.044395667, 0, 1.0868394, 8.157737e-10, -0.044393253, 8.857408e-10, -0.9990141, 45.84987, 0, 16.228233)
-progress = 20.600954
+transform = Transform3D(0.82399976, 0.21592215, 0.5312658, 0, 1.0292342, -0.3472651, -0.56648993, 0.3140741, 0.7727638, 47.401215, -0.9811461, 17.27903)
+progress = 16.643003
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1430,18 +1446,6 @@ skeleton = NodePath("../butterflies/Path3D/PathFollow3D/butterfly")
 transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, 0, 0, 1, 0.037143, 0.144404, 0.893204)
 shape = SubResource("BoxShape3D_82xsv")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.4, 8, 45.8)
-light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 8.0
-light_indirect_energy = 10.0
-light_size = 0.4
-light_specular = 2.0
-shadow_blur = 3.0
-distance_fade_begin = 0.0
-omni_range = 12.0
-omni_attenuation = 1.3
-
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, 13.7, 7.5, 15.4)
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
@@ -1451,31 +1455,7 @@ light_size = 0.4
 light_specular = 2.0
 shadow_blur = 3.0
 distance_fade_begin = 0.0
-omni_range = 12.0
-omni_attenuation = 1.3
-
-[node name="OmniLight3D7" type="OmniLight3D" parent="."]
-transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, 27.2, 6.3, 5.3)
-light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 2.5
-light_indirect_energy = 10.0
-light_size = 0.4
-light_specular = 2.0
-shadow_blur = 3.0
-distance_fade_begin = 0.0
-omni_range = 12.0
-omni_attenuation = 1.3
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.2, 7.5, 16.6)
-light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 10.0
-light_indirect_energy = 10.0
-light_size = 0.4
-light_specular = 2.0
-shadow_blur = 3.0
-distance_fade_begin = 0.0
-omni_range = 12.0
+omni_range = 6.845
 omni_attenuation = 1.3
 
 [node name="OmniLight3D12" type="OmniLight3D" parent="."]
@@ -1500,7 +1480,7 @@ light_specular = 2.0
 shadow_blur = 3.0
 distance_fade_begin = 0.0
 omni_range = 12.0
-omni_attenuation = 1.3
+omni_attenuation = 2.424
 
 [node name="OmniLight3D17" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.900002, 15.700001, 6.7000003)
@@ -1511,8 +1491,8 @@ light_size = 0.4
 light_specular = 2.0
 shadow_blur = 3.0
 distance_fade_begin = 0.0
-omni_range = 100.0
-omni_attenuation = 0.7
+omni_range = 7.0
+omni_attenuation = 1.5
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 7.5, 26.6)
@@ -1526,10 +1506,34 @@ distance_fade_begin = 0.0
 omni_range = 12.0
 omni_attenuation = 1.3
 
+[node name="OmniLight3D7" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 6.7, 5.3)
+light_color = Color(0.7742779, 0.5182949, 0.22951195, 1)
+light_energy = 13.141
+light_indirect_energy = 10.0
+light_size = 0.4
+light_specular = 2.0
+shadow_blur = 3.0
+distance_fade_begin = 0.0
+omni_range = 7.147
+omni_attenuation = 1.3
+
+[node name="OmniLight3D18" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.4, 6.9, 18)
+light_color = Color(0.7742779, 0.5182949, 0.22951195, 1)
+light_energy = 13.141
+light_indirect_energy = 10.0
+light_size = 0.4
+light_specular = 2.0
+shadow_blur = 3.0
+distance_fade_begin = 0.0
+omni_range = 7.147
+omni_attenuation = 1.3
+
 [node name="OmniLight3D6" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.1, 6.5, 37)
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 3.0
+light_energy = 0.399
 light_indirect_energy = 10.0
 light_size = 0.4
 light_specular = 2.0
@@ -1541,7 +1545,7 @@ omni_attenuation = 1.3
 [node name="OmniLight3D5" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.3, 7.8, 33.2)
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 15.0
+light_energy = 0.129
 light_indirect_energy = 10.0
 light_size = 0.4
 light_specular = 2.0
@@ -1571,7 +1575,7 @@ light_size = 0.4
 light_specular = 2.0
 shadow_blur = 3.0
 distance_fade_begin = 0.0
-omni_range = 4096.0
+omni_range = 6.44
 omni_attenuation = 1.3
 
 [node name="OmniLight3D13" type="OmniLight3D" parent="."]
@@ -1583,13 +1587,13 @@ light_size = 0.4
 light_specular = 2.0
 shadow_blur = 3.0
 distance_fade_begin = 0.0
-omni_range = 4096.0
+omni_range = 3.403
 omni_attenuation = 1.3
 
 [node name="OmniLight3D14" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 15.2, 36.9)
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 12.0
+light_energy = 4.196
 light_indirect_energy = 10.0
 light_size = 0.4
 light_specular = 2.0
@@ -1774,7 +1778,22 @@ spot_range = 20.0
 stream = ExtResource("19_mox85")
 volume_db = 7.0
 
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.200005, 4.5, 18.300001)
-material_override = SubResource("StandardMaterial3D_mox85")
-mesh = SubResource("SphereMesh_freth")
+[node name="orbnoise" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("22_xxkcq")
+volume_db = 10.0
+
+[node name="orbnode" type="Node3D" parent="."]
+
+[node name="orb" type="MeshInstance3D" parent="orbnode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.499996, 4.7000003, 18.6)
+material_overlay = SubResource("StandardMaterial3D_freth")
+mesh = SubResource("SphereMesh_2qx8f")
+skeleton = NodePath("../..")
+script = SubResource("GDScript_2qx8f")
+
+[node name="orbarea3d" type="Area3D" parent="orbnode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, 4.7, 18.7)
+script = ExtResource("21_2qx8f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="orbnode/orbarea3d"]
+shape = SubResource("SphereShape3D_2qx8f")

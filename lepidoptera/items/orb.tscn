@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://btivydxe25wwn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mox85"]
+albedo_color = Color(0.11711859, 0.7141702, 0.78956306, 1)
+metallic = 1.0
+emission_enabled = true
+emission = Color(0.27136526, 0.41178373, 0.10088859, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_freth"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i3rqh"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_koknm"]
+sky_material = SubResource("ProceduralSkyMaterial_i3rqh")
+
+[sub_resource type="Environment" id="Environment_kxpo6"]
+background_mode = 2
+sky = SubResource("Sky_koknm")
+tonemap_mode = 2
+glow_enabled = true
+glow_bloom = 0.85
+
+[node name="orb" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_mox85")
+mesh = SubResource("SphereMesh_freth")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kxpo6")
