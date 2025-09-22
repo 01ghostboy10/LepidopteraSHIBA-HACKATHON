@@ -22,7 +22,7 @@ func _ready():
 	collision_shape = $CollisionShape3D.shape as CapsuleShape3D
 
 #ff9d8fd98fdifsfjsfjsdjfkjs
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 #shjdjahjshdjahjasdjshdjhaj
@@ -71,7 +71,15 @@ func _physics_process(delta):
 	# jump
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = jump_speed
+		
+	#footsteps
+	if velocity.length() > 0:
+		if not $"../../../AudioStreamPlayer2".playing:
+			$"../../../AudioStreamPlayer2".play()
+	else:
+		$"../../../AudioStreamPlayer2".stop()
 
+#
 # mouse character whY IS THIS SO fdhfjdh OVERVOMPLICATED
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:

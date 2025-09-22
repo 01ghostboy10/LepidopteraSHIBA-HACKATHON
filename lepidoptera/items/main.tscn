@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=61 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Script" uid="uid://bxqyptlmsic3m" path="res://GameManager.gd" id="1_papeh"]
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://rhhxyk6vam0w" path="res://musika/noises/816989__luisa_sanchez__soccer-net.wav" id="15_m8s6k"]
 [ext_resource type="Texture2D" uid="uid://dpqg2iwssit18" path="res://items/NOTICE FOR SHIBA PLAYTESTERS! (2).png" id="16_mjcg1"]
 [ext_resource type="AudioStream" uid="uid://clww7jgqidn5f" path="res://musika/horrorthing.wav" id="18_mjcg1"]
+[ext_resource type="AudioStream" uid="uid://crbsxluoo0wva" path="res://musika/noises/indoor-footsteps-6385 (mp3cut.net).mp3" id="19_mox85"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_ye7cp")
@@ -165,6 +166,15 @@ font = ExtResource("10_j8k2g")
 font_size = 25
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5vw27"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mox85"]
+albedo_color = Color(0.11711859, 0.7141702, 0.78956306, 1)
+metallic = 1.0
+emission_enabled = true
+emission = Color(0.6572147, 0.38999617, 0.4406312, 1)
+emission_energy_multiplier = 0.59
+
+[sub_resource type="SphereMesh" id="SphereMesh_freth"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_papeh")
@@ -799,12 +809,12 @@ material_overlay = SubResource("StandardMaterial3D_w48qg")
 use_collision = true
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="."]
-transform = Transform3D(-6.4432135, 0, 3.0547375e-07, 0, 8.53311, 0, 6.414138e-06, 0, -0.41041765, 52.183456, 14.703589, 39.9788)
+transform = Transform3D(-10.824599, 0, 3.0547417e-07, 0, 8.53311, 0, 1.0775753e-05, 0, -0.4104182, 50.283455, 14.703589, 39.9788)
 material_overlay = SubResource("StandardMaterial3D_w48qg")
 use_collision = true
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D9"]
-transform = Transform3D(0.43120077, 0, -1.3552527e-20, 0, -3.4905543e-09, -0.33771092, -9.094947e-13, 1.6602824, -3.069179e-07, 0, 0.040951133, -0.07601166)
+transform = Transform3D(0.31046453, 1.0658141e-14, -1.6940659e-20, 0, -3.4905532e-09, -0.371482, -9.094947e-13, 1.660282, -3.3760978e-07, 0, 0.040951133, -0.07601166)
 operation = 2
 
 [node name="Wall22" type="MeshInstance3D" parent="."]
@@ -1169,7 +1179,7 @@ mesh = SubResource("BoxMesh_d13ii")
 shape = SubResource("BoxShape3D_cegan")
 
 [node name="Pillar49" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.96332616, 0, -4.7683716e-07, 0, 8.53311, 0, -1.1920929e-07, 0, -0.8929372, 48.9143, 14.74623, 39.8931)
+transform = Transform3D(-0.96332616, 0, -4.7683716e-07, 0, 8.53311, 0, -1.1920929e-07, 0, -0.8929372, 45.1143, 14.74623, 39.8931)
 material_overlay = SubResource("StandardMaterial3D_ryguw")
 mesh = SubResource("BoxMesh_d13ii")
 
@@ -1364,8 +1374,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.9999449, -1.0403553e-06, -1.07611214e-07, 0, 0.11862358, -0.99388385, 9.744115e-07, -1.0676168, -0.11043106, 41.5, -0.9366538, 17.151484)
-progress = 28.647282
+transform = Transform3D(-0.9989598, -3.936186e-11, 0.044395667, 0, 1.0868394, 8.157737e-10, -0.044393253, 8.857408e-10, -0.9990141, 45.84987, 0, 16.228233)
+progress = 20.600954
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1377,8 +1387,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.9999449, -1.0403553e-06, -1.07611214e-07, 0, 0.11862358, -0.99388385, 9.744115e-07, -1.0676168, -0.11043106, 41.5, -0.9366538, 17.151484)
-progress = 28.647282
+transform = Transform3D(-0.9989598, -3.936186e-11, 0.044395667, 0, 1.0868394, 8.157737e-10, -0.044393253, 8.857408e-10, -0.9990141, 45.84987, 0, 16.228233)
+progress = 20.600954
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1626,6 +1636,7 @@ omni_attenuation = 1.3
 
 [node name="butterflynoisess" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_j8k2g")
+volume_db = -17.0
 
 [node name="shibaaawebwarningpngthing" type="CanvasLayer" parent="."]
 script = ExtResource("15_j8k2g")
@@ -1637,7 +1648,7 @@ texture = ExtResource("16_mjcg1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_mjcg1")
-volume_db = -5.0
+volume_db = -8.0
 autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -1733,7 +1744,9 @@ stretch = true
 stretch_shrink = 3
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
 size = Vector2i(384, 216)
+render_target_update_mode = 4
 
 [node name="Player" type="CharacterBody3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, -0.984808, 28.4, 5.3, 5.9)
@@ -1756,3 +1769,12 @@ collide_with_areas = true
 light_color = Color(0.7737941, 0.6120008, 0.32169056, 1)
 light_volumetric_fog_energy = 0.1
 spot_range = 20.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_mox85")
+volume_db = 7.0
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.200005, 4.5, 18.300001)
+material_override = SubResource("StandardMaterial3D_mox85")
+mesh = SubResource("SphereMesh_freth")
