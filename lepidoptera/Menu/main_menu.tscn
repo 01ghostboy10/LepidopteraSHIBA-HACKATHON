@@ -23,34 +23,46 @@ texture = ExtResource("5_cn2sd")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_vertical = 0
 script = ExtResource("1_rw3mj")
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -17.0
-offset_top = -23.0
-offset_right = -17.0
-offset_bottom = -23.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.521
+anchor_right = 0.5
+anchor_bottom = 0.521
+offset_left = -593.0
+offset_top = -360.60803
+offset_right = 559.0
+offset_bottom = 287.39197
 scale = Vector2(1.0237267, 1.1127462)
 theme_override_styles/panel = SubResource("StyleBoxTexture_vv7ca")
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 433.0
-offset_top = 392.0
-offset_right = 2803.0
-offset_bottom = 1953.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.505
+anchor_top = 0.757
+anchor_right = 0.505
+anchor_bottom = 0.757
+offset_left = -148.76001
+offset_top = -98.53601
+offset_right = 2221.24
+offset_bottom = 1462.464
 scale = Vector2(0.125932, 0.125932)
+metadata/_edit_use_anchors_ = true
 
 [node name="startbutton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -64,16 +76,22 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_ywk15")
 icon = ExtResource("4_cn2sd")
 
 [node name="exitbutton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 173.0
-offset_top = 432.0
-offset_right = 214.0
-offset_bottom = 463.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19900002
+anchor_top = 0.73
+anchor_right = 0.19900002
+anchor_bottom = 0.73
+offset_left = -56.248016
+offset_top = -41.04001
+offset_right = -15.248016
+offset_bottom = -10.040009
 scale = Vector2(2.631147, 2.631147)
 theme_override_fonts/font = ExtResource("7_ywk15")
 theme_override_font_sizes/font_size = 22
 text = "EXIT
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_cn2sd")

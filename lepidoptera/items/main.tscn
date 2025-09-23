@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=68 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Script" uid="uid://bxqyptlmsic3m" path="res://GameManager.gd" id="1_papeh"]
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
@@ -191,6 +191,44 @@ script/source = "extends MeshInstance3D
 func _ready():
 	visible = false
 "
+
+[sub_resource type="Animation" id="Animation_2qx8f"]
+resource_name = "hover"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(44.5, 4.8, 18.6), Vector3(44.5, 4.6, 18.6)]
+}
+
+[sub_resource type="Animation" id="Animation_xxkcq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(44.5, 4.8, 18.6)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l7plh"]
+_data = {
+&"RESET": SubResource("Animation_xxkcq"),
+&"hover": SubResource("Animation_2qx8f")
+}
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_papeh")
@@ -1390,8 +1428,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.57411444, -0.42614296, 0.72403073, 0, 0.9857817, 0.46690202, -0.81870806, 0.2988304, -0.5077225, 43.81926, -0.10719786, 14.8553705)
-progress = 24.670797
+transform = Transform3D(-0.99994487, -8.2945274e-07, -8.244416e-08, 0, 0.1234465, -0.99388385, 7.465255e-07, -1.1110231, -0.11043108, 41.5, -1.008965, 17.14345)
+progress = 28.574268
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1403,8 +1441,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.57411444, -0.42614296, 0.72403073, 0, 0.9857817, 0.46690202, -0.81870806, 0.2988304, -0.5077225, 43.81926, -0.10719786, 14.8553705)
-progress = 24.670797
+transform = Transform3D(-0.99994487, -8.2945274e-07, -8.244416e-08, 0, 0.1234465, -0.99388385, 7.465255e-07, -1.1110231, -0.11043108, 41.5, -1.008965, 17.14345)
+progress = 28.574268
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1759,6 +1797,7 @@ stretch_shrink = 3
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
+audio_listener_enable_3d = true
 size = Vector2i(384, 216)
 render_target_update_mode = 4
 
@@ -1798,11 +1837,17 @@ script = ExtResource("21_2qx8f")
 shape = SubResource("SphereShape3D_2qx8f")
 
 [node name="orb" type="MeshInstance3D" parent="orbnode"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.499996, 4.7000003, 18.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, 4.8, 18.6)
 material_overlay = SubResource("StandardMaterial3D_freth")
 mesh = SubResource("SphereMesh_2qx8f")
 skeleton = NodePath("../..")
 script = SubResource("GDScript_2qx8f")
 
-[node name="orbnoise" type="AudioStreamPlayer" parent="orbnode"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="orbnode/orb"]
+libraries = {
+&"": SubResource("AnimationLibrary_l7plh")
+}
+
+[node name="orbnoise" type="AudioStreamPlayer3D" parent="orbnode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, 4.7, 18.7)
 stream = ExtResource("22_xxkcq")
