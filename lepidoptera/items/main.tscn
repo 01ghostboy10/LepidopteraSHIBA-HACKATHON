@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=70 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="2_w6s3w"]
@@ -19,7 +19,10 @@
 [ext_resource type="AudioStream" uid="uid://clww7jgqidn5f" path="res://musika/horrorthing.wav" id="18_mjcg1"]
 [ext_resource type="AudioStream" uid="uid://crbsxluoo0wva" path="res://musika/noises/indoor-footsteps-6385 (mp3cut.net).mp3" id="19_mox85"]
 [ext_resource type="Script" uid="uid://pvdqpjlsrs0x" path="res://items/orb.gd" id="21_2qx8f"]
+[ext_resource type="PackedScene" uid="uid://3ll2xxcbkqbx" path="res://furniture/lantern_chandelier_01_4k.gltf/lantern_chandelier_01_4k.gltf" id="21_xxkcq"]
+[ext_resource type="PackedScene" uid="uid://mf1vl8rtry5r" path="res://furniture/painted_wooden_chair_01_1k.gltf/painted_wooden_chair_01_1k.gltf" id="22_l7plh"]
 [ext_resource type="AudioStream" uid="uid://bdn57heb8nspy" path="res://musika/noises/orbnoise.wav" id="22_xxkcq"]
+[ext_resource type="PackedScene" uid="uid://cptc88p576f2f" path="res://furniture/sofa_03_1k.gltf/sofa_03_1k.gltf" id="23_l7plh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_ye7cp")
@@ -144,7 +147,7 @@ normal_texture = ExtResource("7_m8s6k")
 [sub_resource type="Curve3D" id="Curve3D_efxa6"]
 closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 43, 0.6, 18.7, 0, 0, 0, 0, 0, 0, 42.3, 1.7, 20.4, 0, 0, 0, 0, 0, 0, 43.6666, 1.07278, 20.3632, 0, 0, 0, 0, 0, 0, 43.9, -0.7, 20.4, 0, 0, 0, 0, 0, 0, 44.7644, -1.2, 22.1702, 0, 0, 0, 0, 0, 0, 46.9386, 0.8, 21.7483, 0, 0, 0, 0, 0, 0, 46.4519, -0.9, 19.4118, 0, 0, 0, 0, 0, 0, 48.042, -1.4, 18.2111, 0, 0, 0, 0, 0, 0, 45.9002, 0, 15.0957, 0, 0, 0, 0, 0, 0, 45.8353, 0, 16.5561, 0, 0, 0, 0, 0, 0, 44.2127, 0.6, 16.3938, 0, 0, 0, 0, 0, 0, 43.9855, 0, 14.7388, 0, 0, 0, 0, 0, 0, 42.9, -0.7, 15.5, 0, 0, 0, 0, 0, 0, 41.5, -1.4, 17.1, 0, 0, 0, 0, 0, 0, 41.5, 0.4, 17.3),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 43, 0.6, 18.7, 0, 0, 0, 0, 0, 0, 42.3, 1.7, 20.4, 0, 0, 0, 0, 0, 0, 43.6666, 1.07278, 20.3632, 0, 0, 0, 0, 0, 0, 43.9, -0.7, 20.4, 0, 0, 0, 0, 0, 0, 44.7644, 0.19999981, 19.5702, 0, 0, 0, 0, 0, 0, 46.9386, 0.8, 21.7483, 0, 0, 0, 0, 0, 0, 46.4519, -0.9, 19.4118, 0, 0, 0, 0, 0, 0, 48.042, -1.4, 18.2111, 0, 0, 0, 0, 0, 0, 45.9002, 0, 15.0957, 0, 0, 0, 0, 0, 0, 45.8353, 0, 16.5561, 0, 0, 0, 0, 0, 0, 44.2127, 0.6, 16.3938, 0, 0, 0, 0, 0, 0, 43.9855, 0, 14.7388, 0, 0, 0, 0, 0, 0, 42.9, -0.7, 15.5, 0, 0, 0, 0, 0, 0, 41.5, -1.4, 17.1, 0, 0, 0, 0, 0, 0, 41.5, 0.4, 17.3),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 15
@@ -187,8 +190,11 @@ emission_energy_multiplier = 3.0
 [sub_resource type="GDScript" id="GDScript_2qx8f"]
 script/source = "extends MeshInstance3D
 
+
+
 func _ready():
 	visible = false
+	$AnimationPlayer.play(\"hover\")
 "
 
 [sub_resource type="Animation" id="Animation_xxkcq"]
@@ -229,13 +235,7 @@ _data = {
 &"hover": SubResource("Animation_2qx8f")
 }
 
-[node name="Main" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 576.0
-offset_top = 322.0
-offset_right = 576.0
-offset_bottom = 322.0
+[node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5vw27")
@@ -1432,8 +1432,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(0.9906546, -0.05150485, 0.12799929, 0, 1.0543731, 0.33802703, -0.13599768, -0.37517935, 0.9323915, 44.013466, 0.07384528, 14.942491)
-progress = 24.22062
+transform = Transform3D(-0.7525356, -0.23181932, 0.62547433, 0, 1.0692073, 0.3127368, -0.65846944, 0.26493606, -0.714827, 42.610962, -0.84452295, 15.8303385)
+progress = 26.023237
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1445,8 +1445,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(0.9906546, -0.05150485, 0.12799929, 0, 1.0543731, 0.33802703, -0.13599768, -0.37517935, 0.9323915, 44.013466, 0.07384528, 14.942491)
-progress = 24.22062
+transform = Transform3D(-0.7525356, -0.23181932, 0.62547433, 0, 1.0692073, 0.3127368, -0.65846944, 0.26493606, -0.714827, 42.610962, -0.84452295, 15.8303385)
+progress = 26.023237
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1537,7 +1537,7 @@ omni_range = 7.0
 omni_attenuation = 1.5
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 7.5, 26.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.7, 7.5, 30.6)
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
 light_energy = 10.0
 light_indirect_energy = 10.0
@@ -1545,32 +1545,20 @@ light_size = 0.4
 light_specular = 2.0
 shadow_blur = 3.0
 distance_fade_begin = 0.0
-omni_range = 12.0
+omni_range = 10.0
 omni_attenuation = 1.3
 
-[node name="OmniLight3D7" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 6.7, 5.3)
+[node name="firstlight" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 44.2, 9, 18.2)
 light_color = Color(0.7742779, 0.5182949, 0.22951195, 1)
-light_energy = 13.141
+light_energy = 10.0
 light_indirect_energy = 10.0
 light_size = 0.4
 light_specular = 2.0
 shadow_blur = 3.0
 distance_fade_begin = 0.0
-omni_range = 7.147
-omni_attenuation = 1.3
-
-[node name="OmniLight3D18" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.4, 6.9, 18)
-light_color = Color(0.7742779, 0.5182949, 0.22951195, 1)
-light_energy = 13.141
-light_indirect_energy = 10.0
-light_size = 0.4
-light_specular = 2.0
-shadow_blur = 3.0
-distance_fade_begin = 0.0
-omni_range = 7.147
-omni_attenuation = 1.3
+spot_range = 10.0
+spot_attenuation = 0.7
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.1, 6.5, 37)
@@ -1584,17 +1572,17 @@ distance_fade_begin = 0.0
 omni_range = 12.0
 omni_attenuation = 1.3
 
-[node name="OmniLight3D5" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.3, 7.8, 33.2)
+[node name="secondlight" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 32.7, 8.5, 35.5)
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 0.129
+light_energy = 4.0
 light_indirect_energy = 10.0
 light_size = 0.4
-light_specular = 2.0
+light_specular = 1.0
 shadow_blur = 3.0
 distance_fade_begin = 0.0
-omni_range = 12.0
-omni_attenuation = 1.3
+spot_range = 10.0
+spot_attenuation = 0.0
 
 [node name="OmniLight3D8" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 8, 48.8)
@@ -1606,18 +1594,6 @@ light_specular = 2.0
 shadow_blur = 3.0
 distance_fade_begin = 0.0
 omni_range = 12.0
-omni_attenuation = 1.3
-
-[node name="OmniLight3D9" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6, 5.5, 37.7)
-light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 12.0
-light_indirect_energy = 10.0
-light_size = 0.4
-light_specular = 2.0
-shadow_blur = 3.0
-distance_fade_begin = 0.0
-omni_range = 6.44
 omni_attenuation = 1.3
 
 [node name="OmniLight3D13" type="OmniLight3D" parent="."]
@@ -1785,16 +1761,15 @@ text = "Butterflies collected: 0"
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
-layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -576.0
-offset_top = -324.0
+offset_top = -325.0
 offset_right = 576.0
-offset_bottom = 324.0
+offset_bottom = 323.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -1828,8 +1803,8 @@ collide_with_areas = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Player/CameraPivot/Camera3D"]
 light_color = Color(0.7737941, 0.6120008, 0.32169056, 1)
-light_volumetric_fog_energy = 0.1
-spot_range = 20.0
+spot_range = 10.0
+spot_attenuation = -0.5
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_mox85")
@@ -1860,3 +1835,25 @@ speed_scale = 1.5
 [node name="orbnoise" type="AudioStreamPlayer3D" parent="orbnode"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, 4.7, 18.7)
 stream = ExtResource("22_xxkcq")
+
+[node name="lantern_chandelier_01_4k" parent="." instance=ExtResource("21_xxkcq")]
+transform = Transform3D(2.2799997, 0, 0, 0, 2.2799997, 0, 0, 0, 2.2799997, 44.199997, 10.5, 18.300001)
+
+[node name="lantern_chandelier_01_4k2" parent="." instance=ExtResource("21_xxkcq")]
+transform = Transform3D(2.2799997, 0, 0, 0, 2.2799997, 0, 0, 0, 2.2799997, 32.699997, 10.5, 35.500004)
+
+[node name="painted_wooden_chair_01_1k" parent="." instance=ExtResource("22_l7plh")]
+transform = Transform3D(-1.4861874e-07, 0, 3.4000006, 0, 3.4000006, 0, -3.4000006, 0, -1.4861874e-07, 47.000004, 2.3, 33.4)
+
+[node name="painted_wooden_chair_01_1k3" parent="." instance=ExtResource("22_l7plh")]
+transform = Transform3D(0.4548127, 2.6302402, 2.1059396, -3.3627346, 0.22030804, 0.4510822, 0.21249968, -2.143199, 2.6308823, 46.900005, 3.1000001, 35.600002)
+
+[node name="painted_wooden_chair_01_1k2" parent="." instance=ExtResource("22_l7plh")]
+transform = Transform3D(2.2556078, -1.3022758, -2.1854787, -1.7000006, -2.944487, -1.2105566e-07, -1.8926798, 1.0927393, -2.6045516, 46.600002, 5.6, 34.2)
+
+[node name="sofa_03_1k" parent="." instance=ExtResource("23_l7plh")]
+transform = Transform3D(-2.8126106, 0, 0.49593928, 0, 2.856, 0, -0.49593928, 0, -2.8126106, 42.3, 2.3000002, 21.9)
+
+[node name="memoriesLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="memoriesLayer"]
