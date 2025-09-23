@@ -1,6 +1,5 @@
-[gd_scene load_steps=68 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=67 format=3 uid="uid://0vqqs71lujfu"]
 
-[ext_resource type="Script" uid="uid://bxqyptlmsic3m" path="res://GameManager.gd" id="1_papeh"]
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="2_w6s3w"]
 [ext_resource type="Texture2D" uid="uid://cv6bqu77y1t46" path="res://textures/wood_cabinet_worn_long_nor_gl_2k.png" id="3_yijbk"]
@@ -192,6 +191,21 @@ func _ready():
 	visible = false
 "
 
+[sub_resource type="Animation" id="Animation_xxkcq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(44.5, 4.8, 18.6)]
+}
+
 [sub_resource type="Animation" id="Animation_2qx8f"]
 resource_name = "hover"
 length = 2.0
@@ -209,29 +223,19 @@ tracks/0/keys = {
 "values": [Vector3(44.5, 4.8, 18.6), Vector3(44.5, 4.6, 18.6)]
 }
 
-[sub_resource type="Animation" id="Animation_xxkcq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(44.5, 4.8, 18.6)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l7plh"]
 _data = {
 &"RESET": SubResource("Animation_xxkcq"),
 &"hover": SubResource("Animation_2qx8f")
 }
 
-[node name="Main" type="Node3D"]
-script = ExtResource("1_papeh")
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 576.0
+offset_top = 322.0
+offset_right = 576.0
+offset_bottom = 322.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5vw27")
@@ -1428,8 +1432,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.99994487, -8.2945274e-07, -8.244416e-08, 0, 0.1234465, -0.99388385, 7.465255e-07, -1.1110231, -0.11043108, 41.5, -1.008965, 17.14345)
-progress = 28.574268
+transform = Transform3D(0.9906546, -0.05150485, 0.12799929, 0, 1.0543731, 0.33802703, -0.13599768, -0.37517935, 0.9323915, 44.013466, 0.07384528, 14.942491)
+progress = 24.22062
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1441,8 +1445,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.99994487, -8.2945274e-07, -8.244416e-08, 0, 0.1234465, -0.99388385, 7.465255e-07, -1.1110231, -0.11043108, 41.5, -1.008965, 17.14345)
-progress = 28.574268
+transform = Transform3D(0.9906546, -0.05150485, 0.12799929, 0, 1.0543731, 0.33802703, -0.13599768, -0.37517935, 0.9323915, 44.013466, 0.07384528, 14.942491)
+progress = 24.22062
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1781,19 +1785,22 @@ text = "Butterflies collected: 0"
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.906
-anchor_top = 0.18300001
-anchor_right = 0.906
-anchor_bottom = 0.18300001
-offset_left = -1043.712
-offset_top = -118.58401
-offset_right = 108.287964
-offset_bottom = 529.416
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 stretch = true
 stretch_shrink = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
@@ -1812,6 +1819,7 @@ shape = SubResource("CapsuleShape3D_5vw27")
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Player/CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+current = true
 
 [node name="SeeCast" type="RayCast3D" parent="SubViewportContainer/SubViewport/Player/CameraPivot/Camera3D"]
 unique_name_in_owner = true
@@ -1847,6 +1855,7 @@ script = SubResource("GDScript_2qx8f")
 libraries = {
 &"": SubResource("AnimationLibrary_l7plh")
 }
+speed_scale = 1.5
 
 [node name="orbnoise" type="AudioStreamPlayer3D" parent="orbnode"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, 4.7, 18.7)
