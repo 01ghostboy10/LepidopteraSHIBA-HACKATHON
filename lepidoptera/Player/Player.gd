@@ -1,5 +1,9 @@
 extends CharacterBody3D
 
+#orb
+@onready var orb = $"../../../orbnode/orb"
+#
+
 var gravity = 30        # increased from default so jump feels heavier
 var speed = 7
 #crouching stuff again
@@ -37,8 +41,8 @@ func crouch():
 			collision_shape.height = stand_height
 
 # rotation n movement i believe
+
 func _physics_process(delta):
-	#bruh whyy
 	%InteractText.hide()
 	if %SeeCast.is_colliding():
 		var target = %SeeCast.get_collider()
@@ -46,7 +50,7 @@ func _physics_process(delta):
 			%InteractText.show()
 			if Input.is_action_just_pressed("interact"):
 				target.interact()
-				get_node("../../../orbnode/orb").visible = true
+				orb.visible = true
 			
 	#IDK IF THIS IS THE RIGHT PLACE
 	
