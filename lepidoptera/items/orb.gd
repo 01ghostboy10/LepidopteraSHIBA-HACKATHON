@@ -25,5 +25,10 @@ func interact():
 	if orb_noise:
 		orb_noise.play()
 		print("Orb noise is playing thank god")
+		#memory showing up yYEYEEEEYEEY
+		var _memory_layer = get_node("../../1_memory")
+		var _animation_player = _memory_layer.get_node("AnimationPlayer")
+		$"../../1_memory/Sprite2D/AnimationPlayer".play("M_fadein")  # Replace "fade_in" with your actual animation name
+
 	else:
 		print("orbnoise not found euuggh")

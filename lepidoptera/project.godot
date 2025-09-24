@@ -13,6 +13,8 @@ config_version=5
 config/name="Lepidoptera"
 run/main_scene="uid://81tjnqvcrco5"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/bg_color=Color(0.1882353, 0.19215687, 0.17254902, 1)
+boot_splash/image="uid://dnsvqhymk48pr"
 config/icon="res://items/stuff/icon.svg"
 
 [autoload]
