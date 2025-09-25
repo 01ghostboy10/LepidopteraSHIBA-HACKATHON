@@ -1,11 +1,13 @@
-[gd_scene load_steps=75 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=78 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="2_w6s3w"]
 [ext_resource type="Texture2D" uid="uid://cv6bqu77y1t46" path="res://textures/wood_cabinet_worn_long_nor_gl_2k.png" id="3_yijbk"]
 [ext_resource type="Texture2D" uid="uid://37l8y0kdh3ns" path="res://textures/painted_plaster_wall_disp_2k.png" id="4_papeh"]
 [ext_resource type="Texture2D" uid="uid://cpfrx0makaoqq" path="res://textures/painted_plaster_wall_nor_gl_2k.png" id="5_jbn4t"]
+[ext_resource type="Texture2D" uid="uid://yf2isoaw8e7q" path="res://textures/textures 3/rough_plaster_broken_nor_gl_2k.png" id="6_0pt4w"]
 [ext_resource type="Texture2D" uid="uid://bkc13wh0e2ur8" path="res://textures/wood_table_worn_disp_2k.png" id="6_haqmq"]
+[ext_resource type="Texture2D" uid="uid://73ckyv14r2gf" path="res://textures/textures 3/rough_plaster_broken_bump_2k.exr" id="7_jimur"]
 [ext_resource type="Texture2D" uid="uid://dk23f5nw2auce" path="res://textures/wood_table_worn_nor_gl_2k.png" id="7_m8s6k"]
 [ext_resource type="Script" uid="uid://n6sb66bjik3b" path="res://Player/Player.gd" id="8_j8k2g"]
 [ext_resource type="Script" uid="uid://dqewfoaodkb3q" path="res://items/butterfly.gd" id="9_mjcg1"]
@@ -24,7 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://bdn57heb8nspy" path="res://musika/noises/orbnoise.wav" id="22_xxkcq"]
 [ext_resource type="PackedScene" uid="uid://cptc88p576f2f" path="res://furniture/sofa_03_1k.gltf/sofa_03_1k.gltf" id="23_l7plh"]
 [ext_resource type="Script" uid="uid://btw613n5hddj3" path="res://items/1_memory.gd" id="24_rxq6v"]
-[ext_resource type="Texture2D" uid="uid://bdvoa34km4u6i" path="res://memoriesart/Untitled design.png" id="25_gmepx"]
+[ext_resource type="Texture2D" uid="uid://vjght8wvb44v" path="res://memoriesart/Untitled design.png" id="25_gmepx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_ye7cp")
@@ -85,6 +87,13 @@ uv1_scale = Vector3(2.5, 2.5, 2.5)
 [sub_resource type="BoxMesh" id="BoxMesh_074og"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5vw27"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3myj0"]
+albedo_color = Color(0.4, 0.06666667, 0.003921569, 1)
+albedo_texture = ExtResource("6_0pt4w")
+normal_enabled = true
+normal_texture = ExtResource("7_jimur")
+uv1_scale = Vector3(6, 6, 6)
 
 [sub_resource type="BoxMesh" id="BoxMesh_cegan"]
 
@@ -149,7 +158,7 @@ normal_texture = ExtResource("7_m8s6k")
 [sub_resource type="Curve3D" id="Curve3D_efxa6"]
 closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 43, 0.6, 18.7, 0, 0, 0, 0, 0, 0, 42.3, 1.7, 20.4, 0, 0, 0, 0, 0, 0, 43.6666, 1.07278, 20.3632, 0, 0, 0, 0, 0, 0, 43.9, -0.7, 20.4, 0, 0, 0, 0, 0, 0, 44.7644, 0.19999981, 19.5702, 0, 0, 0, 0, 0, 0, 46.9386, 0.8, 21.7483, 0, 0, 0, 0, 0, 0, 46.4519, -0.9, 19.4118, 0, 0, 0, 0, 0, 0, 48.042, -1.4, 18.2111, 0, 0, 0, 0, 0, 0, 45.9002, 0, 15.0957, 0, 0, 0, 0, 0, 0, 45.8353, 0, 16.5561, 0, 0, 0, 0, 0, 0, 44.2127, 0.6, 16.3938, 0, 0, 0, 0, 0, 0, 43.9855, 0, 14.7388, 0, 0, 0, 0, 0, 0, 42.9, -0.7, 15.5, 0, 0, 0, 0, 0, 0, 41.5, -1.4, 17.1, 0, 0, 0, 0, 0, 0, 41.5, 0.4, 17.3),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 43, 0.6, 18.7, 0, 0, 0, 0, 0, 0, 42.3, 1.7, 20.4, 0, 0, 0, 0, 0, 0, 43.6666, 1.07278, 20.3632, 0, 0, 0, 0, 0, 0, 43.600002, 0, 20.7, 0, 0, 0, 0, 0, 0, 44.7644, 0.7999997, 20.070198, 0, 0, 0, 0, 0, 0, 46.738598, 0.9000001, 21.6483, 0, 0, 0, 0, 0, 0, 46.4519, -0.9, 19.4118, 0, 0, 0, 0, 0, 0, 48.042, -1.4, 18.2111, 0, 0, 0, 0, 0, 0, 45.9002, 0, 15.0957, 0, 0, 0, 0, 0, 0, 45.8353, 0, 16.5561, 0, 0, 0, 0, 0, 0, 44.2127, 0.6, 16.3938, 0, 0, 0, 0, 0, 0, 43.9855, 0, 14.7388, 0, 0, 0, 0, 0, 0, 42.9, -0.7, 15.5, 0, 0, 0, 0, 0, 0, 41.5, -1.4, 17.1, 0, 0, 0, 0, 0, 0, 41.5, 0.4, 17.3),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 15
@@ -247,7 +256,7 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 8),
+"times": PackedFloat32Array(1, 8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -435,7 +444,7 @@ shape = SubResource("BoxShape3D_5vw27")
 
 [node name="Wall3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.26251, 0, 0.247793, 0, 8.53311, 0, -5.07985, 0, -0.207923, 53.4127, 6.54623, 13.3347)
-material_overlay = SubResource("StandardMaterial3D_2cqfq")
+material_overlay = SubResource("StandardMaterial3D_3myj0")
 mesh = SubResource("BoxMesh_cegan")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wall3"]
@@ -482,17 +491,6 @@ mesh = SubResource("BoxMesh_yaehf")
 [node name="StaticBody3D" type="StaticBody3D" parent="Wall7"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall7/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 1.13687e-13, 0, 1, 0, 0, 0)
-shape = SubResource("BoxShape3D_272bh")
-
-[node name="Wall8" type="MeshInstance3D" parent="."]
-transform = Transform3D(-8.32635, 0, 0.366832, 0, 9.83014, 0, -4.80722, 0, -0.635372, 35.7615, 5.27743, 48.7451)
-material_overlay = SubResource("StandardMaterial3D_yijbk")
-mesh = SubResource("BoxMesh_yaehf")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Wall8"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall8/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 1.13687e-13, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_272bh")
 
@@ -1471,8 +1469,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.9999455, -1.7576521e-07, -1.7120035e-08, 0, 0.12597273, -0.9938892, 1.5502005e-07, -1.1337608, -0.11043154, 41.5, -1.0184213, 17.142399)
-progress = 28.182594
+transform = Transform3D(-0.7525551, -0.23987691, 0.625477, 0, 1.106371, 0.31273815, -0.6584864, 0.27414474, -0.71483016, 41.563145, -1.3684304, 17.027838)
+progress = 26.430723
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1484,8 +1482,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.9999455, -1.7576521e-07, -1.7120035e-08, 0, 0.12597273, -0.9938892, 1.5502005e-07, -1.1337608, -0.11043154, 41.5, -1.0184213, 17.142399)
-progress = 28.182594
+transform = Transform3D(-0.7525551, -0.23987691, 0.625477, 0, 1.106371, 0.31273815, -0.6584864, 0.27414474, -0.71483016, 41.563145, -1.3684304, 17.027838)
+progress = 26.430723
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1574,18 +1572,6 @@ shadow_blur = 3.0
 distance_fade_begin = 0.0
 omni_range = 7.0
 omni_attenuation = 1.5
-
-[node name="thirdlight" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 7.5, 33.1)
-light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 6.0
-light_indirect_energy = 10.0
-light_size = 0.4
-light_specular = 2.0
-shadow_blur = 3.0
-distance_fade_begin = 0.0
-omni_range = 10.0
-omni_attenuation = 3.0
 
 [node name="firstlight" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 44.2, 9, 18.2)
