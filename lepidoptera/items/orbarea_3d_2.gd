@@ -14,7 +14,7 @@ extends Area3D
 func _ready():
 	monitoring = false  # Start disabled
 
-	var orb = get_node_or_null("../Orb")
+	var orb = get_node_or_null("../orb2")
 	if orb and orb.visible:
 		monitoring = true  # Enable interaction if Orb is visible
 	else:

@@ -1,11 +1,11 @@
 extends CharacterBody3D
 
-#orb
-@onready var orb = $"../../../orbnode/orb"
+#
+
 #
 
 var gravity = 30        # increased from default so jump feels heavier
-var speed = 7
+var speed = 4.7
 #crouching stuff again
 var crouch_speed = 2.5
 var jump_speed = 12      # slightly higher so player can still jump
@@ -50,7 +50,7 @@ func _physics_process(delta):
 			%InteractText.show()
 			if Input.is_action_just_pressed("interact"):
 				target.interact()
-				orb.visible = true
+
 			
 	#IDK IF THIS IS THE RIGHT PLACE
 	
