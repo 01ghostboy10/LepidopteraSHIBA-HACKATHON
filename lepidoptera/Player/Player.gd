@@ -1,6 +1,13 @@
 extends CharacterBody3D
 
-#
+#tutorialastuff a
+var can_move = true
+
+func disable_player():
+	can_move = false
+
+func enable_player():
+	can_move = true
 
 #
 
@@ -50,6 +57,11 @@ func _physics_process(delta):
 			%InteractText.show()
 			if Input.is_action_just_pressed("interact"):
 				target.interact()
+	#tutoriala
+	if not can_move:
+		return
+	# your movement code here
+
 
 			
 	#IDK IF THIS IS THE RIGHT PLACE

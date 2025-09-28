@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=93 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="2_w6s3w"]
@@ -31,6 +31,11 @@
 [ext_resource type="Texture2D" uid="uid://vjght8wvb44v" path="res://memoriesart/Untitled design.png" id="25_gmepx"]
 [ext_resource type="Script" uid="uid://brd841j0nsic5" path="res://items/footsteps_place.gd" id="30_vbnp1"]
 [ext_resource type="AudioStream" uid="uid://bes6uk7o1hr1w" path="res://musika/noises/creakyfootsteps.wav" id="31_ccde5"]
+[ext_resource type="Script" uid="uid://cjwemjjqbq8j2" path="res://items/tutorialarea_3d.gd" id="32_d5h8f"]
+[ext_resource type="Script" uid="uid://brhqb1pthv50c" path="res://items/tutoriallayer.gd" id="33_joffe"]
+[ext_resource type="Texture2D" uid="uid://btcewftsuxryn" path="res://buttons + startscreen art/tutorialart1.PNG" id="34_utrh8"]
+[ext_resource type="Texture2D" uid="uid://bjn1a7utw4gg4" path="res://buttons + startscreen art/tutorialart2.PNG" id="35_ibmci"]
+[ext_resource type="Texture2D" uid="uid://bb5i80ysc3rfn" path="res://buttons + startscreen art/tutorialart3.PNG" id="36_bno16"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_ye7cp")
@@ -324,6 +329,11 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5vw27"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vbnp1"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("19_mox85")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3myj0"]
 
@@ -1515,8 +1525,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.57412946, -0.4679075, 0.72403425, 0, 1.0823947, 0.46690413, -0.8187294, 0.32811752, -0.50772506, 43.524822, -0.2970766, 15.06185)
-progress = 23.430994
+transform = Transform3D(0.0995249, 0.44742274, 0.9338346, 0, 1.2220862, -0.3453104, -0.9950047, 0.04475326, 0.093406394, 45.479862, 0.13143015, 16.52055)
+progress = 19.662601
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1528,8 +1538,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.57412946, -0.4679075, 0.72403425, 0, 1.0823947, 0.46690413, -0.8187294, 0.32811752, -0.50772506, 43.524822, -0.2970766, 15.06185)
-progress = 23.430994
+transform = Transform3D(0.0995249, 0.44742274, 0.9338346, 0, 1.2220862, -0.3453104, -0.9950047, 0.04475326, 0.093406394, 45.479862, 0.13143015, 16.52055)
+progress = 19.662601
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1846,7 +1856,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, 4.7, 18.7)
 stream = ExtResource("22_xxkcq")
 
 [node name="orbarea3d2" type="Area3D" parent="orbnode"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.1, 4.8, 32)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, 5.1, 32)
 script = ExtResource("22_3myj0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="orbnode/orbarea3d2"]
@@ -1893,6 +1903,18 @@ scale = Vector2(0.4382291, 0.4382291)
 texture = ExtResource("25_gmepx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="1_memory/Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_3myj0")
+}
+
+[node name="memory2" type="Sprite2D" parent="1_memory"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(585, 317)
+rotation = -0.035307426
+scale = Vector2(0.4382291, 0.4382291)
+texture = ExtResource("25_gmepx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="1_memory/memory2"]
 libraries = {
 &"": SubResource("AnimationLibrary_3myj0")
 }
@@ -1948,7 +1970,7 @@ spot_range = 10.0
 spot_attenuation = -0.5
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Control"]
-stream = ExtResource("19_mox85")
+stream = SubResource("AudioStreamRandomizer_vbnp1")
 volume_db = 7.0
 
 [node name="footsteps place" type="Area3D" parent="."]
@@ -1962,11 +1984,31 @@ shape = SubResource("BoxShape3D_3myj0")
 transform = Transform3D(0.20000002, 0, -7.450581e-09, 0, 0.20000003, 0, 7.450581e-09, 0, 0.20000002, 1.4711752, -0.21999997, 0.10979557)
 stream = ExtResource("31_ccde5")
 
-[node name="tutorialarea" type="Area3D" parent="."]
+[node name="tutorialarea3d" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.600002, 2.9, 15.8)
+script = ExtResource("32_d5h8f")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tutorialarea"]
-transform = Transform3D(1.5320889, 0, -1.2855753, 0, 2, 0, 1.2855753, 0, 1.5320889, -5.799999, 2.6, -3.1000004)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tutorialarea3d"]
+transform = Transform3D(1.8385067, 0, -1.5426904, 0, 2.4, 0, 1.5426904, 0, 1.8385067, -5.799999, 2.6, -3.1000004)
 shape = SubResource("BoxShape3D_vbnp1")
 
 [node name="tutoriallayer" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("33_joffe")
+
+[node name="tutorialart1" type="Sprite2D" parent="tutoriallayer"]
+position = Vector2(591, 325)
+rotation = -0.071843736
+scale = Vector2(0.66764337, 0.66764337)
+texture = ExtResource("34_utrh8")
+
+[node name="tutorialart2" type="Sprite2D" parent="tutoriallayer"]
+position = Vector2(549, 333.00003)
+rotation = 0.061466046
+scale = Vector2(0.791488, 0.791488)
+texture = ExtResource("35_ibmci")
+
+[node name="tutorialart3" type="Sprite2D" parent="tutoriallayer"]
+position = Vector2(565, 306)
+scale = Vector2(1.5094814, 1.5094814)
+texture = ExtResource("36_bno16")
