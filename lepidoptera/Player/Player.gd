@@ -1,15 +1,9 @@
 extends CharacterBody3D
 
-#tutorialastuff a
-var can_move = true
+#TUTUTUUTUTUTUTTUTUTO
+var tutorial_active := false
 
-func disable_player():
-	can_move = false
-
-func enable_player():
-	can_move = true
-
-#
+#ajshdaohdaoudhaoudhaosudh
 
 var gravity = 30        # increased from default so jump feels heavier
 var speed = 4.7
@@ -29,13 +23,14 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	# get a reference to the collision shape
 	collision_shape = $CollisionShape3D.shape as CapsuleShape3D
-	
+	#tUORIT tourusuaudisda turo tutorial
 	
 #ff9d8fd98fdifsfjsfjsdjfkjs
 func _process(_delta):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 #shjdjahjshdjahjasdjshdjhaj
+
 
 
 # crouching
@@ -57,12 +52,14 @@ func _physics_process(delta):
 			%InteractText.show()
 			if Input.is_action_just_pressed("interact"):
 				target.interact()
-	#tutoriala
-	if not can_move:
+				
+	#tutoioiroioiTUTORIAL
+	if tutorial_active:
+		velocity = Vector3.ZERO
+		move_and_slide()
 		return
+
 	# your movement code here
-
-
 			
 	#IDK IF THIS IS THE RIGHT PLACE
 	
@@ -94,7 +91,6 @@ func _physics_process(delta):
 			$"../../../AudioStreamPlayer2".play()
 	else:
 		$"../../../AudioStreamPlayer2".stop()
-
 #
 # mouse character whY IS THIS SO fdhfjdh OVERVOMPLICATED
 func _input(event):

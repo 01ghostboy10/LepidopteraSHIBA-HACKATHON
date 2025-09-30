@@ -1,46 +1,55 @@
 extends Area3D
 
-@export var tutorial_layer_path: NodePath
-var tutorial_layer: CanvasLayer
-var tutorial_sprites: Array
-var current_index := 0
+var triggered := false
+
 var tutorial_active := false
 
-func _ready():
-	tutorial_layer = get_node(tutorial_layer_path)
-	tutorial_sprites = [
-		tutorial_layer.get_node("tutorialart1"),
-		tutorial_layer.get_node("tutorialart2"),
-		tutorial_layer.get_node("tutorialart3"),
-	]
-	# hide all tutorial arts at the start
-	for sprite in tutorial_sprites:
-		sprite.visible = false
-	tutorial_layer.visible = false
+var art1
+var art2
+var art3
+var step := 0
 
+func _ready():
+	art1 = get_node("../tutoriallayer/tutorialart1")
+	art2 = get_node("../tutoriallayer/tutorialart2")
+	art3 = get_node("../tutoriallayer/tutorialart3")
+	
 	connect("body_entered", Callable(self, "_on_body_entered"))
+	
+	art1.visible = false
+	art2.visible = false
+	art3.visible = false
+
+var player  # reference to player
 
 func _on_body_entered(body):
-	if body.name == "Player" and not tutorial_active:
-		tutorial_active = true
-		tutorial_layer.visible = true
-		current_index = 0
-		tutorial_sprites[current_index].visible = true
-		body.set_process_input(false) # disable player input (or use your own flag)
+	if triggered:
+		return  # already done, ignore
+	if body.name == "Player":
+		triggered = true  # mark as done
+		player = body
+		step = 1
+		art1.visible = true
+		player.tutorial_active = true
 
 
-func _input(event):
-	if tutorial_active and event.is_action_pressed("closememory"):
-		tutorial_sprites[current_index].visible = false
-		current_index += 1
 
-		if current_index < tutorial_sprites.size():
-			tutorial_sprites[current_index].visible = true
-		else:
-			tutorial_layer.visible = false
-			tutorial_active = false
-			current_index = 0
-			# re-enable player movement here:
-			var player = get_tree().get_first_node_in_group("player")
-			if player:
-				player.set_process_input(true)
+
+func _input(_event):
+	if not player:
+		return
+
+	if Input.is_action_just_pressed("closememory"):
+		match step:
+			1:
+				art1.visible = false
+				art2.visible = true
+				step = 2
+			2:
+				art2.visible = false
+				art3.visible = true
+				step = 3
+			3:
+				art3.visible = false
+				step = 0
+				player.tutorial_active = false  # unfreeze

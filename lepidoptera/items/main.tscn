@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=95 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="2_w6s3w"]
@@ -31,8 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://vjght8wvb44v" path="res://memoriesart/Untitled design.png" id="25_gmepx"]
 [ext_resource type="Script" uid="uid://brd841j0nsic5" path="res://items/footsteps_place.gd" id="30_vbnp1"]
 [ext_resource type="AudioStream" uid="uid://bes6uk7o1hr1w" path="res://musika/noises/creakyfootsteps.wav" id="31_ccde5"]
-[ext_resource type="Script" uid="uid://cjwemjjqbq8j2" path="res://items/tutorialarea_3d.gd" id="32_d5h8f"]
-[ext_resource type="Script" uid="uid://brhqb1pthv50c" path="res://items/tutoriallayer.gd" id="33_joffe"]
+[ext_resource type="Script" uid="uid://cjwemjjqbq8j2" path="res://items/tutorialarea_3d.gd" id="32_8l3ir"]
 [ext_resource type="Texture2D" uid="uid://btcewftsuxryn" path="res://buttons + startscreen art/tutorialart1.PNG" id="34_utrh8"]
 [ext_resource type="Texture2D" uid="uid://bjn1a7utw4gg4" path="res://buttons + startscreen art/tutorialart2.PNG" id="35_ibmci"]
 [ext_resource type="Texture2D" uid="uid://bb5i80ysc3rfn" path="res://buttons + startscreen art/tutorialart3.PNG" id="36_bno16"]
@@ -183,6 +182,43 @@ refraction_scale = 0.75
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_82xsv"]
 
+[sub_resource type="Animation" id="Animation_8l3ir"]
+resource_name = "flicker"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:light_energy")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.23333333, 0.26666668, 0.29702735, 0.31119436, 0.32850957, 0.35054716, 0.37258473, 0.45, 0.489069, 0.50638425, 0.53333336, 0.56666666, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 3.0, 3.0, 0.0, 1.0, 4.0, 0.0, 2.0, 4.0, 0.0, 2.0, 0.0, 3.0, 1.0, 0.0, 4.0]
+}
+
+[sub_resource type="Animation" id="Animation_d5h8f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_joffe"]
+_data = {
+&"RESET": SubResource("Animation_d5h8f"),
+&"flicker": SubResource("Animation_8l3ir")
+}
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j8k2g"]
 random_pitch = 1.3
 streams_count = 1
@@ -206,14 +242,6 @@ emission_energy_multiplier = 3.0
 [sub_resource type="SphereMesh" id="SphereMesh_2qx8f"]
 
 [sub_resource type="GDScript" id="GDScript_2qx8f"]
-script/source = "extends MeshInstance3D
-
-
-
-func _ready():
-	visible = false
-	$AnimationPlayer.play(\"hover\")
-"
 
 [sub_resource type="Animation" id="Animation_xxkcq"]
 length = 0.001
@@ -1525,8 +1553,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(0.0995249, 0.44742274, 0.9338346, 0, 1.2220862, -0.3453104, -0.9950047, 0.04475326, 0.093406394, 45.479862, 0.13143015, 16.52055)
-progress = 19.662601
+transform = Transform3D(-0.6243721, -0.044012632, -0.78050417, 0, 1.424101, -0.0395354, 0.78108615, -0.03518211, -0.6239069, 45.386585, 0.83151543, 20.567547)
+progress = 7.116886
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1538,8 +1566,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(0.0995249, 0.44742274, 0.9338346, 0, 1.2220862, -0.3453104, -0.9950047, 0.04475326, 0.093406394, 45.479862, 0.13143015, 16.52055)
-progress = 19.662601
+transform = Transform3D(-0.6243721, -0.044012632, -0.78050417, 0, 1.424101, -0.0395354, 0.78108615, -0.03518211, -0.6239069, 45.386585, 0.83151543, 20.567547)
+progress = 7.116886
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1594,18 +1622,6 @@ distance_fade_begin = 0.0
 omni_range = 6.845
 omni_attenuation = 1.3
 
-[node name="OmniLight3D12" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.9, 15.700001, 15.8)
-light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 10.0
-light_indirect_energy = 10.0
-light_size = 0.4
-light_specular = 2.0
-shadow_blur = 3.0
-distance_fade_begin = 0.0
-omni_range = 12.0
-omni_attenuation = 1.3
-
 [node name="OmniLight3D16" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.9, 15.700001, 5.8)
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
@@ -1633,7 +1649,19 @@ omni_attenuation = 1.5
 [node name="firstlight" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 44.2, 9, 18.2)
 light_color = Color(0.7742779, 0.5182949, 0.22951195, 1)
-light_energy = 10.0
+light_energy = 9.2
+light_indirect_energy = 10.0
+light_size = 0.4
+light_specular = 2.0
+shadow_blur = 3.0
+distance_fade_begin = 0.0
+spot_range = 10.0
+spot_attenuation = 0.7
+
+[node name="firstlight2" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.08682409, 0.8660254, -0.49240392, 0.9848078, -4.703395e-09, -0.17364816, -0.15038373, -0.50000006, -0.8528685, 50.699997, 4.6, 14.400002)
+light_color = Color(0.7742779, 0.5182949, 0.22951195, 1)
+light_energy = 9.2
 light_indirect_energy = 10.0
 light_size = 0.4
 light_specular = 2.0
@@ -1645,26 +1673,21 @@ spot_attenuation = 0.7
 [node name="secondlight" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 32.7, 8.5, 35.5)
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 4.0
+light_energy = 0.0
 light_indirect_energy = 10.0
 light_size = 0.4
 light_specular = 1.0
 shadow_blur = 3.0
 distance_fade_begin = 0.0
 spot_range = 10.0
-spot_attenuation = 0.0
+spot_attenuation = -0.3
+spot_angle = 35.0
 
-[node name="OmniLight3D8" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 8, 48.8)
-light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 8.0
-light_indirect_energy = 10.0
-light_size = 0.4
-light_specular = 2.0
-shadow_blur = 3.0
-distance_fade_begin = 0.0
-omni_range = 12.0
-omni_attenuation = 1.3
+[node name="FlickerPlayer" type="AnimationPlayer" parent="secondlight"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_joffe")
+}
 
 [node name="OmniLight3D13" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2, 15.2, 38.9)
@@ -1678,46 +1701,22 @@ distance_fade_begin = 0.0
 omni_range = 3.403
 omni_attenuation = 1.3
 
-[node name="OmniLight3D14" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 15.2, 36.9)
-light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 4.196
-light_indirect_energy = 10.0
-light_size = 0.4
-light_specular = 2.0
-shadow_blur = 3.0
-distance_fade_begin = 0.0
-omni_range = 4096.0
-omni_attenuation = 1.3
-
 [node name="OmniLight3D15" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.600002, 15.2, 32.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.300003, 15.2, 33.4)
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 12.0
+light_energy = 4.0
 light_indirect_energy = 10.0
 light_size = 0.4
 light_specular = 2.0
 shadow_blur = 3.0
 distance_fade_begin = 0.0
-omni_range = 4096.0
-omni_attenuation = 1.3
+omni_range = 10.0
+omni_attenuation = 1.4
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2, 7.4, 49.3)
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 12.0
-light_indirect_energy = 10.0
-light_size = 0.4
-light_specular = 2.0
-shadow_blur = 3.0
-distance_fade_begin = 0.0
-omni_range = 12.0
-omni_attenuation = 1.3
-
-[node name="OmniLight3D11" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 10.4, 51.3)
-light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 12.0
+light_energy = 4.0
 light_indirect_energy = 10.0
 light_size = 0.4
 light_specular = 2.0
@@ -1840,6 +1839,7 @@ shape = SubResource("SphereShape3D_2qx8f")
 
 [node name="orb" type="MeshInstance3D" parent="orbnode"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, 4.8, 18.6)
+visible = false
 material_overlay = SubResource("StandardMaterial3D_freth")
 mesh = SubResource("SphereMesh_2qx8f")
 skeleton = NodePath("../..")
@@ -1864,6 +1864,7 @@ shape = SubResource("SphereShape3D_2qx8f")
 
 [node name="orb2" type="MeshInstance3D" parent="orbnode"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, 5.1, 32)
+visible = false
 material_overlay = SubResource("StandardMaterial3D_freth")
 mesh = SubResource("SphereMesh_2qx8f")
 skeleton = NodePath("../..")
@@ -1986,29 +1987,30 @@ stream = ExtResource("31_ccde5")
 
 [node name="tutorialarea3d" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.600002, 2.9, 15.8)
-script = ExtResource("32_d5h8f")
+script = ExtResource("32_8l3ir")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="tutorialarea3d"]
 transform = Transform3D(1.8385067, 0, -1.5426904, 0, 2.4, 0, 1.5426904, 0, 1.8385067, -5.799999, 2.6, -3.1000004)
 shape = SubResource("BoxShape3D_vbnp1")
 
 [node name="tutoriallayer" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("33_joffe")
 
 [node name="tutorialart1" type="Sprite2D" parent="tutoriallayer"]
+visible = false
 position = Vector2(591, 325)
 rotation = -0.071843736
 scale = Vector2(0.66764337, 0.66764337)
 texture = ExtResource("34_utrh8")
 
 [node name="tutorialart2" type="Sprite2D" parent="tutoriallayer"]
+visible = false
 position = Vector2(549, 333.00003)
 rotation = 0.061466046
 scale = Vector2(0.791488, 0.791488)
 texture = ExtResource("35_ibmci")
 
 [node name="tutorialart3" type="Sprite2D" parent="tutoriallayer"]
+visible = false
 position = Vector2(565, 306)
 scale = Vector2(1.5094814, 1.5094814)
 texture = ExtResource("36_bno16")
