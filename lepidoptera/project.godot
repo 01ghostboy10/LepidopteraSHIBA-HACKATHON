@@ -21,6 +21,10 @@ config/icon="res://items/stuff/icon.svg"
 
 GameManager="*res://GameManager.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")

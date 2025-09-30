@@ -13,9 +13,9 @@ func _ready():
 	art1 = get_node("../tutoriallayer/tutorialart1")
 	art2 = get_node("../tutoriallayer/tutorialart2")
 	art3 = get_node("../tutoriallayer/tutorialart3")
-	
+
 	connect("body_entered", Callable(self, "_on_body_entered"))
-	
+
 	art1.visible = false
 	art2.visible = false
 	art3.visible = false

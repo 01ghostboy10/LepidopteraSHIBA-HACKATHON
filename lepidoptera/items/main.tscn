@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=96 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="2_w6s3w"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://cptc88p576f2f" path="res://furniture/sofa_03_1k.gltf/sofa_03_1k.gltf" id="23_l7plh"]
 [ext_resource type="Script" uid="uid://btw613n5hddj3" path="res://items/1_memory.gd" id="24_rxq6v"]
 [ext_resource type="Texture2D" uid="uid://vjght8wvb44v" path="res://memoriesart/Untitled design.png" id="25_gmepx"]
+[ext_resource type="Texture2D" uid="uid://4nmyr8o8ldji" path="res://memoriesart/noteee.png" id="28_d5h8f"]
 [ext_resource type="Script" uid="uid://brd841j0nsic5" path="res://items/footsteps_place.gd" id="30_vbnp1"]
 [ext_resource type="AudioStream" uid="uid://bes6uk7o1hr1w" path="res://musika/noises/creakyfootsteps.wav" id="31_ccde5"]
 [ext_resource type="Script" uid="uid://cjwemjjqbq8j2" path="res://items/tutorialarea_3d.gd" id="32_8l3ir"]
@@ -242,6 +243,11 @@ emission_energy_multiplier = 3.0
 [sub_resource type="SphereMesh" id="SphereMesh_2qx8f"]
 
 [sub_resource type="GDScript" id="GDScript_2qx8f"]
+script/source = "extends Node3D
+
+func _ready():
+	$AnimationPlayer.play(\"hover\")  # plays immediately on scene load
+"
 
 [sub_resource type="Animation" id="Animation_xxkcq"]
 length = 0.001
@@ -1553,8 +1559,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.6243721, -0.044012632, -0.78050417, 0, 1.424101, -0.0395354, 0.78108615, -0.03518211, -0.6239069, 45.386585, 0.83151543, 20.567547)
-progress = 7.116886
+transform = Transform3D(0.82402045, 0.284472, 0.5312684, 0, 1.3559902, -0.34726673, -0.56650424, 0.4137846, 0.7727674, 46.987514, -0.7107317, 16.677282)
+progress = 15.773389
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1566,8 +1572,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.6243721, -0.044012632, -0.78050417, 0, 1.424101, -0.0395354, 0.78108615, -0.03518211, -0.6239069, 45.386585, 0.83151543, 20.567547)
-progress = 7.116886
+transform = Transform3D(0.82402045, 0.284472, 0.5312684, 0, 1.3559902, -0.34726673, -0.56650424, 0.4137846, 0.7727674, 46.987514, -0.7107317, 16.677282)
+progress = 15.773389
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1912,8 +1918,8 @@ libraries = {
 modulate = Color(1, 1, 1, 0)
 position = Vector2(585, 317)
 rotation = -0.035307426
-scale = Vector2(0.4382291, 0.4382291)
-texture = ExtResource("25_gmepx")
+scale = Vector2(0.20738576, 0.20738576)
+texture = ExtResource("28_d5h8f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="1_memory/memory2"]
 libraries = {
@@ -1974,6 +1980,25 @@ spot_attenuation = -0.5
 stream = SubResource("AudioStreamRandomizer_vbnp1")
 volume_db = 7.0
 
+[node name="tutoriallayer" type="CanvasLayer" parent="."]
+
+[node name="tutorialart1" type="Sprite2D" parent="tutoriallayer"]
+position = Vector2(591, 325)
+rotation = -0.071843736
+scale = Vector2(0.66764337, 0.66764337)
+texture = ExtResource("34_utrh8")
+
+[node name="tutorialart2" type="Sprite2D" parent="tutoriallayer"]
+position = Vector2(549, 333.00003)
+rotation = 0.061466046
+scale = Vector2(0.791488, 0.791488)
+texture = ExtResource("35_ibmci")
+
+[node name="tutorialart3" type="Sprite2D" parent="tutoriallayer"]
+position = Vector2(565, 306)
+scale = Vector2(1.5094814, 1.5094814)
+texture = ExtResource("36_bno16")
+
 [node name="footsteps place" type="Area3D" parent="."]
 transform = Transform3D(4.6984625, 0, 1.7101009, 0, 4.9999995, 0, -1.7101009, 0, 4.6984625, 34.40001, 5.4, 34.6)
 script = ExtResource("30_vbnp1")
@@ -1992,25 +2017,3 @@ script = ExtResource("32_8l3ir")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="tutorialarea3d"]
 transform = Transform3D(1.8385067, 0, -1.5426904, 0, 2.4, 0, 1.5426904, 0, 1.8385067, -5.799999, 2.6, -3.1000004)
 shape = SubResource("BoxShape3D_vbnp1")
-
-[node name="tutoriallayer" type="CanvasLayer" parent="."]
-
-[node name="tutorialart1" type="Sprite2D" parent="tutoriallayer"]
-visible = false
-position = Vector2(591, 325)
-rotation = -0.071843736
-scale = Vector2(0.66764337, 0.66764337)
-texture = ExtResource("34_utrh8")
-
-[node name="tutorialart2" type="Sprite2D" parent="tutoriallayer"]
-visible = false
-position = Vector2(549, 333.00003)
-rotation = 0.061466046
-scale = Vector2(0.791488, 0.791488)
-texture = ExtResource("35_ibmci")
-
-[node name="tutorialart3" type="Sprite2D" parent="tutoriallayer"]
-visible = false
-position = Vector2(565, 306)
-scale = Vector2(1.5094814, 1.5094814)
-texture = ExtResource("36_bno16")
