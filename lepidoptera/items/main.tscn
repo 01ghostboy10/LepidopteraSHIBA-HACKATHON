@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://cptc88p576f2f" path="res://furniture/sofa_03_1k.gltf/sofa_03_1k.gltf" id="23_l7plh"]
 [ext_resource type="Script" uid="uid://btw613n5hddj3" path="res://items/1_memory.gd" id="24_rxq6v"]
 [ext_resource type="Texture2D" uid="uid://vjght8wvb44v" path="res://memoriesart/Untitled design.png" id="25_gmepx"]
-[ext_resource type="Texture2D" uid="uid://4nmyr8o8ldji" path="res://memoriesart/noteee.png" id="28_d5h8f"]
+[ext_resource type="Texture2D" uid="uid://behm2f2cn5oo0" path="res://memoriesart/memory2.png" id="28_d5h8f"]
 [ext_resource type="Script" uid="uid://brd841j0nsic5" path="res://items/footsteps_place.gd" id="30_vbnp1"]
 [ext_resource type="AudioStream" uid="uid://bes6uk7o1hr1w" path="res://musika/noises/creakyfootsteps.wav" id="31_ccde5"]
 [ext_resource type="Script" uid="uid://cjwemjjqbq8j2" path="res://items/tutorialarea_3d.gd" id="32_8l3ir"]
@@ -1559,8 +1559,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(0.82402045, 0.284472, 0.5312684, 0, 1.3559902, -0.34726673, -0.56650424, 0.4137846, 0.7727674, 46.987514, -0.7107317, 16.677282)
-progress = 15.773389
+transform = Transform3D(-0.9809744, -0.27286798, 0.059125353, 0, 0.45018503, 0.95242035, -0.19397214, 1.379974, -0.29901433, 43.625618, 0.4126329, 20.570452)
+progress = 4.341425
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1568,16 +1568,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Path3D2" type="Path3D" parent="butterflies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 5.4, 15)
+visible = false
 curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(0.82402045, 0.284472, 0.5312684, 0, 1.3559902, -0.34726673, -0.56650424, 0.4137846, 0.7727674, 46.987514, -0.7107317, 16.677282)
-progress = 15.773389
+transform = Transform3D(-0.9809744, -0.27286798, 0.059125353, 0, 0.45018503, 0.95242035, -0.19397214, 1.379974, -0.29901433, 43.625618, 0.4126329, 20.570452)
+visible = false
+progress = 4.341425
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 script = ExtResource("12_jimur")
 
 [node name="Window" type="MeshInstance3D" parent="."]
@@ -1665,7 +1668,7 @@ spot_range = 10.0
 spot_attenuation = 0.7
 
 [node name="firstlight2" type="SpotLight3D" parent="."]
-transform = Transform3D(-0.08682409, 0.8660254, -0.49240392, 0.9848078, -4.703395e-09, -0.17364816, -0.15038373, -0.50000006, -0.8528685, 50.699997, 4.6, 14.400002)
+transform = Transform3D(0.11161886, 0.76604456, 0.63302207, 0.9848078, 1.7421971e-08, -0.17364816, -0.13302225, 0.6427875, -0.75440663, 51.699997, 4.6, 27)
 light_color = Color(0.7742779, 0.5182949, 0.22951195, 1)
 light_energy = 9.2
 light_indirect_energy = 10.0
@@ -1678,6 +1681,7 @@ spot_attenuation = 0.7
 
 [node name="secondlight" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 32.7, 8.5, 35.5)
+visible = false
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
 light_energy = 0.0
 light_indirect_energy = 10.0
@@ -1863,9 +1867,11 @@ stream = ExtResource("22_xxkcq")
 
 [node name="orbarea3d2" type="Area3D" parent="orbnode"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, 5.1, 32)
+visible = false
 script = ExtResource("22_3myj0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="orbnode/orbarea3d2"]
+visible = false
 shape = SubResource("SphereShape3D_2qx8f")
 
 [node name="orb2" type="MeshInstance3D" parent="orbnode"]
@@ -1918,7 +1924,7 @@ libraries = {
 modulate = Color(1, 1, 1, 0)
 position = Vector2(585, 317)
 rotation = -0.035307426
-scale = Vector2(0.20738576, 0.20738576)
+scale = Vector2(0.5741323, 0.5741323)
 texture = ExtResource("28_d5h8f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="1_memory/memory2"]
@@ -1973,6 +1979,7 @@ collide_with_areas = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Control/SubViewportContainer/SubViewport/Player/CameraPivot/Camera3D"]
 light_color = Color(0.7737941, 0.6120008, 0.32169056, 1)
+light_energy = 1.2
 spot_range = 10.0
 spot_attenuation = -0.5
 
@@ -2008,6 +2015,7 @@ shape = SubResource("BoxShape3D_3myj0")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="footsteps place"]
 transform = Transform3D(0.20000002, 0, -7.450581e-09, 0, 0.20000003, 0, 7.450581e-09, 0, 0.20000002, 1.4711752, -0.21999997, 0.10979557)
+visible = false
 stream = ExtResource("31_ccde5")
 
 [node name="tutorialarea3d" type="Area3D" parent="."]
