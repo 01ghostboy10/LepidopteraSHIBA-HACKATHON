@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=101 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="2_w6s3w"]
@@ -36,6 +36,10 @@
 [ext_resource type="Texture2D" uid="uid://btcewftsuxryn" path="res://buttons + startscreen art/tutorialart1.PNG" id="34_utrh8"]
 [ext_resource type="Texture2D" uid="uid://bjn1a7utw4gg4" path="res://buttons + startscreen art/tutorialart2.PNG" id="35_ibmci"]
 [ext_resource type="Texture2D" uid="uid://bb5i80ysc3rfn" path="res://buttons + startscreen art/tutorialart3.PNG" id="36_bno16"]
+[ext_resource type="PackedScene" uid="uid://d3xa07kbvc7tw" path="res://furniture/planter_box_01_1k.gltf/planter_box_01_1k.gltf" id="37_joffe"]
+[ext_resource type="PackedScene" uid="uid://bjlxljryr7kw5" path="res://furniture/tea_set_01_1k.gltf/tea_set_01_1k.tscn" id="38_utrh8"]
+[ext_resource type="PackedScene" uid="uid://yucdjrekm3um" path="res://furniture/painted_wooden_stool_1k.gltf/painted_wooden_stool_1k.gltf" id="39_bno16"]
+[ext_resource type="PackedScene" uid="uid://dc230q18yhcev" path="res://furniture/wooden_bucket_02_1k.gltf/wooden_bucket_02_1k.gltf" id="40_kvk27"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_ye7cp")
@@ -373,6 +377,8 @@ stream_0/stream = ExtResource("19_mox85")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vbnp1"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_utrh8"]
+
 [node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -383,7 +389,7 @@ transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -
 shadow_enabled = true
 
 [node name="Floor" type="CSGBox3D" parent="."]
-transform = Transform3D(53.9564, 0, 0, 0, 0.15116, 0, 0, 0, 55.3014, 28.4421, 2.26559, 28.6526)
+transform = Transform3D(53.9564, 0, 0, 0, 0.15116, 0, 0, 0, 55.3014, 28.5421, 2.46559, 28.7526)
 material_overlay = SubResource("StandardMaterial3D_dg77c")
 use_collision = true
 
@@ -917,7 +923,7 @@ mesh = SubResource("BoxMesh_d13ii")
 shape = SubResource("BoxShape3D_cegan")
 
 [node name="Pillar21" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.481663, 0, -0.773306, 0, 8.53311, 0, 0.834265, 0, -0.446468, 40.0143, 6.54623, 51.1931)
+transform = Transform3D(-0.481663, 0, -0.773306, 0, 8.53311, 0, 0.834265, 0, -0.446468, 40.5143, 6.54623, 47.6931)
 material_overlay = SubResource("StandardMaterial3D_ryguw")
 mesh = SubResource("BoxMesh_d13ii")
 
@@ -1559,8 +1565,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.9809744, -0.27286798, 0.059125353, 0, 0.45018503, 0.95242035, -0.19397214, 1.379974, -0.29901433, 43.625618, 0.4126329, 20.570452)
-progress = 4.341425
+transform = Transform3D(-0.99898386, 6.323561e-11, 0.044395853, 0, 1.5425761, -9.233714e-10, -0.044394325, -1.4229601e-09, -0.99901825, 45.85075, 0, 16.208466)
+progress = 18.933453
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1568,19 +1574,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Path3D2" type="Path3D" parent="butterflies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 5.4, 15)
-visible = false
 curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.9809744, -0.27286798, 0.059125353, 0, 0.45018503, 0.95242035, -0.19397214, 1.379974, -0.29901433, 43.625618, 0.4126329, 20.570452)
-visible = false
-progress = 4.341425
+transform = Transform3D(-0.99898386, 6.323561e-11, 0.044395853, 0, 1.5425761, -9.233714e-10, -0.044394325, -1.4229601e-09, -0.99901825, 45.85075, 0, 16.208466)
+progress = 18.933453
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-visible = false
 script = ExtResource("12_jimur")
 
 [node name="Window" type="MeshInstance3D" parent="."]
@@ -1668,7 +1671,7 @@ spot_range = 10.0
 spot_attenuation = 0.7
 
 [node name="firstlight2" type="SpotLight3D" parent="."]
-transform = Transform3D(0.11161886, 0.76604456, 0.63302207, 0.9848078, 1.7421971e-08, -0.17364816, -0.13302225, 0.6427875, -0.75440663, 51.699997, 4.6, 27)
+transform = Transform3D(0.11916457, 0.7273737, 0.67581606, 0.9848077, 2.2518469e-08, -0.17364815, -0.12630711, 0.6862415, -0.71632314, 52.1, 4.6, 27.1)
 light_color = Color(0.7742779, 0.5182949, 0.22951195, 1)
 light_energy = 9.2
 light_indirect_energy = 10.0
@@ -1681,7 +1684,6 @@ spot_attenuation = 0.7
 
 [node name="secondlight" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 32.7, 8.5, 35.5)
-visible = false
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
 light_energy = 0.0
 light_indirect_energy = 10.0
@@ -1724,15 +1726,27 @@ omni_range = 10.0
 omni_attenuation = 1.4
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2, 7.4, 49.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.5, 7.4, 46.2)
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 4.0
+light_energy = 10.0
 light_indirect_energy = 10.0
 light_size = 0.4
 light_specular = 2.0
 shadow_blur = 3.0
 distance_fade_begin = 0.0
-omni_range = 12.0
+omni_range = 15.0
+omni_attenuation = 1.3
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.4, 8.5, 46.2)
+light_color = Color(0.70404, 0.546549, 0.362783, 1)
+light_energy = 10.0
+light_indirect_energy = 10.0
+light_size = 0.4
+light_specular = 2.0
+shadow_blur = 3.0
+distance_fade_begin = 0.0
+omni_range = 15.0
 omni_attenuation = 1.3
 
 [node name="butterflynoisess" type="AudioStreamPlayer" parent="."]
@@ -1867,11 +1881,9 @@ stream = ExtResource("22_xxkcq")
 
 [node name="orbarea3d2" type="Area3D" parent="orbnode"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, 5.1, 32)
-visible = false
 script = ExtResource("22_3myj0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="orbnode/orbarea3d2"]
-visible = false
 shape = SubResource("SphereShape3D_2qx8f")
 
 [node name="orb2" type="MeshInstance3D" parent="orbnode"]
@@ -1895,6 +1907,9 @@ transform = Transform3D(2.2799997, 0, 0, 0, 2.2799997, 0, 0, 0, 2.2799997, 32.69
 
 [node name="painted_wooden_chair_01_1k" parent="." instance=ExtResource("22_l7plh")]
 transform = Transform3D(-1.4861874e-07, 0, 3.4000006, 0, 3.4000006, 0, -3.4000006, 0, -1.4861874e-07, 47.000004, 2.3, 33.4)
+
+[node name="painted_wooden_chair_01_1k4" parent="." instance=ExtResource("22_l7plh")]
+transform = Transform3D(-2.1854782, 0, 2.6045516, 0, 3.4000006, 0, -2.6045516, 0, -2.1854782, 48.100002, 2.3, 48.100002)
 
 [node name="painted_wooden_chair_01_1k3" parent="." instance=ExtResource("22_l7plh")]
 transform = Transform3D(0.4548127, 2.6302402, 2.1059396, -3.3627346, 0.22030804, 0.4510822, 0.21249968, -2.143199, 2.6308823, 46.900005, 3.1000001, 35.600002)
@@ -2015,7 +2030,6 @@ shape = SubResource("BoxShape3D_3myj0")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="footsteps place"]
 transform = Transform3D(0.20000002, 0, -7.450581e-09, 0, 0.20000003, 0, 7.450581e-09, 0, 0.20000002, 1.4711752, -0.21999997, 0.10979557)
-visible = false
 stream = ExtResource("31_ccde5")
 
 [node name="tutorialarea3d" type="Area3D" parent="."]
@@ -2025,3 +2039,27 @@ script = ExtResource("32_8l3ir")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="tutorialarea3d"]
 transform = Transform3D(1.8385067, 0, -1.5426904, 0, 2.4, 0, 1.5426904, 0, 1.8385067, -5.799999, 2.6, -3.1000004)
 shape = SubResource("BoxShape3D_vbnp1")
+
+[node name="planter_box_01_1k" parent="." instance=ExtResource("37_joffe")]
+transform = Transform3D(0, -7.629394e-07, 8.959998, 3.6451416e-14, -8.959998, -7.629394e-07, 8.959998, -1.4210855e-14, 0, 53.4, 6.2, 44.499996)
+
+[node name="Area3D" type="StaticBody3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 7.5, 52.999996, 4.2, 44.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_utrh8")
+
+[node name="tea_set_01_1k" parent="." instance=ExtResource("38_utrh8")]
+transform = Transform3D(3.6770132, 0, -3.0853803, 0, 4.7999997, 0, 3.0853803, 0, 3.6770132, 54, 5.9300003, 43.4)
+
+[node name="painted_wooden_stool_1k" parent="." instance=ExtResource("39_bno16")]
+transform = Transform3D(2.7251086, 0, -0.9918583, 0, 2.8999999, 0, 0.9918583, 0, 2.7251086, 48.800003, 2.5, 42.4)
+
+[node name="painted_wooden_stool_1k2" parent="." instance=ExtResource("39_bno16")]
+transform = Transform3D(5.456611e-08, -0.5035799, -2.8559422, 0.99185836, 2.6837075, -0.47321033, 2.7251084, -0.9767904, 0.17223457, 52.500004, 2.8, 50.7)
+
+[node name="painted_wooden_stool_1k3" parent="." instance=ExtResource("39_bno16")]
+transform = Transform3D(-1.1911828e-07, -2.8999999, 4.3355502e-08, 2.7251086, -1.2676303e-07, -0.9918583, 0.9918583, 0, 2.7251086, 53.200005, 3.2999997, 49.3)
+
+[node name="wooden_bucket_02_1k" parent="." instance=ExtResource("40_kvk27")]
+transform = Transform3D(1.9926416, 0, -2.3747377, 0, 3.1, 0, 2.3747377, 0, 1.9926416, 53.2, 5.8999996, 45.800003)

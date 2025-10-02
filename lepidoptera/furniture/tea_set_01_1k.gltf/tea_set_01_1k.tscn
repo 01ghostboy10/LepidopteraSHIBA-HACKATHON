@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjlxljryr7kw5"]
+
+[ext_resource type="PackedScene" uid="uid://dav3pa3sn8yo1" path="res://furniture/tea_set_01_1k.gltf/tea_set_01_1k.gltf" id="1_c4hf6"]
+
+[node name="tea_set_01_1k" instance=ExtResource("1_c4hf6")]
+
+[node name="tea_set_01_plate_large_square_01" parent="." index="0"]
+visible = false
+
+[node name="tea_set_01_cup_small_01" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0033724457, 0, -0.038653567)
+
+[node name="tea_set_01_saucer_circular_03" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19662759, 0, 0.21134639)
+
+[node name="tea_set_01_plate_large_circular_03" parent="." index="3"]
+visible = false
+
+[node name="tea_set_01_sugar_cup_01" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17662758, 0, 0.001346428)
+
+[node name="tea_set_01_cup_small_02" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19662756, 0, 0.21134642)
+
+[node name="tea_set_01_saucer_circular_04" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0033724308, 0, -0.028653592)
+
+[node name="tea_set_01_sugar_cup_01_lid" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17662758, 0.00030397996, 0.001346428)
