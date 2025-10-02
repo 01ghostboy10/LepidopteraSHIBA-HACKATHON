@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=102 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="2_w6s3w"]
@@ -378,6 +378,8 @@ stream_0/stream = ExtResource("19_mox85")
 [sub_resource type="BoxShape3D" id="BoxShape3D_vbnp1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_utrh8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bno16"]
 
 [node name="Main" type="Node3D"]
 
@@ -1565,8 +1567,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.99898386, 6.323561e-11, 0.044395853, 0, 1.5425761, -9.233714e-10, -0.044394325, -1.4229601e-09, -0.99901825, 45.85075, 0, 16.208466)
-progress = 18.933453
+transform = Transform3D(0.99067956, -0.07240361, 0.12799993, 0, 1.4821975, 0.33802858, -0.1360012, -0.5274129, 0.93239564, 44.03061, 0.119114496, 15.067357)
+progress = 22.439888
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1578,8 +1580,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.99898386, 6.323561e-11, 0.044395853, 0, 1.5425761, -9.233714e-10, -0.044394325, -1.4229601e-09, -0.99901825, 45.85075, 0, 16.208466)
-progress = 18.933453
+transform = Transform3D(0.99067956, -0.07240361, 0.12799993, 0, 1.4821975, 0.33802858, -0.1360012, -0.5274129, 0.93239564, 44.03061, 0.119114496, 15.067357)
+progress = 22.439888
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1966,12 +1968,12 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 stretch = true
-stretch_shrink = 3
+stretch_shrink = 2
 
 [node name="SubViewport" type="SubViewport" parent="Control/SubViewportContainer"]
 handle_input_locally = false
 audio_listener_enable_3d = true
-size = Vector2i(384, 216)
+size = Vector2i(576, 324)
 render_target_update_mode = 4
 
 [node name="Player" type="CharacterBody3D" parent="Control/SubViewportContainer/SubViewport"]
@@ -2048,6 +2050,18 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 7.5, 52.999996, 4.2, 44.5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_utrh8")
+
+[node name="Area3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(0.9396927, 0, -0.34202018, 0, 1, 0, 0.34202018, 0, 0.9396927, 48.7574, 3.7499998, 42.47)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+shape = SubResource("BoxShape3D_bno16")
+
+[node name="Area3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(0.64278764, 0, -0.7660445, 0, 1, 0, 0.7660445, 0, 0.64278764, 48.0574, 3.7499998, 48.170002)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D3"]
+shape = SubResource("BoxShape3D_bno16")
 
 [node name="tea_set_01_1k" parent="." instance=ExtResource("38_utrh8")]
 transform = Transform3D(3.6770132, 0, -3.0853803, 0, 4.7999997, 0, 3.0853803, 0, 3.6770132, 54, 5.9300003, 43.4)
