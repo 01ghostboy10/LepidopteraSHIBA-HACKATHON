@@ -1,60 +1,56 @@
 extends Node3D
 
-#
-func _on_orbproximityarea_3d_body_entered(body: Node3D) -> void:
-	pass # Replace with function body.
 
+@export var orb_proximity_radius: float = 5.0          # safe zone radius
+@export var threat_min_time: float = 10.0             # minimum seconds outside safe zone
+@export var threat_max_time: float = 30.0             # maximum seconds outside safe zone
+@export var orb_area_path: NodePath                   # assign your actual OrbArea3D here
+@export var threat_color_rect_path: NodePath          # assign your ColorRect here
+@export var threat_label_path: NodePath               # assign your Label here
+@export var player_path: NodePath                     # assign Player (CharacterBody3D) inside SubViewport
 
-func _on_orbproximityarea_3d_body_exited(body: Node3D) -> void:
-	pass # Replace with function body.
-
-# --- CONFIG ---
-@export var threat_min_time: float = 10.0
-@export var threat_max_time: float = 30.0
-@export var threat_color_rect_path: NodePath
-@export var threat_label_path: NodePath
-
-# --- INTERNAL ---
 var player: Node3D
+var orb_area: Node3D
 var threat_timer: float = 0.0
 var threat_threshold: float = 0.0
 var threat_color_rect: ColorRect
-var threat_label: Label
+var threat_label: RichTextLabel
 var in_safe_zone_flag: bool = false
 
 func _ready():
-	player = get_node("../Control/SubViewportContainer/SubViewport/Player")
-	print("Player node:", player)
+	player = get_node(player_path)
+	orb_area = get_node(orb_area_path)
 	threat_color_rect = get_node(threat_color_rect_path)
 	threat_label = get_node(threat_label_path)
 	reset_threat_timer()
 
 func _process(delta):
-	if not player:
+	if not player or not orb_area:
 		return
 
-	if not in_safe_zone_flag:
-		threat_timer += delta
-		threat_timer = min(threat_timer, threat_threshold)
-		update_threat_ui(in_safe_zone_flag)
+	# distance check from player to actual orb
+	var distance = orb_area.global_position.distance_to(player.global_position)
+	var is_in_safe = distance < orb_proximity_radius
 
-		if threat_timer >= threat_threshold:
-			print("⚠️ SPIRITS ARE HERE!")
-	else:
-		update_threat_ui(in_safe_zone_flag)
-
-# --- SIGNALS ---
-func _on_orbproximityarea3d_body_entered(body):
-	if body == player:
+	# entering/exiting safe zone
+	if is_in_safe and not in_safe_zone_flag:
 		in_safe_zone_flag = true
 		threat_timer = 0.0
 		print("Entered safe zone!")
-		update_threat_ui(in_safe_zone_flag)
 
-func _on_orbproximityarea3d_body_exited(body):
-	if body == player:
+	elif not is_in_safe and in_safe_zone_flag:
 		in_safe_zone_flag = false
 		print("Exited safe zone!")
+
+	# threat timer + UI updates
+	if not in_safe_zone_flag:
+		threat_timer += delta
+		threat_timer = min(threat_timer, threat_threshold)
+		if threat_timer >= threat_threshold:
+			print("⚠️ SPIRITS ARE HERE!")
+		update_threat_ui(false)
+	else:
+		update_threat_ui(true)
 
 func reset_threat_timer():
 	threat_timer = 0.0
@@ -64,46 +60,50 @@ func reset_threat_timer():
 func update_threat_ui(is_safe_zone: bool):
 	if threat_color_rect:
 		var alpha = clamp(threat_timer / threat_threshold, 0.0, 1.0)
-		print("Alpha:", alpha)
 		if threat_color_rect.material:
 			threat_color_rect.material.set_shader_parameter("threat_alpha", alpha)
 
 	if threat_label:
 		if is_safe_zone:
-			threat_label.text = "VERY SAFE"
-			threat_label.modulate = Color(1,1,1,1)
+			threat_label.bbcode_enabled = true
+			threat_label.bbcode_text = "[color=white]VERY SAFE[/color]"
 			return
-		var time_left = threat_threshold - threat_timer
-		if time_left > 20:
-			threat_label.text = "VERY SAFE"
-			threat_label.modulate = Color(1,1,1,1)
-		elif time_left > 10:
-			threat_label.text = "SAFE"
-			threat_label.modulate = Color(0.924, 0.713, 0.283, 1.0)
-		elif time_left > 5:
-			threat_label.text = "UNSAFE"
-			threat_label.modulate = Color(0.904, 0.482, 0.207, 1.0)
-		elif time_left > 0:
-			threat_label.text = "VERY UNSAFE"
-			threat_label.modulate = Color(0.792, 0.229, 0.17, 1.0)
-		else:
-			threat_label.text = "SPIRITS ARE HERE"
-			threat_label.modulate = Color(1,0,0,1)
 
-# if threat_label:
-#     var t_ratio = threat_timer / threat_threshold
-#     if t_ratio <= 0.33:
-#         threat_label.text = "VERY SAFE"
-#         threat_label.add_color_override("font_color", Color(1.0, 1.0, 1.0, 1.0))
-#     elif t_ratio <= 0.66:
-#         threat_label.text = "SAFE"
-#         threat_label.add_color_override("font_color", Color(0.924, 0.713, 0.283, 1.0))  # yellow-green
-#     elif t_ratio <= 0.8:
-#         threat_label.text = "UNSAFE"
-#         threat_label.add_color_override("font_color", Color(0.904, 0.482, 0.207, 1.0))
-#     elif t_ratio <= 0.95:
-#         threat_label.text = "VERY UNSAFE"
-#         threat_label.add_color_override("font_color", Color(0.792, 0.229, 0.17, 1.0))
-#     else:
-#         threat_label.text = "SPIRITS ARE HERE"
-#         threat_label.add_color_override("font_color", Color(1,0,0))
+		var time_left = threat_threshold - threat_timer
+		var label_text := ""
+		var color := Color.WHITE
+		var shake_rate := 0.0
+		var shake_level := 0.0
+
+		if time_left > 20:
+			label_text = "VERY SAFE"
+			color = Color(1,1,1,1)
+		elif time_left > 10:
+			label_text = "SAFE"
+			color = Color(0.924, 0.713, 0.283, 1.0)
+			shake_rate = 5.0
+			shake_level = 3.0
+		elif time_left > 5:
+			label_text = "UNSAFE"
+			color = Color(0.904, 0.482, 0.207, 1.0)
+			shake_rate = 11.0
+			shake_level = 7.0
+		elif time_left > 0:
+			label_text = "VERY UNSAFE"
+			color = Color(0.792, 0.229, 0.17, 1.0)
+			shake_rate = 14.0
+			shake_level = 13.0
+		else:
+			label_text = "SPIRITS ARE HERE"
+			color = Color(1, 0, 0, 1)
+			shake_rate = 17.0
+			shake_level = 17.0
+
+		# Apply shake and color
+		var color_hex = color.to_html()  # Convert to HTML color code
+		if shake_rate > 0:
+			threat_label.bbcode_enabled = true
+			threat_label.bbcode_text = "[color=%s][shake rate=%f level=%f]%s[/shake][/color]" % [color_hex, shake_rate, shake_level, label_text]
+		else:
+			threat_label.bbcode_enabled = true
+			threat_label.bbcode_text = "[color=%s]%s[/color]" % [color_hex, label_text]
