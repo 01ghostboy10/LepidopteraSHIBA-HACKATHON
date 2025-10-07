@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=121 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="2_w6s3w"]
@@ -34,6 +34,7 @@
 [ext_resource type="Script" uid="uid://brd841j0nsic5" path="res://items/footsteps_place.gd" id="30_vbnp1"]
 [ext_resource type="AudioStream" uid="uid://bes6uk7o1hr1w" path="res://musika/noises/creakyfootsteps.wav" id="31_ccde5"]
 [ext_resource type="Script" uid="uid://cjwemjjqbq8j2" path="res://items/tutorialarea_3d.gd" id="32_8l3ir"]
+[ext_resource type="Shader" uid="uid://dmq8bcyrlpjg8" path="res://items/glitch.gdshader" id="32_mpcpe"]
 [ext_resource type="Shader" uid="uid://cc6ra7aydcdg0" path="res://items/main.gdshader" id="32_p7m1b"]
 [ext_resource type="Texture2D" uid="uid://cf8yvdedn6k6w" path="res://items/Untitled_Artwork 8.png" id="33_p7m1b"]
 [ext_resource type="Texture2D" uid="uid://btcewftsuxryn" path="res://buttons + startscreen art/tutorialart1.PNG" id="34_utrh8"]
@@ -46,6 +47,8 @@
 [ext_resource type="PackedScene" uid="uid://wumk4iareh1e" path="res://furniture/vintage_grandfather_clock_01_1k.gltf/vintage_grandfather_clock_01_1k.gltf" id="41_qu62r"]
 [ext_resource type="PackedScene" uid="uid://tl1c61xc1yqx" path="res://furniture/brass_goblets_1k.gltf/brass_goblets_1k.gltf" id="42_m3fcv"]
 [ext_resource type="Script" uid="uid://ftxe3sgcfvgc" path="res://furniture/brass_goblets_1k.gltf/brass_goblets_1k.gd" id="43_t20jr"]
+[ext_resource type="Script" uid="uid://je60dkonxp3b" path="res://items/rigid_body_3d.gd" id="47_6n2x8"]
+[ext_resource type="PackedScene" uid="uid://chvtnukysjh83" path="res://furniture/wooden_crate_02_1k.gltf/wooden_crate_02_1k.gltf" id="48_mpcpe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_ye7cp")
@@ -390,6 +393,15 @@ shader_parameter/effect_color = Color(0.251, 0, 0, 0)
 default_font = ExtResource("10_j8k2g")
 default_font_size = 22
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8gymk"]
+shader = ExtResource("32_mpcpe")
+shader_parameter/threat_alpha = 0.0
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_3myj0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vbnp1"]
@@ -397,6 +409,33 @@ default_font_size = 22
 [sub_resource type="BoxShape3D" id="BoxShape3D_utrh8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bno16"]
+
+[sub_resource type="Animation" id="Animation_rmm5h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(12.300001, 4.9, 47.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.17802358, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_p7m1b"]
 resource_name = "float"
@@ -427,7 +466,15 @@ tracks/1/keys = {
 "values": [Vector3(0, 0.17802358, 0), Vector3(0, 0.80110615, 0), Vector3(0, 1.3857914, 0), Vector3(0, 1.6371188, 0), Vector3(0, 1.834341, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_rmm5h"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6n2x8"]
+_data = {
+&"RESET": SubResource("Animation_rmm5h"),
+&"float": SubResource("Animation_p7m1b")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8gymk"]
+
+[sub_resource type="Animation" id="Animation_xd0xr"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -439,25 +486,30 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(12.300001, 4.9, 47.4)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.17802358, 0)]
+"values": [Vector3(10.5, 4.6, 45.6)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6n2x8"]
+[sub_resource type="Animation" id="Animation_er3fg"]
+resource_name = "flying"
+length = 17.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 6, 8, 11, 14),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(10.5, 4.6, 45.6), Vector3(7.6, 7.3, 40.6), Vector3(13, 9.5, 35.6), Vector3(15.9, 11.1, 37.8), Vector3(15.9, 11.900001, 47.699997), Vector3(11.199999, 10.3, 51.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e0ntj"]
 _data = {
-&"RESET": SubResource("Animation_rmm5h"),
-&"float": SubResource("Animation_p7m1b")
+&"RESET": SubResource("Animation_xd0xr"),
+&"flying": SubResource("Animation_er3fg")
 }
 
 [node name="Main" type="Node3D"]
@@ -1651,8 +1703,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.99898386, 7.694661e-11, 0.044395868, 0, 1.8770435, -9.233717e-10, -0.044394325, -1.731492e-09, -0.9990186, 45.84844, 0, 16.260447)
-progress = 18.987688
+transform = Transform3D(0.9906792, -0.08978206, 0.12800005, 0, 1.8379574, 0.3380289, -0.13600114, -0.6540035, 0.93239653, 44.141083, 0.41087997, 15.872147)
+progress = 21.578995
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1664,8 +1716,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.99898386, 7.694661e-11, 0.044395868, 0, 1.8770435, -9.233717e-10, -0.044394325, -1.731492e-09, -0.9990186, 45.84844, 0, 16.260447)
-progress = 18.987688
+transform = Transform3D(0.9906792, -0.08978206, 0.12800005, 0, 1.8379574, 0.3380289, -0.13600114, -0.6540035, 0.93239653, 44.141083, 0.41087997, 15.872147)
+progress = 21.578995
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1990,6 +2042,7 @@ libraries = {
 script = ExtResource("26_t20jr")
 orb_area_path = NodePath("orbarea3d")
 threat_color_rect_path = NodePath("../Control/ThreatUI/ColorRect")
+threat_color_rect_2_path = NodePath("../Control/ThreatUI/ColorRect2")
 threat_label_path = NodePath("../Control/ThreatUI/ThreatLabel")
 player_path = NodePath("../Control/SubViewportContainer/SubViewport/Player")
 
@@ -2058,6 +2111,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 stretch = true
 stretch_shrink = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="SubViewport" type="SubViewport" parent="Control/SubViewportContainer"]
 handle_input_locally = false
@@ -2106,6 +2160,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="ThreatLabel" type="RichTextLabel" parent="Control/ThreatUI"]
 anchors_preset = 5
@@ -2126,6 +2181,22 @@ theme_override_fonts/normal_font = ExtResource("10_j8k2g")
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Control/ThreatUI"]
+material = SubResource("ShaderMaterial_8gymk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 416.0
+offset_top = 5.0
+offset_right = -415.0
+offset_bottom = -492.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/ThreatUI"]
 visible = false
@@ -2134,7 +2205,6 @@ scale = Vector2(0.18, 0.18)
 texture = ExtResource("33_p7m1b")
 
 [node name="tutoriallayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="tutorialart1" type="Sprite2D" parent="tutoriallayer"]
 position = Vector2(591, 325)
@@ -2212,10 +2282,25 @@ transform = Transform3D(1.9926416, 0, -2.3747377, 0, 3.1, 0, 2.3747377, 0, 1.992
 transform = Transform3D(-2.5899997, 0, -2.2642496e-07, 0, 2.5899997, 0, 2.2642496e-07, 0, -2.5899997, 12.5, 2.5, 53.600002)
 
 [node name="brass_goblets_1k" parent="." instance=ExtResource("42_m3fcv")]
-transform = Transform3D(3.0313222, 0, 0.54542094, 0, 3.08, 0, -0.54542094, 0, 3.0313222, 12.300001, 4.9, 47.4)
+transform = Transform3D(3.031322, 0, 0.5454209, 0, 3.08, 0, -0.5454209, 0, 3.031322, 12.300001, 4.9, 47.4)
 script = ExtResource("43_t20jr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="brass_goblets_1k"]
 libraries = {
 &"": SubResource("AnimationLibrary_6n2x8")
+}
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1, 5.6, 40.2)
+script = ExtResource("47_6n2x8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_8gymk")
+
+[node name="wooden_crate_02_1k2" parent="." instance=ExtResource("48_mpcpe")]
+transform = Transform3D(3.6373062, 0, -2.0999997, 0, 4.1999993, 0, 2.0999997, 0, 3.6373062, 10.5, 4.6, 45.6)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="wooden_crate_02_1k2"]
+libraries = {
+&"": SubResource("AnimationLibrary_e0ntj")
 }

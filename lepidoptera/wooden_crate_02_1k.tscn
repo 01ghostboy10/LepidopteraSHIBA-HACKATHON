@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://co2yrubdxa7i2"]
+
+[ext_resource type="PackedScene" uid="uid://chvtnukysjh83" path="res://furniture/wooden_crate_02_1k.gltf/wooden_crate_02_1k.gltf" id="1_obkd7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_obkd7"]
+
+[node name="wooden_crate_02_1k" instance=ExtResource("1_obkd7")]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." index="2"]
+transform = Transform3D(0.78, 0, 0, 0, 0.78, 0, 0, 0, 0.78, 0, 0.1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" index="0"]
+shape = SubResource("BoxShape3D_obkd7")

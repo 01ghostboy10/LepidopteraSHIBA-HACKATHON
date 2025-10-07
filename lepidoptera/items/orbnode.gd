@@ -1,19 +1,20 @@
 extends Node3D
 
-
-@export var orb_proximity_radius: float = 5.0          # safe zone radius
-@export var threat_min_time: float = 10.0             # minimum seconds outside safe zone
-@export var threat_max_time: float = 30.0             # maximum seconds outside safe zone
-@export var orb_area_path: NodePath                   # assign your actual OrbArea3D here
-@export var threat_color_rect_path: NodePath          # assign your ColorRect here
-@export var threat_label_path: NodePath               # assign your Label here
-@export var player_path: NodePath                     # assign Player (CharacterBody3D) inside SubViewport
+@export var orb_proximity_radius: float = 5.0
+@export var threat_min_time: float = 10.0
+@export var threat_max_time: float = 30.0
+@export var orb_area_path: NodePath
+@export var threat_color_rect_path: NodePath
+@export var threat_color_rect_2_path: NodePath      # 🟢 NEW: second ColorRect
+@export var threat_label_path: NodePath
+@export var player_path: NodePath
 
 var player: Node3D
 var orb_area: Node3D
 var threat_timer: float = 0.0
 var threat_threshold: float = 0.0
 var threat_color_rect: ColorRect
+var threat_color_rect_2: ColorRect                    # 🟢 NEW
 var threat_label: RichTextLabel
 var in_safe_zone_flag: bool = false
 
@@ -21,6 +22,7 @@ func _ready():
 	player = get_node(player_path)
 	orb_area = get_node(orb_area_path)
 	threat_color_rect = get_node(threat_color_rect_path)
+	threat_color_rect_2 = get_node(threat_color_rect_2_path)   # 🟢 NEW
 	threat_label = get_node(threat_label_path)
 	reset_threat_timer()
 
@@ -28,11 +30,9 @@ func _process(delta):
 	if not player or not orb_area:
 		return
 
-	# distance check from player to actual orb
 	var distance = orb_area.global_position.distance_to(player.global_position)
 	var is_in_safe = distance < orb_proximity_radius
 
-	# entering/exiting safe zone
 	if is_in_safe and not in_safe_zone_flag:
 		in_safe_zone_flag = true
 		threat_timer = 0.0
@@ -42,7 +42,6 @@ func _process(delta):
 		in_safe_zone_flag = false
 		print("Exited safe zone!")
 
-	# threat timer + UI updates
 	if not in_safe_zone_flag:
 		threat_timer += delta
 		threat_timer = min(threat_timer, threat_threshold)
@@ -58,11 +57,17 @@ func reset_threat_timer():
 	update_threat_ui(true)
 
 func update_threat_ui(is_safe_zone: bool):
-	if threat_color_rect:
-		var alpha = clamp(threat_timer / threat_threshold, 0.0, 1.0)
-		if threat_color_rect.material:
-			threat_color_rect.material.set_shader_parameter("threat_alpha", alpha)
+	var alpha = clamp(threat_timer / threat_threshold, 0.0, 1.0)
 
+	# 🔵 Apply to first ColorRect
+	if threat_color_rect and threat_color_rect.material:
+		threat_color_rect.material.set_shader_parameter("threat_alpha", alpha)
+
+	# 🟢 Apply to second ColorRect too
+	if threat_color_rect_2 and threat_color_rect_2.material:
+		threat_color_rect_2.material.set_shader_parameter("threat_alpha", alpha)
+
+	# label stuff stays same
 	if threat_label:
 		if is_safe_zone:
 			threat_label.bbcode_enabled = true
@@ -99,11 +104,9 @@ func update_threat_ui(is_safe_zone: bool):
 			shake_rate = 17.0
 			shake_level = 17.0
 
-		# Apply shake and color
-		var color_hex = color.to_html()  # Convert to HTML color code
+		var color_hex = color.to_html()
+		threat_label.bbcode_enabled = true
 		if shake_rate > 0:
-			threat_label.bbcode_enabled = true
 			threat_label.bbcode_text = "[color=%s][shake rate=%f level=%f]%s[/shake][/color]" % [color_hex, shake_rate, shake_level, label_text]
 		else:
-			threat_label.bbcode_enabled = true
 			threat_label.bbcode_text = "[color=%s]%s[/color]" % [color_hex, label_text]
