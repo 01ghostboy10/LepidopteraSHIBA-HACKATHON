@@ -3,35 +3,50 @@ extends Node3D
 @export var orb_proximity_radius: float = 5.0
 @export var threat_min_time: float = 10.0
 @export var threat_max_time: float = 30.0
-@export var orb_area_path: NodePath
+
+# 🔵 CHANGED: now supports multiple orbs instead of one
+@export var orb_area_paths: Array[NodePath] = []
+
 @export var threat_color_rect_path: NodePath
-@export var threat_color_rect_2_path: NodePath      # 🟢 NEW: second ColorRect
+@export var threat_color_rect_2_path: NodePath
 @export var threat_label_path: NodePath
 @export var player_path: NodePath
 
 var player: Node3D
-var orb_area: Node3D
+# 🔵 CHANGED: remove single orb var, replace with array
+var orb_areas: Array[Node3D] = []
+
 var threat_timer: float = 0.0
 var threat_threshold: float = 0.0
 var threat_color_rect: ColorRect
-var threat_color_rect_2: ColorRect                    # 🟢 NEW
+var threat_color_rect_2: ColorRect
 var threat_label: RichTextLabel
 var in_safe_zone_flag: bool = false
 
 func _ready():
 	player = get_node(player_path)
-	orb_area = get_node(orb_area_path)
+
+	# 🔵 CHANGED: populate the orb_areas array from orb_area_paths
+	for path in orb_area_paths:
+		var orb = get_node_or_null(path)
+		if orb:
+			orb_areas.append(orb)
+
 	threat_color_rect = get_node(threat_color_rect_path)
-	threat_color_rect_2 = get_node(threat_color_rect_2_path)   # 🟢 NEW
+	threat_color_rect_2 = get_node(threat_color_rect_2_path)
 	threat_label = get_node(threat_label_path)
 	reset_threat_timer()
 
 func _process(delta):
-	if not player or not orb_area:
+	if not player or orb_areas.is_empty():
 		return
 
-	var distance = orb_area.global_position.distance_to(player.global_position)
-	var is_in_safe = distance < orb_proximity_radius
+	# 🔵 CHANGED: check all orbs — player is safe if near *any* orb
+	var is_in_safe = false
+	for orb in orb_areas:
+		if orb.global_position.distance_to(player.global_position) < orb_proximity_radius:
+			is_in_safe = true
+			break
 
 	if is_in_safe and not in_safe_zone_flag:
 		in_safe_zone_flag = true
@@ -59,15 +74,12 @@ func reset_threat_timer():
 func update_threat_ui(is_safe_zone: bool):
 	var alpha = clamp(threat_timer / threat_threshold, 0.0, 1.0)
 
-	# 🔵 Apply to first ColorRect
+	# 🔵 both ColorRects update
 	if threat_color_rect and threat_color_rect.material:
 		threat_color_rect.material.set_shader_parameter("threat_alpha", alpha)
-
-	# 🟢 Apply to second ColorRect too
 	if threat_color_rect_2 and threat_color_rect_2.material:
 		threat_color_rect_2.material.set_shader_parameter("threat_alpha", alpha)
 
-	# label stuff stays same
 	if threat_label:
 		if is_safe_zone:
 			threat_label.bbcode_enabled = true

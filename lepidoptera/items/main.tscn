@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=129 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="2_w6s3w"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://bwfd3ubhm6amt" path="res://items/butterfly.tscn" id="10_mox85"]
 [ext_resource type="Script" uid="uid://cjmptxl0we10g" path="res://items/uiBUTTERFLYCODE.gd" id="11_jbn4t"]
 [ext_resource type="Script" uid="uid://dnroj5n3pado" path="res://items/butterfly2.gd" id="12_jimur"]
+[ext_resource type="Script" uid="uid://bf0d4oa0yk8p7" path="res://items/path_3d_3.gd" id="13_lupgb"]
+[ext_resource type="Script" uid="uid://8821qbtoqy37" path="res://items/butterfly3.gd" id="14_u8b1p"]
 [ext_resource type="Script" uid="uid://b0wm8tc438apj" path="res://items/shibaaawebwarningpngthing.gd" id="15_j8k2g"]
 [ext_resource type="AudioStream" uid="uid://rhhxyk6vam0w" path="res://musika/noises/816989__luisa_sanchez__soccer-net.wav" id="15_m8s6k"]
 [ext_resource type="Texture2D" uid="uid://dpqg2iwssit18" path="res://items/NOTICE FOR SHIBA PLAYTESTERS! (2).png" id="16_mjcg1"]
@@ -29,10 +31,12 @@
 [ext_resource type="PackedScene" uid="uid://cptc88p576f2f" path="res://furniture/sofa_03_1k.gltf/sofa_03_1k.gltf" id="23_l7plh"]
 [ext_resource type="Script" uid="uid://btw613n5hddj3" path="res://items/1_memory.gd" id="24_rxq6v"]
 [ext_resource type="Texture2D" uid="uid://vjght8wvb44v" path="res://memoriesart/Untitled design.png" id="25_gmepx"]
+[ext_resource type="Texture2D" uid="uid://cqus3bdyo6uv" path="res://memoriesart/memory3.png" id="26_e0ntj"]
 [ext_resource type="Script" uid="uid://dh65rdylec816" path="res://items/orbnode.gd" id="26_t20jr"]
 [ext_resource type="Texture2D" uid="uid://behm2f2cn5oo0" path="res://memoriesart/memory2.png" id="28_d5h8f"]
 [ext_resource type="Script" uid="uid://brd841j0nsic5" path="res://items/footsteps_place.gd" id="30_vbnp1"]
 [ext_resource type="AudioStream" uid="uid://bes6uk7o1hr1w" path="res://musika/noises/creakyfootsteps.wav" id="31_ccde5"]
+[ext_resource type="Script" uid="uid://cslvycuj7rnvp" path="res://items/orbarea_3d_3.gd" id="31_mtqmd"]
 [ext_resource type="Script" uid="uid://cjwemjjqbq8j2" path="res://items/tutorialarea_3d.gd" id="32_8l3ir"]
 [ext_resource type="Shader" uid="uid://dmq8bcyrlpjg8" path="res://items/glitch.gdshader" id="32_mpcpe"]
 [ext_resource type="Shader" uid="uid://cc6ra7aydcdg0" path="res://items/main.gdshader" id="32_p7m1b"]
@@ -187,6 +191,14 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 15
+
+[sub_resource type="Curve3D" id="Curve3D_u8b1p"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.5, -0.7999997, 1, 0, 0, 0, 0, 0, 0, 1.0101776, -0.24635124, 2.2115402, 0, 0, 0, 0, 0, 0, 2.2431564, -1.7836127, 2.3568993, 0, 0, 0, 0, 0, 0, 2.9087868, -1.4801798, 2.790928, 0, 0, 0, 0, 0, 0, 4.751423, -1.760531, 4.1164474, 0, 0, 0, 0, 0, 0, 4.32679, -1.2846804, 4.778984, 0, 0, 0, 0, 0, 0, 4.106205, -2.181807, 6.1087914, 0, 0, 0, 0, 0, 0, 2.8189774, -0.98551655, 7.0412674, 0, 0, 0, 0, 0, 0, 2.3808517, -0.40243816, 7.194294, 0, 0, 0, 0, 0, 0, 3.1334724, 0.4768114, 6.644947, 0, 0, 0, 0, 0, 0, 2.063446, 0.71745014, 7.198921, 0, 0, 0, 0, 0, 0, 1.019783, 0.2135086, 7.259487, 0, 0, 0, 0, 0, 0, -1.1331711, 0.7597065, 7.102001, 0, 0, 0, 0, 0, 0, -1.86483, 0.6591244, 8.396172, 0, 0, 0, 0, 0, 0, -1.5693016, -0.44679737, 8.542923, 0, 0, 0, 0, 0, 0, -2.8807259, -1.4131417, 8.595158, 0, 0, 0, 0, 0, 0, -2.5945778, -0.74011755, 7.352463, 0, 0, 0, 0, 0, 0, -5.016369, -2.0400715, 7.6144333, 0, 0, 0, 0, 0, 0, -5.1394806, -3.6313233, 8.682461, 0, 0, 0, 0, 0, 0, -7.12146, -3.8022504, 8.191437, 0, 0, 0, 0, 0, 0, -9.516525, -2.4648914, 8.673695, 0, 0, 0, 0, 0, 0, -8.330708, -1.3787875, 7.323162, 0, 0, 0, 0, 0, 0, -7.3285103, -2.8663387, 6.6556473, 0, 0, 0, 0, 0, 0, -7.550762, -1.3480387, 5.0250664, 0, 0, 0, 0, 0, 0, -6.5465508, -0.09877205, 5.996147, 0, 0, 0, 0, 0, 0, -7.0550156, 0.621191, 4.4581833, 0, 0, 0, 0, 0, 0, -8.299999, -0.6999998, 3, 0, 0, 0, 0, 0, 0, -10.471451, -1.8687239, 3.3256836, 0, 0, 0, 0, 0, 0, -9.221207, 0.8912287, 2.3819427, 0, 0, 0, 0, 0, 0, -8.613575, -0.5592766, 1.1444702, 0, 0, 0, 0, 0, 0, -6.782406, -0.9705105, 2.5339928, 0, 0, 0, 0, 0, 0, -5.41029, -2.2247167, 1.075428, 0, 0, 0, 0, 0, 0, -5.2581444, -1.0600553, 1.4718094, 0, 0, 0, 0, 0, 0, -4.505951, -0.6566982, 0.85042953, 0, 0, 0, 0, 0, 0, -3.7999992, -0.8999996, -0.20000076, 0, 0, 0, 0, 0, 0, -3.6395683, -1.5119967, -0.6008415, 0, 0, 0, 0, 0, 0, -2.1803017, -1.6462402, -0.5581589, 0, 0, 0, 0, 0, 0, -1.2361565, -1.0715127, -0.20679855, 0, 0, 0, 0, 0, 0, 0.24529266, -1.5501184, 0.39595795),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 39
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c57u"]
 transparency = 1
@@ -1706,8 +1718,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.92465115, 0.39635503, 0.32673386, 0, 1.7398407, -0.5134384, -0.38073936, -0.96257484, -0.7934951, 42.84944, 0.83658916, 19.06564)
-progress = 0.46248165
+transform = Transform3D(-0.9809393, -0.3762123, 0.05912524, 0, 0.62068623, 0.9524201, -0.1939649, 1.9026197, -0.29901427, 43.65138, 0.8275079, 20.440203)
+progress = 3.9002218
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1719,13 +1731,27 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.92465115, 0.39635503, 0.32673386, 0, 1.7398407, -0.5134384, -0.38073936, -0.96257484, -0.7934951, 42.84944, 0.83658916, 19.06564)
-progress = 0.46248165
+transform = Transform3D(-0.9809393, -0.3762123, 0.05912524, 0, 0.62068623, 0.9524201, -0.1939649, 1.9026197, -0.29901427, 43.65138, 0.8275079, 20.440203)
+progress = 3.9002218
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("12_jimur")
+
+[node name="Path3D3" type="Path3D" parent="butterflies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7, 8.7, 42.5)
+curve = SubResource("Curve3D_u8b1p")
+script = ExtResource("13_lupgb")
+
+[node name="PathFollow3Dwhat" type="PathFollow3D" parent="butterflies/Path3D3"]
+transform = Transform3D(-0.11707398, 1.5706295, -0.6239831, 0, 1.2772506, 0.77797383, 0.99305564, 0.18516572, -0.07356303, 1.8532846, -1.2975256, 2.3109362)
+progress = 2.7775698
+rotation_mode = 4
+
+[node name="butterfly" parent="butterflies/Path3D3/PathFollow3Dwhat" instance=ExtResource("10_mox85")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("14_u8b1p")
 
 [node name="Window" type="MeshInstance3D" parent="."]
 transform = Transform3D(6.41519, 0, -0.15481, 0, 8.31005, 0, 7.64533, 0, 0.129901, 37.1545, 6.38061, 5.86424)
@@ -2060,9 +2086,21 @@ libraries = {
 &"": SubResource("AnimationLibrary_3myj0")
 }
 
+[node name="memory3" type="Sprite2D" parent="1_memory"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(585, 317)
+rotation = 0.04910541
+scale = Vector2(0.5237761, 0.5237761)
+texture = ExtResource("26_e0ntj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="1_memory/memory3"]
+libraries = {
+&"": SubResource("AnimationLibrary_3myj0")
+}
+
 [node name="orbnode" type="Node3D" parent="."]
 script = ExtResource("26_t20jr")
-orb_area_path = NodePath("orbarea3d")
+orb_area_paths = Array[NodePath]([NodePath("orbarea3d"), NodePath("orbarea3d2"), NodePath("orbarea3d3")])
 threat_color_rect_path = NodePath("../Control/ThreatUI/ColorRect")
 threat_color_rect_2_path = NodePath("../Control/ThreatUI/ColorRect2")
 threat_label_path = NodePath("../Control/ThreatUI/ThreatLabel")
@@ -2109,6 +2147,26 @@ skeleton = NodePath("../..")
 script = SubResource("GDScript_2qx8f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="orbnode/orb2"]
+libraries = {
+&"": SubResource("AnimationLibrary_vbnp1")
+}
+
+[node name="orbarea3d3" type="Area3D" parent="orbnode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, 5.1, 45.3)
+script = ExtResource("31_mtqmd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="orbnode/orbarea3d3"]
+shape = SubResource("SphereShape3D_2qx8f")
+
+[node name="orb3" type="MeshInstance3D" parent="orbnode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, 5.1, 32)
+visible = false
+material_overlay = SubResource("StandardMaterial3D_freth")
+mesh = SubResource("SphereMesh_2qx8f")
+skeleton = NodePath("../..")
+script = SubResource("GDScript_2qx8f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="orbnode/orb3"]
 libraries = {
 &"": SubResource("AnimationLibrary_vbnp1")
 }
