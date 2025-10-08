@@ -86,23 +86,23 @@ func update_threat_ui(is_safe_zone: bool):
 		elif time_left > 10:
 			label_text = "SAFE"
 			color = Color(0.924, 0.713, 0.283, 1.0)
-			shake_rate = 5.0
-			shake_level = 3.0
+			shake_rate = 3.0
+			shake_level = 1.0
 		elif time_left > 5:
 			label_text = "UNSAFE"
 			color = Color(0.904, 0.482, 0.207, 1.0)
-			shake_rate = 11.0
-			shake_level = 7.0
+			shake_rate = 4.0
+			shake_level = 2.0
 		elif time_left > 0:
 			label_text = "VERY UNSAFE"
 			color = Color(0.792, 0.229, 0.17, 1.0)
-			shake_rate = 14.0
-			shake_level = 13.0
+			shake_rate = 5.0
+			shake_level = 3.0
 		else:
 			label_text = "SPIRITS ARE HERE"
 			color = Color(1, 0, 0, 1)
-			shake_rate = 17.0
-			shake_level = 17.0
+			shake_rate = 6.0
+			shake_level = 4.0
 
 		var color_hex = color.to_html()
 		threat_label.bbcode_enabled = true

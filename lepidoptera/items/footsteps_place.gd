@@ -12,5 +12,5 @@ func _ready():
 func _on_body_entered(body):
 	if body.name == "Player" and not already_played:
 		$AudioStreamPlayer3D.play()
-		%FlickerPlayer.play("flicker")
+		%FlickerPlayer2.play("flicker")
 		already_played = true

@@ -10,7 +10,7 @@ uniform float threat_alpha : hint_range(0.0, 1.0) = 0.0; // 🟢 added: control 
 uniform float shake_power = 0.03;
 uniform float shake_rate : hint_range(0.0, 1.0) = 0.2;
 uniform float shake_speed = 5.0;
-uniform float shake_block_size = 30.5;
+uniform float shake_block_size = 61;
 uniform float shake_color_rate : hint_range(0.0, 1.0) = 0.01;
 uniform sampler2D screen_texture : hint_screen_texture;
 

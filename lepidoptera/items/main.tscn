@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=123 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="2_w6s3w"]
@@ -36,6 +36,7 @@
 [ext_resource type="Script" uid="uid://cjwemjjqbq8j2" path="res://items/tutorialarea_3d.gd" id="32_8l3ir"]
 [ext_resource type="Shader" uid="uid://dmq8bcyrlpjg8" path="res://items/glitch.gdshader" id="32_mpcpe"]
 [ext_resource type="Shader" uid="uid://cc6ra7aydcdg0" path="res://items/main.gdshader" id="32_p7m1b"]
+[ext_resource type="FontFile" uid="uid://duj1blb728tw1" path="res://items/dogicapixel.ttf" id="33_8gymk"]
 [ext_resource type="Texture2D" uid="uid://cf8yvdedn6k6w" path="res://items/Untitled_Artwork 8.png" id="33_p7m1b"]
 [ext_resource type="Texture2D" uid="uid://btcewftsuxryn" path="res://buttons + startscreen art/tutorialart1.PNG" id="34_utrh8"]
 [ext_resource type="Texture2D" uid="uid://bjn1a7utw4gg4" path="res://buttons + startscreen art/tutorialart2.PNG" id="35_ibmci"]
@@ -49,6 +50,7 @@
 [ext_resource type="Script" uid="uid://ftxe3sgcfvgc" path="res://furniture/brass_goblets_1k.gltf/brass_goblets_1k.gd" id="43_t20jr"]
 [ext_resource type="Script" uid="uid://je60dkonxp3b" path="res://items/rigid_body_3d.gd" id="47_6n2x8"]
 [ext_resource type="PackedScene" uid="uid://chvtnukysjh83" path="res://furniture/wooden_crate_02_1k.gltf/wooden_crate_02_1k.gltf" id="48_mpcpe"]
+[ext_resource type="PackedScene" uid="uid://dfnht2e6xlao" path="res://furniture/GothicBed_01_1k.gltf/GothicBed_01_1k.gltf" id="51_er3fg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_ye7cp")
@@ -390,7 +392,7 @@ shader_parameter/speed = 1.0
 shader_parameter/effect_color = Color(0.251, 0, 0, 0)
 
 [sub_resource type="Theme" id="Theme_t20jr"]
-default_font = ExtResource("10_j8k2g")
+default_font = ExtResource("33_8gymk")
 default_font_size = 22
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8gymk"]
@@ -1703,8 +1705,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(0.9906792, -0.08978206, 0.12800005, 0, 1.8379574, 0.3380289, -0.13600114, -0.6540035, 0.93239653, 44.141083, 0.41087997, 15.872147)
-progress = 21.578995
+transform = Transform3D(0.9918508, -0.15932038, 0.0993704, 0, 1.5696086, 0.6238863, -0.12714563, -1.2428429, 0.77517885, 46.657925, 0.39351544, 21.018993)
+progress = 9.6613
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1716,8 +1718,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(0.9906792, -0.08978206, 0.12800005, 0, 1.8379574, 0.3380289, -0.13600114, -0.6540035, 0.93239653, 44.141083, 0.41087997, 15.872147)
-progress = 21.578995
+transform = Transform3D(0.9918508, -0.15932038, 0.0993704, 0, 1.5696086, 0.6238863, -0.12714563, -1.2428429, 0.77517885, 46.657925, 0.39351544, 21.018993)
+progress = 9.6613
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1834,6 +1836,25 @@ spot_attenuation = -0.3
 spot_angle = 35.0
 
 [node name="FlickerPlayer" type="AnimationPlayer" parent="secondlight"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_joffe")
+}
+
+[node name="thirdlight" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 48.500004, 17.7, 46.5)
+light_color = Color(0.70404, 0.546549, 0.362783, 1)
+light_energy = 0.0
+light_indirect_energy = 10.0
+light_size = 0.4
+light_specular = 1.0
+shadow_blur = 3.0
+distance_fade_begin = 0.0
+spot_range = 10.0
+spot_attenuation = -0.3
+spot_angle = 35.0
+
+[node name="FlickerPlayer2" type="AnimationPlayer" parent="thirdlight"]
 unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_joffe")
@@ -2176,7 +2197,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme = SubResource("Theme_t20jr")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
+theme_override_constants/outline_size = 3
 theme_override_fonts/normal_font = ExtResource("10_j8k2g")
 fit_content = true
 horizontal_alignment = 1
@@ -2231,6 +2252,17 @@ script = ExtResource("30_vbnp1")
 shape = SubResource("BoxShape3D_3myj0")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="footsteps place"]
+transform = Transform3D(0.20000002, 0, -7.450581e-09, 0, 0.20000003, 0, 7.450581e-09, 0, 0.20000002, 1.4711752, -0.21999997, 0.10979557)
+stream = ExtResource("31_ccde5")
+
+[node name="footsteps place2" type="Area3D" parent="."]
+transform = Transform3D(4.6984625, 0, 1.7101009, 0, 4.9999995, 0, -1.7101009, 0, 4.6984625, 40.60001, 15.3, 41.1)
+script = ExtResource("30_vbnp1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="footsteps place2"]
+shape = SubResource("BoxShape3D_3myj0")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="footsteps place2"]
 transform = Transform3D(0.20000002, 0, -7.450581e-09, 0, 0.20000003, 0, 7.450581e-09, 0, 0.20000002, 1.4711752, -0.21999997, 0.10979557)
 stream = ExtResource("31_ccde5")
 
@@ -2304,3 +2336,9 @@ transform = Transform3D(3.6373062, 0, -2.0999997, 0, 4.1999993, 0, 2.0999997, 0,
 libraries = {
 &"": SubResource("AnimationLibrary_e0ntj")
 }
+
+[node name="GothicBed_01_1k" parent="." instance=ExtResource("51_er3fg")]
+transform = Transform3D(-1.1920929e-07, 0, -2.75, 0, 2.7499998, 0, 2.75, 0, -1.1920929e-07, 51.900005, 10.700001, 50.4)
+
+[node name="lantern_chandelier_01_4k3" parent="." instance=ExtResource("21_xxkcq")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 48.500004, 18.6, 46.5)
