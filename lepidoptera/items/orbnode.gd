@@ -101,8 +101,8 @@ func update_threat_ui(is_safe_zone: bool):
 		else:
 			label_text = "SPIRITS ARE HERE"
 			color = Color(1, 0, 0, 1)
-			shake_rate = 6.0
-			shake_level = 4.0
+			shake_rate = 15.0
+			shake_level = 10.0
 
 		var color_hex = color.to_html()
 		threat_label.bbcode_enabled = true

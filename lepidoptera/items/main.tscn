@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=124 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="2_w6s3w"]
@@ -46,6 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://yucdjrekm3um" path="res://furniture/painted_wooden_stool_1k.gltf/painted_wooden_stool_1k.gltf" id="39_bno16"]
 [ext_resource type="PackedScene" uid="uid://dc230q18yhcev" path="res://furniture/wooden_bucket_02_1k.gltf/wooden_bucket_02_1k.gltf" id="40_kvk27"]
 [ext_resource type="PackedScene" uid="uid://wumk4iareh1e" path="res://furniture/vintage_grandfather_clock_01_1k.gltf/vintage_grandfather_clock_01_1k.gltf" id="41_qu62r"]
+[ext_resource type="Script" uid="uid://brkavi3yhke6u" path="res://items/footsteps_place_2.gd" id="41_xd0xr"]
 [ext_resource type="PackedScene" uid="uid://tl1c61xc1yqx" path="res://furniture/brass_goblets_1k.gltf/brass_goblets_1k.gltf" id="42_m3fcv"]
 [ext_resource type="Script" uid="uid://ftxe3sgcfvgc" path="res://furniture/brass_goblets_1k.gltf/brass_goblets_1k.gd" id="43_t20jr"]
 [ext_resource type="Script" uid="uid://je60dkonxp3b" path="res://items/rigid_body_3d.gd" id="47_6n2x8"]
@@ -1705,8 +1706,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(0.9918508, -0.15932038, 0.0993704, 0, 1.5696086, 0.6238863, -0.12714563, -1.2428429, 0.77517885, 46.657925, 0.39351544, 21.018993)
-progress = 9.6613
+transform = Transform3D(-0.92465115, 0.39635503, 0.32673386, 0, 1.7398407, -0.5134384, -0.38073936, -0.96257484, -0.7934951, 42.84944, 0.83658916, 19.06564)
+progress = 0.46248165
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1718,8 +1719,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(0.9918508, -0.15932038, 0.0993704, 0, 1.5696086, 0.6238863, -0.12714563, -1.2428429, 0.77517885, 46.657925, 0.39351544, 21.018993)
-progress = 9.6613
+transform = Transform3D(-0.92465115, 0.39635503, 0.32673386, 0, 1.7398407, -0.5134384, -0.38073936, -0.96257484, -0.7934951, 42.84944, 0.83658916, 19.06564)
+progress = 0.46248165
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1850,7 +1851,7 @@ light_size = 0.4
 light_specular = 1.0
 shadow_blur = 3.0
 distance_fade_begin = 0.0
-spot_range = 10.0
+spot_range = 7.5
 spot_attenuation = -0.3
 spot_angle = 35.0
 
@@ -1861,7 +1862,7 @@ libraries = {
 }
 
 [node name="OmniLight3D13" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2, 15.2, 38.9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.500004, 15.2, 28.900003)
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
@@ -1869,7 +1870,7 @@ light_size = 0.4
 light_specular = 2.0
 shadow_blur = 3.0
 distance_fade_begin = 0.0
-omni_range = 3.403
+omni_range = 100.0
 omni_attenuation = 1.3
 
 [node name="OmniLight3D15" type="OmniLight3D" parent="."]
@@ -1885,9 +1886,9 @@ omni_range = 10.0
 omni_attenuation = 1.4
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.5, 7.4, 46.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.1, 6, 46.2)
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 10.0
+light_energy = 7.0
 light_indirect_energy = 10.0
 light_size = 0.4
 light_specular = 2.0
@@ -2256,8 +2257,8 @@ transform = Transform3D(0.20000002, 0, -7.450581e-09, 0, 0.20000003, 0, 7.450581
 stream = ExtResource("31_ccde5")
 
 [node name="footsteps place2" type="Area3D" parent="."]
-transform = Transform3D(4.6984625, 0, 1.7101009, 0, 4.9999995, 0, -1.7101009, 0, 4.6984625, 40.60001, 15.3, 41.1)
-script = ExtResource("30_vbnp1")
+transform = Transform3D(4.6984625, 0, 1.7101009, 0, 4.9999995, 0, -1.7101009, 0, 4.6984625, 41.90001, 14.4, 41.899998)
+script = ExtResource("41_xd0xr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="footsteps place2"]
 shape = SubResource("BoxShape3D_3myj0")
