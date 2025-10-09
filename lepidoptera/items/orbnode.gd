@@ -23,6 +23,10 @@ var threat_color_rect_2: ColorRect
 var threat_label: RichTextLabel
 var in_safe_zone_flag: bool = false
 
+# 💀 ADDED: death timer variables
+var death_timer: float = 0.0
+var death_delay: float = 10.0 # time in seconds before dying after "SPIRITS ARE HERE"
+
 func _ready():
 	player = get_node(player_path)
 
@@ -51,17 +55,27 @@ func _process(delta):
 	if is_in_safe and not in_safe_zone_flag:
 		in_safe_zone_flag = true
 		threat_timer = 0.0
+		death_timer = 0.0 # 💀 ADDED: reset death timer when entering safe zone
 		print("Entered safe zone!")
 
 	elif not is_in_safe and in_safe_zone_flag:
 		in_safe_zone_flag = false
+		death_timer = 0.0 # 💀 ADDED: reset death timer when leaving safe zone
 		print("Exited safe zone!")
 
 	if not in_safe_zone_flag:
 		threat_timer += delta
-		threat_timer = min(threat_timer, threat_threshold)
+		threat_timer = min(threat_timer, threat_threshold + death_delay) # 💀 ADDED: allow time to go a bit past threshold
 		if threat_timer >= threat_threshold:
-			print("⚠️ SPIRITS ARE HERE!")
+			print("SPIRITS ARE HERE!")
+
+			# 💀 ADDED: start counting death timer after spirits appear
+			death_timer += delta
+			if death_timer >= death_delay:
+				print("you died my guy. highkey crashing out")
+				get_tree().change_scene_to_file("res://dead.tscn") # 💀 ADDED: change to your dead scene here
+		else:
+			death_timer = 0.0  # 💀 ADDED: reset death timer if below spirit threshold
 		update_threat_ui(false)
 	else:
 		update_threat_ui(true)

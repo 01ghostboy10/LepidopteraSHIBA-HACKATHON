@@ -1,7 +1,6 @@
 extends Area3D
 
-@onready var orb = $"../../../../orbnode/orb3"	
-
+@onready var orb = $"../../../../orbnode/orb3"
 func interact():
 	print("2:: Hello, you itneracted with me!")
 	$"../../../../butterflynoisess".play()
