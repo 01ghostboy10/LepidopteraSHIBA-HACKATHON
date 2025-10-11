@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=130 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="2_w6s3w"]
@@ -527,6 +527,8 @@ _data = {
 &"flying": SubResource("Animation_er3fg")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_u8b1p"]
+
 [node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -755,7 +757,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 1.13687e-13, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_272bh")
 
 [node name="Wall10" type="MeshInstance3D" parent="."]
-transform = Transform3D(4.29203, 0, 0.660675, 0, 9.83014, 0, -7.43402, 0, 0.381441, 6.3615, 5.27743, 21.1451)
+transform = Transform3D(4.2920294, 0, 0.6606749, 0, 9.830138, 0, -7.434019, 0, 0.38144097, 6.3615, 5.27743, 21.1451)
 material_overlay = SubResource("StandardMaterial3D_2cqfq")
 mesh = SubResource("BoxMesh_yaehf")
 
@@ -799,7 +801,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 6.9789e-17, 0, -2.55906e-14, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_272bh")
 
 [node name="Wall14" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.67165e-06, 3.72122e-07, -0.572161, 5.64582e-07, 9.83014, 2.16593e-08, 8.61075, -6.44534e-07, 8.9407e-08, 21.0615, 5.57743, 35.3451)
+transform = Transform3D(3.67165e-06, 3.72122e-07, -0.572161, 5.64582e-07, 9.83014, 2.16593e-08, 8.61075, -6.44534e-07, 8.9407e-08, 21.0615, 5.8774295, 35.3451)
 material_overlay = SubResource("StandardMaterial3D_2cqfq")
 mesh = SubResource("BoxMesh_yaehf")
 
@@ -1192,7 +1194,7 @@ mesh = SubResource("BoxMesh_cegan")
 shape = SubResource("BoxShape3D_kek77")
 
 [node name="Wall24" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.73147e-06, 0, 0.29373, 0, 8.53311, 0, -39.6992, 0, -1.50557e-08, 55.3783, 14.74623, 35.9011)
+transform = Transform3D(3.73147e-06, 0, 0.29373, 0, 8.53311, 0, -39.6992, 0, -1.50557e-08, 55.478302, 14.14623, 35.9011)
 material_overlay = SubResource("StandardMaterial3D_2cqfq")
 mesh = SubResource("BoxMesh_82xsv")
 
@@ -1668,7 +1670,7 @@ mesh = SubResource("BoxMesh_ryguw")
 shape = SubResource("BoxShape3D_d13ii")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
-transform = Transform3D(7.27127, 0, -0.426999, 0, 0.9, 0, 2.64653, 0, 1.17317, 12.4, 4.8, 19)
+transform = Transform3D(7.27127, 0, -0.42699897, 0, 0.9, 0, 2.6465297, 0, 1.17317, 12.4, 4.8, 19)
 material_overlay = SubResource("StandardMaterial3D_getpj")
 mesh = SubResource("BoxMesh_ryguw")
 
@@ -1718,8 +1720,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.75252676, -0.4270872, 0.62547743, 0, 1.9698306, 0.3127384, -0.6584615, 0.4880992, -0.7148307, 41.854984, -1.2225109, 16.694311)
-progress = 25.965199
+transform = Transform3D(0.47571692, -0.989655, -0.7528008, 0, 1.8618485, -0.5172117, 0.87951946, 0.5352873, 0.40717697, 44.472168, 0.599224, 20.228262)
+progress = 5.9303675
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1731,8 +1733,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.75252676, -0.4270872, 0.62547743, 0, 1.9698306, 0.3127384, -0.6584615, 0.4880992, -0.7148307, 41.854984, -1.2225109, 16.694311)
-progress = 25.965199
+transform = Transform3D(0.47571692, -0.989655, -0.7528008, 0, 1.8618485, -0.5172117, 0.87951946, 0.5352873, 0.40717697, 44.472168, 0.599224, 20.228262)
+progress = 5.9303675
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1745,8 +1747,8 @@ curve = SubResource("Curve3D_u8b1p")
 script = ExtResource("13_lupgb")
 
 [node name="PathFollow3Dwhat" type="PathFollow3D" parent="butterflies/Path3D3"]
-transform = Transform3D(-0.87040627, -0.06804379, 0.4911917, 0, 2.0435736, 0.067524865, -0.49208403, 0.12035697, -0.8688279, -1.5972894, 0.6959035, 7.922941)
-progress = 18.655098
+transform = Transform3D(0.9493413, 0.27036533, 0.2869411, 0, 1.9378587, -0.40629563, -0.3138608, 0.81777966, 0.86791664, -6.7321405, 0.16401336, 5.434793)
+progress = 41.717197
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D3/PathFollow3Dwhat" instance=ExtResource("10_mox85")]
@@ -1888,7 +1890,7 @@ libraries = {
 }
 
 [node name="OmniLight3D13" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.500004, 15.2, 28.900003)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.800005, 15.2, 20.600002)
 light_color = Color(0.70404, 0.546549, 0.362783, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
@@ -2401,3 +2403,24 @@ transform = Transform3D(-1.1920929e-07, 0, -2.75, 0, 2.7499998, 0, 2.75, 0, -1.1
 
 [node name="lantern_chandelier_01_4k3" parent="." instance=ExtResource("21_xxkcq")]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 48.500004, 18.6, 46.5)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.700001, 7, 20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(3.5802288, -0.6515484, -1.1285148, 0, 3.2995567, -1.9050002, 1.3030967, 1.7901146, 3.100569, -2.1999998, -5, 0.6000004)
+shape = SubResource("BoxShape3D_u8b1p")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.300001, 7, 21.3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(3.5802288, -0.6515484, -1.1285148, 0, 3.2995567, -1.9050002, 1.3030967, 1.7901146, 3.100569, -2.1999998, -5, 0.6000004)
+shape = SubResource("BoxShape3D_u8b1p")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.300001, 10, 18.3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+transform = Transform3D(4.698463, -0.8550503, -1.4809905, 0, 4.330127, -2.5000002, 1.7101004, 2.3492317, 4.0689883, -3.6000004, -6.6, -0.5)
+shape = SubResource("BoxShape3D_u8b1p")
