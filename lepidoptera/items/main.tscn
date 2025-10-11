@@ -1718,8 +1718,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.99895096, 1.0518309e-10, 0.044395853, 0, 2.049147, -1.156203e-09, -0.04439286, -2.366884e-09, -0.99901825, 45.856953, 0, 16.068977)
-progress = 18.793657
+transform = Transform3D(-0.75252676, -0.4270872, 0.62547743, 0, 1.9698306, 0.3127384, -0.6584615, 0.4880992, -0.7148307, 41.854984, -1.2225109, 16.694311)
+progress = 25.965199
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1731,8 +1731,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.99895096, 1.0518309e-10, 0.044395853, 0, 2.049147, -1.156203e-09, -0.04439286, -2.366884e-09, -0.99901825, 45.856953, 0, 16.068977)
-progress = 18.793657
+transform = Transform3D(-0.75252676, -0.4270872, 0.62547743, 0, 1.9698306, 0.3127384, -0.6584615, 0.4880992, -0.7148307, 41.854984, -1.2225109, 16.694311)
+progress = 25.965199
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1745,8 +1745,8 @@ curve = SubResource("Curve3D_u8b1p")
 script = ExtResource("13_lupgb")
 
 [node name="PathFollow3Dwhat" type="PathFollow3D" parent="butterflies/Path3D3"]
-transform = Transform3D(-0.11707398, 1.5706302, -0.6239831, 0, 1.2772512, 0.77797383, 0.99305564, 0.18516581, -0.07356303, 1.8532846, -1.2975256, 2.3109362)
-progress = 2.7775698
+transform = Transform3D(-0.87040627, -0.06804379, 0.4911917, 0, 2.0435736, 0.067524865, -0.49208403, 0.12035697, -0.8688279, -1.5972894, 0.6959035, 7.922941)
+progress = 18.655098
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D3/PathFollow3Dwhat" instance=ExtResource("10_mox85")]

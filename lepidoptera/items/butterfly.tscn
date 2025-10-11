@@ -157,16 +157,16 @@ transform = Transform3D(1, 1.49012e-08, 2.08616e-07, -5.96046e-08, 1, 1.19209e-0
 script = SubResource("GDScript_l7i6p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 5.0822e-21, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.8, 0, 0, 3.3881318e-21, 0.8, -7.1054274e-15, 0, 0, 0.8, 0, 0, 0)
 shape = SubResource("SphereShape3D_l7i6p")
 
 [node name="left" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.49999768, -0.8660262, 0, 0.8660262, 0.49999768, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.39999813, -0.69282097, 0, 0.69282097, 0.39999813, 0, 0, 0, 0.8, 0, 0, 0)
 mesh = SubResource("ArrayMesh_rvun0")
 skeleton = NodePath("")
 
 [node name="right" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.49999768, -0.8660262, 0, 0.8660262, 0.49999768, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.39999813, -0.69282097, 0, 0.69282097, 0.39999813, 0, 0, 0, 0.8, 0, 0, 0)
 mesh = SubResource("ArrayMesh_bffyx")
 skeleton = NodePath("")
 
