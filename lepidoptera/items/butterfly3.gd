@@ -8,3 +8,4 @@ func interact():
 	GameManager.add_butterfly()
 	queue_free()
 	orb.visible = true
+	print("orb visible after change:", orb.visible)
