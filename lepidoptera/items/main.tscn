@@ -684,7 +684,7 @@ transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -
 shadow_enabled = true
 
 [node name="Floor" type="CSGBox3D" parent="."]
-transform = Transform3D(53.9564, 0, 0, 0, 0.15116, 0, 0, 0, 55.3014, 32.142097, 2.2655902, 27.452599)
+transform = Transform3D(53.9564, 0, 0, 0, 0.15116, 0, 0, 0, 55.3014, 35.0421, 2.26559, 37.4526)
 material_overlay = SubResource("StandardMaterial3D_dg77c")
 use_collision = true
 
@@ -1815,8 +1815,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.68227357, -0.19947243, -0.72761005, 0, 2.7992663, -0.097014636, 0.73100674, -0.18617442, -0.6791033, 41.622948, 0.41639304, 17.414753)
-progress = 28.514122
+transform = Transform3D(0.8239903, 0.5761752, 0.53126884, 0, 2.7464497, -0.347267, -0.5664835, 0.8380876, 0.7727681, 46.38468, -0.31668574, 15.800417)
+progress = 16.907528
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1828,8 +1828,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.68227357, -0.19947243, -0.72761005, 0, 2.7992663, -0.097014636, 0.73100674, -0.18617442, -0.6791033, 41.622948, 0.41639304, 17.414753)
-progress = 28.514122
+transform = Transform3D(0.8239903, 0.5761752, 0.53126884, 0, 2.7464497, -0.347267, -0.5664835, 0.8380876, 0.7727681, 46.38468, -0.31668574, 15.800417)
+progress = 16.907528
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1842,8 +1842,8 @@ curve = SubResource("Curve3D_u8b1p")
 script = ExtResource("13_lupgb")
 
 [node name="PathFollow3Dwhat" type="PathFollow3D" parent="butterflies/Path3D3"]
-transform = Transform3D(-0.10753172, -1.2246053, 0.87741905, 0, 2.3081126, 0.4709757, -0.9940782, 0.13246837, -0.094912425, -4.178729, -1.5904485, 7.523824)
-progress = 25.232311
+transform = Transform3D(-0.92131764, -0.79199725, -0.25576645, 0, 1.7813963, -0.75323784, 0.38849345, -1.8782325, -0.6065537, 0.4269529, -1.015125, 0.8267678)
+progress = 66.86796
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D3/PathFollow3Dwhat" instance=ExtResource("10_mox85")]
@@ -2560,7 +2560,7 @@ libraries = {
 }
 
 [node name="MeshInstance3D14" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.1666234, 0, -7.629396e-08, 0, 0.40499997, 0, 1.0013576e-06, 0, 2.7965546, 13.899999, 4.4, 45.59999)
+transform = Transform3D(2.1666234, 0, -7.629396e-08, 0, 0.40499997, 0, 1.0013576e-06, 0, 2.7965546, 15.799998, 5.3, 46.699993)
 material_overlay = SubResource("StandardMaterial3D_getpj")
 mesh = SubResource("BoxMesh_ryguw")
 script = ExtResource("58_k0p26")
@@ -2569,6 +2569,11 @@ script = ExtResource("58_k0p26")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D14/StaticBody3D"]
 shape = SubResource("BoxShape3D_lupgb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MeshInstance3D14"]
+libraries = {
+&"": SubResource("AnimationLibrary_k0p26")
+}
 
 [node name="MeshInstance3D13" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.2215759, 0, 0.57388616, 0, 0.24299999, 0, -0.44461653, 0, 1.5767417, 9.399998, 8.5, 50.099995)
