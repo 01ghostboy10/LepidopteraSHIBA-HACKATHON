@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkyyyx5h7ia26"]
+[gd_scene load_steps=8 format=3 uid="uid://bkyyyx5h7ia26"]
 
+[ext_resource type="Script" uid="uid://khh2qn1yfmpd" path="res://dead.gd" id="1_jblhf"]
 [ext_resource type="Texture2D" uid="uid://pioblcgrpkyl" path="res://items/deathscreen.png" id="1_unegr"]
 [ext_resource type="Shader" uid="uid://7mmgggy6hw4t" path="res://dead.gdshader" id="2_vrggy"]
+[ext_resource type="FontFile" uid="uid://duj1blb728tw1" path="res://items/dogicapixel.ttf" id="3_hvuha"]
+[ext_resource type="AudioStream" uid="uid://byuhbh76kya0n" path="res://musika/noises/477619__joao_janz__heater-fan-snap-button-1_4.wav" id="5_q521v"]
+[ext_resource type="AudioStream" uid="uid://dwbckyejxs46m" path="res://musika/noises/494494__sheyvan__button-clicking-6-single.wav" id="6_87pdk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nihps"]
 shader = ExtResource("2_vrggy")
@@ -21,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jblhf")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -36,6 +41,16 @@ position = Vector2(563.00006, 246)
 scale = Vector2(0.40230823, 0.40230823)
 texture = ExtResource("1_unegr")
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 454.0
+offset_right = 670.0
+offset_bottom = 495.0
+theme_override_fonts/font = ExtResource("3_hvuha")
+theme_override_font_sizes/font_size = 37
+text = "~ YES ~"
+
 [node name="ColorRect2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_nihps")
 layout_mode = 1
@@ -44,3 +59,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="soundeffecthover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_q521v")
+volume_db = -5.0
+
+[node name="soundeffectclick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_87pdk")
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
