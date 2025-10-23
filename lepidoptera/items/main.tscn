@@ -1670,8 +1670,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.75252694, -0.6778266, 0.62547755, 0, 3.126302, 0.3127384, -0.65846175, 0.7746581, -0.71483076, 42.420055, -0.93997264, 16.04851)
-progress = 25.056131
+transform = Transform3D(-0.5741081, -1.2988386, 0.7240348, 0, 3.004559, 0.46690452, -0.81869906, 0.9108032, -0.50772536, 43.49665, -0.3152419, 15.081603)
+progress = 23.469915
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1683,8 +1683,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.75252694, -0.6778266, 0.62547755, 0, 3.126302, 0.3127384, -0.65846175, 0.7746581, -0.71483076, 42.420055, -0.93997264, 16.04851)
-progress = 25.056131
+transform = Transform3D(-0.5741081, -1.2988386, 0.7240348, 0, 3.004559, 0.46690452, -0.81869906, 0.9108032, -0.50772536, 43.49665, -0.3152419, 15.081603)
+progress = 23.469915
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1697,8 +1697,8 @@ curve = SubResource("Curve3D_u8b1p")
 script = ExtResource("13_lupgb")
 
 [node name="PathFollow3Dwhat" type="PathFollow3D" parent="butterflies/Path3D3"]
-transform = Transform3D(-0.87040627, -0.0983405, 0.49119183, 0, 2.953485, 0.0675248, -0.492084, 0.17394628, -0.8688282, -1.2854673, 0.73877025, 7.371386)
-progress = 18.019821
+transform = Transform3D(-0.057927523, -1.3132421, 0.89959973, 0, 2.7288835, 0.4343794, -0.99819887, 0.07621013, -0.05220561, 1.8129236, 0.59648323, 7.2134595)
+progress = 14.597217
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D3/PathFollow3Dwhat" instance=ExtResource("10_mox85")]
@@ -2152,7 +2152,7 @@ libraries = {
 }
 
 [node name="orbarea3d4" type="Area3D" parent="orbnode"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.999999, 11.6, 40.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.699999, 8.3, 41.899998)
 script = ExtResource("22_3myj0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="orbnode/orbarea3d4"]
@@ -2200,7 +2200,7 @@ size = Vector2i(576, 324)
 render_target_update_mode = 4
 
 [node name="Player" type="CharacterBody3D" parent="Control/SubViewportContainer/SubViewport"]
-transform = Transform3D(-0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, -0.984808, 13.4, 5.3, 39.000004)
+transform = Transform3D(-0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, -0.984808, 29.099998, 5.3, 4.000003)
 script = ExtResource("8_j8k2g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/Player"]
