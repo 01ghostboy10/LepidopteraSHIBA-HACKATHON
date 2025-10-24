@@ -25,7 +25,7 @@ func interact():
 	if orb_noise:
 		orb_noise.play()
 		print("Orb noise is playing thank god")
-		#memory showing up yYEYEEEEYEEY
+		#HEYO CHANGE THIS TO THE FOURTH MEMORYYYYYY!!!!
 		var _memory_layer = get_node("../../1_memory")
 		$"../../1_memory/memory2".visible = true
 		$"../../1_memory/memory2/AnimationPlayer".play("M_fadein")  # Replace "fade_in" with your actual animation name

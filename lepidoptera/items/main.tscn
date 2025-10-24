@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=138 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="2_w6s3w"]
@@ -57,6 +57,9 @@
 [ext_resource type="Script" uid="uid://ftxe3sgcfvgc" path="res://furniture/brass_goblets_1k.gltf/brass_goblets_1k.gd" id="43_t20jr"]
 [ext_resource type="PackedScene" uid="uid://chvtnukysjh83" path="res://furniture/wooden_crate_02_1k.gltf/wooden_crate_02_1k.gltf" id="48_mpcpe"]
 [ext_resource type="PackedScene" uid="uid://dfnht2e6xlao" path="res://furniture/GothicBed_01_1k.gltf/GothicBed_01_1k.gltf" id="51_er3fg"]
+[ext_resource type="PackedScene" uid="uid://c1mme132a58lv" path="res://furniture/rubber_duck_toy_1k.gltf/rubber_duck_toy_1k.gltf" id="58_2bc57"]
+[ext_resource type="Script" uid="uid://dpfscw8nd1x13" path="res://items/rubberduck.gd" id="59_occbs"]
+[ext_resource type="Texture2D" uid="uid://di8cl2pf8y4q6" path="res://items/Credits.png" id="60_8yb7u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_ye7cp")
@@ -525,13 +528,13 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_voqjq"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_u8b1p"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_lupgb"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_k0p26"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2bc57"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_01t5h"]
 
 [node name="Main" type="Node3D"]
 
@@ -1670,8 +1673,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.5741081, -1.2988386, 0.7240348, 0, 3.004559, 0.46690452, -0.81869906, 0.9108032, -0.50772536, 43.49665, -0.3152419, 15.081603)
-progress = 23.469915
+transform = Transform3D(-0.57410806, -1.3446703, 0.7240349, 0, 3.1105795, 0.46690473, -0.8186989, 0.9429426, -0.5077255, 43.56705, -0.26984724, 15.03224)
+progress = 23.37288
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1683,8 +1686,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.5741081, -1.2988386, 0.7240348, 0, 3.004559, 0.46690452, -0.81869906, 0.9108032, -0.50772536, 43.49665, -0.3152419, 15.081603)
-progress = 23.469915
+transform = Transform3D(-0.57410806, -1.3446703, 0.7240349, 0, 3.1105795, 0.46690473, -0.8186989, 0.9429426, -0.5077255, 43.56705, -0.26984724, 15.03224)
+progress = 23.37288
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1697,8 +1700,8 @@ curve = SubResource("Curve3D_u8b1p")
 script = ExtResource("13_lupgb")
 
 [node name="PathFollow3Dwhat" type="PathFollow3D" parent="butterflies/Path3D3"]
-transform = Transform3D(-0.057927523, -1.3132421, 0.89959973, 0, 2.7288835, 0.4343794, -0.99819887, 0.07621013, -0.05220561, 1.8129236, 0.59648323, 7.2134595)
-progress = 14.597217
+transform = Transform3D(-0.14655507, -0.99023694, 0.9367684, 0, 2.9411602, 0.32231802, -0.9890773, 0.14672689, -0.13880427, 1.9318112, 0.65564495, 7.207701)
+progress = 14.469986
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D3/PathFollow3Dwhat" instance=ExtResource("10_mox85")]
@@ -2406,48 +2409,6 @@ transform = Transform3D(-1.1920929e-07, 0, -2.75, 0, 2.7499998, 0, 2.75, 0, -1.1
 [node name="lantern_chandelier_01_4k3" parent="." instance=ExtResource("21_xxkcq")]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 48.500004, 18.6, 46.5)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.700001, 7, 20)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(3.5802288, -0.6515484, -1.1285148, 0, 3.2995567, -1.9050002, 1.3030967, 1.7901146, 3.100569, -2.1999998, -5, 0.6000004)
-shape = SubResource("BoxShape3D_u8b1p")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.300001, 7, 21.3)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
-transform = Transform3D(3.5802288, -0.6515484, -1.1285148, 0, 3.2995567, -1.9050002, 1.3030967, 1.7901146, 3.100569, -2.1999998, -5, 0.6000004)
-shape = SubResource("BoxShape3D_u8b1p")
-
-[node name="StaticBody3D3" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.300001, 9.9, 18.3)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
-transform = Transform3D(4.698463, -0.8550503, -1.4809905, 0, 4.330127, -2.5000002, 1.7101004, 2.3492317, 4.0689883, -3.6000004, -6.6, -0.5)
-shape = SubResource("BoxShape3D_u8b1p")
-
-[node name="StaticBody3D6" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.300001, 10, 18.3)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6"]
-transform = Transform3D(4.698463, -0.8550503, -1.4809905, 0, 4.330127, -2.5000002, 1.7101004, 2.3492317, 4.0689883, -3.6000004, -6.6, -0.5)
-shape = SubResource("BoxShape3D_u8b1p")
-
-[node name="StaticBody3D4" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.800001, 12.499999, 14.199999)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
-transform = Transform3D(3.830222, -1.6069689, -2.7833517, 0, 4.330127, -2.5000002, 3.2139373, 1.9151113, 3.3170695, -2.000001, -7.1, 0.6000004)
-shape = SubResource("BoxShape3D_u8b1p")
-
-[node name="StaticBody3D5" type="StaticBody3D" parent="."]
-transform = Transform3D(0.9396926, 0, -0.34202012, 0, 1, 0, 0.34202012, 0, 0.9396926, 18.700003, 14.099999, 14.799999)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5"]
-transform = Transform3D(4.6984634, -0.85505044, -1.4809908, 0, 4.330127, -2.5000002, 1.7101007, 2.349232, 4.068989, -3.6000004, -6.7999997, -0.5)
-shape = SubResource("BoxShape3D_u8b1p")
-
 [node name="MeshInstance3D12" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.1666234, 0, -7.629396e-08, 0, 0.40499997, 0, 1.0013576e-06, 0, 2.7965546, 14.599998, 3.5, 48.799995)
 material_overlay = SubResource("StandardMaterial3D_getpj")
@@ -2751,3 +2712,34 @@ mesh = SubResource("BoxMesh_ryguw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D18/StaticBody3D"]
 shape = SubResource("BoxShape3D_lupgb")
+
+[node name="blend_export" parent="." instance=ExtResource("58_2bc57")]
+transform = Transform3D(-0.34202012, 0, 0.9396926, 0, 1, 0, -0.9396926, 0, -0.34202012, 15.000001, 4.1000004, 13.500001)
+
+[node name="wooden_crate_02_1k" parent="." instance=ExtResource("48_mpcpe")]
+transform = Transform3D(-3.2562554, 0, -1.8800001, 0, 3.76, 0, 1.8800001, 0, -3.2562554, 14.800001, 2.4, 13.9)
+
+[node name="planter_box_01_1k2" parent="." instance=ExtResource("37_joffe")]
+transform = Transform3D(-0.5035798, 0, -2.8559418, 0, 2.8999996, 0, 2.8559418, 0, -0.5035798, 13.2, 2.4, 15.200001)
+
+[node name="painted_wooden_chair_01_1k5" parent="." instance=ExtResource("22_l7plh")]
+transform = Transform3D(0.82084835, -1.4496546, 1.7276311, 0, 1.8385066, 1.5426902, -2.2552621, -0.5276311, 0.6288063, 14.8, 3.1, 16.6)
+
+[node name="painted_wooden_chair_01_1k6" parent="." instance=ExtResource("22_l7plh")]
+transform = Transform3D(-1.1817691, 1.7261364, 1.1763821, 0.41675574, 1.5192534, -1.810576, -2.0468843, -0.68725765, -1.0478266, 11.7, 3.4, 14.899999)
+
+[node name="Area3D5" type="Area3D" parent="."]
+transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, 15.000001, 4.1000004, 13.500001)
+script = ExtResource("59_occbs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D5"]
+shape = SubResource("SphereShape3D_01t5h")
+
+[node name="CREDITSLAYER" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CREDITSLAYER"]
+position = Vector2(562, 332.99997)
+rotation = -0.049937423
+scale = Vector2(0.16386007, 0.16386007)
+texture = ExtResource("60_8yb7u")
