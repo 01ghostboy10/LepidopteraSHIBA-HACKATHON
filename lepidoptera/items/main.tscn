@@ -1,4 +1,4 @@
-[gd_scene load_steps=138 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=139 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="2_w6s3w"]
@@ -59,7 +59,7 @@
 [ext_resource type="PackedScene" uid="uid://dfnht2e6xlao" path="res://furniture/GothicBed_01_1k.gltf/GothicBed_01_1k.gltf" id="51_er3fg"]
 [ext_resource type="PackedScene" uid="uid://c1mme132a58lv" path="res://furniture/rubber_duck_toy_1k.gltf/rubber_duck_toy_1k.gltf" id="58_2bc57"]
 [ext_resource type="Script" uid="uid://dpfscw8nd1x13" path="res://items/rubberduck.gd" id="59_occbs"]
-[ext_resource type="Texture2D" uid="uid://di8cl2pf8y4q6" path="res://items/Credits.png" id="60_8yb7u"]
+[ext_resource type="Texture2D" uid="uid://dp675fkovawrb" path="res://items/Credits.png" id="60_8yb7u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_ye7cp")
@@ -535,6 +535,8 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_2bc57"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_01t5h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2bc57"]
 
 [node name="Main" type="Node3D"]
 
@@ -1673,8 +1675,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.57410806, -1.3446703, 0.7240349, 0, 3.1105795, 0.46690473, -0.8186989, 0.9429426, -0.5077255, 43.56705, -0.26984724, 15.03224)
-progress = 23.37288
+transform = Transform3D(0.09952138, 1.2847344, 0.9338341, 0, 3.5091112, -0.34531018, -0.9949695, 0.12850499, 0.093406335, 45.0697, 0.2831039, 16.479523)
+progress = 20.101885
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1686,8 +1688,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.57410806, -1.3446703, 0.7240349, 0, 3.1105795, 0.46690473, -0.8186989, 0.9429426, -0.5077255, 43.56705, -0.26984724, 15.03224)
-progress = 23.37288
+transform = Transform3D(0.09952138, 1.2847344, 0.9338341, 0, 3.5091112, -0.34531018, -0.9949695, 0.12850499, 0.093406335, 45.0697, 0.2831039, 16.479523)
+progress = 20.101885
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1700,8 +1702,8 @@ curve = SubResource("Curve3D_u8b1p")
 script = ExtResource("13_lupgb")
 
 [node name="PathFollow3Dwhat" type="PathFollow3D" parent="butterflies/Path3D3"]
-transform = Transform3D(-0.14655507, -0.99023694, 0.9367684, 0, 2.9411602, 0.32231802, -0.9890773, 0.14672689, -0.13880427, 1.9318112, 0.65564495, 7.207701)
-progress = 14.469986
+transform = Transform3D(-0.8418165, 0.90740716, 0.46190757, 0, 2.7809696, -0.5176211, -0.5395372, -1.4157879, -0.72069436, 4.351164, -1.308554, 4.7379913)
+progress = 7.39814
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D3/PathFollow3Dwhat" instance=ExtResource("10_mox85")]
@@ -2082,9 +2084,21 @@ libraries = {
 &"": SubResource("AnimationLibrary_3myj0")
 }
 
+[node name="memory4" type="Sprite2D" parent="1_memory"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(585, 317)
+rotation = 0.04910541
+scale = Vector2(0.5237761, 0.5237761)
+texture = ExtResource("26_e0ntj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="1_memory/memory4"]
+libraries = {
+&"": SubResource("AnimationLibrary_3myj0")
+}
+
 [node name="orbnode" type="Node3D" parent="."]
 script = ExtResource("26_t20jr")
-orb_area_paths = Array[NodePath]([NodePath("orbarea3d"), NodePath("orbarea3d2"), NodePath("orbarea3d3"), NodePath("orbarea3d4"), NodePath("SAFEAREAONE")])
+orb_area_paths = Array[NodePath]([NodePath("orbarea3d"), NodePath("orbarea3d2"), NodePath("orbarea3d3"), NodePath("orbarea3d4"), NodePath("SAFEAREAONE"), NodePath("SAFEAREAONE2"), NodePath("SAFEAREAONE3")])
 threat_color_rect_path = NodePath("../Control/ThreatUI/ColorRect")
 threat_color_rect_2_path = NodePath("../Control/ThreatUI/ColorRect2")
 threat_label_path = NodePath("../Control/ThreatUI/ThreatLabel")
@@ -2170,6 +2184,18 @@ script = SubResource("GDScript_2qx8f")
 
 [node name="SAFEAREAONE" type="MeshInstance3D" parent="orbnode"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7, 17.300001, 52.100002)
+material_override = SubResource("StandardMaterial3D_voqjq")
+mesh = SubResource("SphereMesh_qh7mc")
+skeleton = NodePath("../../1_memory")
+
+[node name="SAFEAREAONE2" type="MeshInstance3D" parent="orbnode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2, 4.700001, 51.100006)
+material_override = SubResource("StandardMaterial3D_voqjq")
+mesh = SubResource("SphereMesh_qh7mc")
+skeleton = NodePath("../../1_memory")
+
+[node name="SAFEAREAONE3" type="MeshInstance3D" parent="orbnode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2, 13.900002, 47.90001)
 material_override = SubResource("StandardMaterial3D_voqjq")
 mesh = SubResource("SphereMesh_qh7mc")
 skeleton = NodePath("../../1_memory")
@@ -2741,5 +2767,16 @@ visible = false
 [node name="Sprite2D" type="Sprite2D" parent="CREDITSLAYER"]
 position = Vector2(562, 332.99997)
 rotation = -0.049937423
-scale = Vector2(0.16386007, 0.16386007)
+scale = Vector2(0.14967124, 0.14967124)
 texture = ExtResource("60_8yb7u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6, 5.6, 17.8)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(6.7493663, 2.307288, -0.06033149, 0.4257547, 4.488945, 0.24086201, 2.3778923, -7.352697, 0.12811817, -0.39999962, -0.6999998, 1.2000008)
+shape = SubResource("BoxShape3D_2bc57")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(4.6528926, 4.452525, -0.1050486, 0.3582881, 4.268102, 0.25173318, 3.8230228, -5.8190427, 0.10425959, 1.8999996, 2.9, -2.6000004)
+shape = SubResource("BoxShape3D_2bc57")

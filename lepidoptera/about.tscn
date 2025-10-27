@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dnsvqhymk48pr" path="res://buttons + startscreen art/nobglogo1.png" id="1_4q2eq"]
 [ext_resource type="Script" uid="uid://c118a7g0qfcd7" path="res://about.gd" id="1_k56y8"]
 [ext_resource type="FontFile" uid="uid://duj1blb728tw1" path="res://items/dogicapixel.ttf" id="3_h6umi"]
-[ext_resource type="Texture2D" uid="uid://caij6bd5wqkd" path="res://items/Credits (1).png" id="3_sx25x"]
+[ext_resource type="Texture2D" uid="uid://dp675fkovawrb" path="res://items/Credits.png" id="5_sx25x"]
 [ext_resource type="FontFile" uid="uid://wl3hok2a0401" path="res://items/stuff/VT323-Regular.ttf" id="5_x5r8a"]
 
 [node name="About" type="Control"]
@@ -35,7 +35,6 @@ texture = ExtResource("1_4q2eq")
 position = Vector2(783.00006, 245.00002)
 rotation = 0.029469252
 scale = Vector2(0.14017753, 0.13986784)
-texture = ExtResource("3_sx25x")
 
 [node name="goback" type="Button" parent="."]
 layout_mode = 0
@@ -57,5 +56,11 @@ scale = Vector2(1.442196, 1.442196)
 theme_override_fonts/font = ExtResource("5_x5r8a")
 theme_override_font_sizes/font_size = 25
 text = "To be edited… this page isn't finished yet!! sorry"
+
+[node name="Credits" type="Sprite2D" parent="."]
+position = Vector2(773.99994, 260)
+rotation = 0.048563853
+scale = Vector2(0.13749762, 0.13749762)
+texture = ExtResource("5_sx25x")
 
 [connection signal="pressed" from="goback" to="." method="_on_goback_pressed"]
