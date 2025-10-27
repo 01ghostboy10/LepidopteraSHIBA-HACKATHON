@@ -21,8 +21,7 @@ func _check_password():
 
 
 func _unlock_door():
-	# example: get your 3D door node and call a function on it
-	# (you’d replace this path + function with your actual setup)
+	# example: get y setup)
 	var door = get_node("/root/MainScene/Door")
 	if door:
 		door.open() # your custom function

@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=140 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="2_w6s3w"]
@@ -60,6 +60,7 @@
 [ext_resource type="PackedScene" uid="uid://c1mme132a58lv" path="res://furniture/rubber_duck_toy_1k.gltf/rubber_duck_toy_1k.gltf" id="58_2bc57"]
 [ext_resource type="Script" uid="uid://dpfscw8nd1x13" path="res://items/rubberduck.gd" id="59_occbs"]
 [ext_resource type="Texture2D" uid="uid://dp675fkovawrb" path="res://items/Credits.png" id="60_8yb7u"]
+[ext_resource type="Script" uid="uid://bcaaiyyw45pvb" path="res://items/keypad.gd" id="61_occbs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_ye7cp")
@@ -1675,8 +1676,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(0.09952138, 1.2847344, 0.9338341, 0, 3.5091112, -0.34531018, -0.9949695, 0.12850499, 0.093406335, 45.0697, 0.2831039, 16.479523)
-progress = 20.101885
+transform = Transform3D(-0.68227375, -0.27213547, -0.72761, 0, 3.8189733, -0.09701461, 0.73100686, -0.25399336, -0.6791034, 42.757454, 0.56766045, 18.473625)
+progress = 30.070436
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1688,8 +1689,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(0.09952138, 1.2847344, 0.9338341, 0, 3.5091112, -0.34531018, -0.9949695, 0.12850499, 0.093406335, 45.0697, 0.2831039, 16.479523)
-progress = 20.101885
+transform = Transform3D(-0.68227375, -0.27213547, -0.72761, 0, 3.8189733, -0.09701461, 0.73100686, -0.25399336, -0.6791034, 42.757454, 0.56766045, 18.473625)
+progress = 30.070436
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1702,8 +1703,8 @@ curve = SubResource("Curve3D_u8b1p")
 script = ExtResource("13_lupgb")
 
 [node name="PathFollow3Dwhat" type="PathFollow3D" parent="butterflies/Path3D3"]
-transform = Transform3D(-0.8418165, 0.90740716, 0.46190757, 0, 2.7809696, -0.5176211, -0.5395372, -1.4157879, -0.72069436, 4.351164, -1.308554, 4.7379913)
-progress = 7.39814
+transform = Transform3D(0.24044488, -0.26832667, 0.9676063, 0, 3.3023398, 0.083446965, -0.97053665, -0.0664764, 0.23971891, -6.469043, -3.7459853, 8.353069)
+progress = 29.48194
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D3/PathFollow3Dwhat" instance=ExtResource("10_mox85")]
@@ -1915,6 +1916,30 @@ light_specular = 2.0
 shadow_blur = 3.0
 distance_fade_begin = 0.0
 spot_range = 20.0
+spot_angle = 35.0
+
+[node name="OmniLight3D18" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 27.1, 18.5, 34)
+light_color = Color(0.70404, 0.546549, 0.362783, 1)
+light_energy = 15.0
+light_indirect_energy = 10.0
+light_size = 0.4
+light_specular = 2.0
+shadow_blur = 3.0
+distance_fade_begin = 0.0
+spot_range = 15.0
+spot_angle = 35.0
+
+[node name="OmniLight3D19" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 27.1, 8.4, 34)
+light_color = Color(0.70404, 0.546549, 0.362783, 1)
+light_energy = 10.0
+light_indirect_energy = 10.0
+light_size = 0.4
+light_specular = 2.0
+shadow_blur = 3.0
+distance_fade_begin = 0.0
+spot_range = 15.0
 spot_angle = 35.0
 
 [node name="butterflynoisess" type="AudioStreamPlayer" parent="."]
@@ -2780,3 +2805,36 @@ shape = SubResource("BoxShape3D_2bc57")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(4.6528926, 4.452525, -0.1050486, 0.3582881, 4.268102, 0.25173318, 3.8230228, -5.8190427, 0.10425959, 1.8999996, 2.9, -2.6000004)
 shape = SubResource("BoxShape3D_2bc57")
+
+[node name="KEYPAD" type="CanvasLayer" parent="."]
+script = ExtResource("61_occbs")
+
+[node name="Panel" type="Panel" parent="KEYPAD"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LineEdit" type="LineEdit" parent="KEYPAD/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -15.5
+offset_right = 60.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("33_8gymk")
+theme_override_font_sizes/font_size = 25
+max_length = 7
