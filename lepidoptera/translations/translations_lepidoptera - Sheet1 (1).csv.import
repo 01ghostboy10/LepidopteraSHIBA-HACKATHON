@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://d1fetq2kxbvb2"
+
+[deps]
+
+files=["res://translations/translations_lepidoptera - Sheet1 (1).en.translation", "res://translations/translations_lepidoptera - Sheet1 (1).jp.translation"]
+
+source_file="res://translations/translations_lepidoptera - Sheet1 (1).csv"
+dest_files=["res://translations/translations_lepidoptera - Sheet1 (1).en.translation", "res://translations/translations_lepidoptera - Sheet1 (1).jp.translation"]
+
+[params]
+
+compress=true
+delimiter=0

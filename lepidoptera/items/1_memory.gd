@@ -5,3 +5,4 @@ func _process(_delta):
 		$Sprite2D.visible = false
 		$memory2.visible = false
 		$memory3.visible = false
+		$memory4.visible = false

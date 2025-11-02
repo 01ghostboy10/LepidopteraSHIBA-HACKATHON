@@ -60,7 +60,6 @@
 [ext_resource type="PackedScene" uid="uid://c1mme132a58lv" path="res://furniture/rubber_duck_toy_1k.gltf/rubber_duck_toy_1k.gltf" id="58_2bc57"]
 [ext_resource type="Script" uid="uid://dpfscw8nd1x13" path="res://items/rubberduck.gd" id="59_occbs"]
 [ext_resource type="Texture2D" uid="uid://dp675fkovawrb" path="res://items/Credits.png" id="60_8yb7u"]
-[ext_resource type="Script" uid="uid://bcaaiyyw45pvb" path="res://items/keypad.gd" id="61_occbs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_ye7cp")
@@ -538,6 +537,10 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_01t5h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2bc57"]
+
+[sub_resource type="Theme" id="Theme_8yb7u"]
+default_base_scale = 0.17
+default_font = ExtResource("10_j8k2g")
 
 [node name="Main" type="Node3D"]
 
@@ -1676,8 +1679,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D"]
-transform = Transform3D(-0.99894726, -1.2752413e-10, 0.044395883, 0, 4.135905, 6.945178e-10, -0.0443927, 2.8696132e-09, -0.99901885, 45.889893, 0, 15.327579)
-progress = 18.051434
+transform = Transform3D(-0.9246161, 0.8297413, 0.32673398, 0, 3.6422343, -0.5134386, -0.3807249, -2.0150826, -0.7934955, 42.43874, 1.4819777, 20.063055)
+progress = 1.7151568
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1689,8 +1692,8 @@ curve = SubResource("Curve3D_efxa6")
 script = ExtResource("9_mjcg1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D2"]
-transform = Transform3D(-0.99894726, -1.2752413e-10, 0.044395883, 0, 4.135905, 6.945178e-10, -0.0443927, 2.8696132e-09, -0.99901885, 45.889893, 0, 15.327579)
-progress = 18.051434
+transform = Transform3D(-0.9246161, 0.8297413, 0.32673398, 0, 3.6422343, -0.5134386, -0.3807249, -2.0150826, -0.7934955, 42.43874, 1.4819777, 20.063055)
+progress = 1.7151568
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
@@ -1703,8 +1706,8 @@ curve = SubResource("Curve3D_u8b1p")
 script = ExtResource("13_lupgb")
 
 [node name="PathFollow3Dwhat" type="PathFollow3D" parent="butterflies/Path3D3"]
-transform = Transform3D(-0.11706721, 2.7292535, -0.6241955, 0, 2.2194548, 0.77823865, 0.99300027, 0.3217583, -0.073587924, 2.0850048, -1.5864314, 2.3382545)
-progress = 3.145845
+transform = Transform3D(0.7513526, -1.2351601, -0.56488776, 0, 3.0977774, -0.51738715, 0.6597154, 1.406729, 0.643353, -8.749795, -1.7626351, 7.8004637)
+progress = 34.298935
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D3/PathFollow3Dwhat" instance=ExtResource("10_mox85")]
@@ -1983,6 +1986,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Press 'E' to interact"
 label_settings = SubResource("LabelSettings_efxa6")
+horizontal_alignment = 1
 
 [node name="Crosshair" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
@@ -2033,9 +2037,9 @@ anchor_top = 0.24300002
 anchor_right = 0.11800001
 anchor_bottom = 0.24300002
 offset_left = -102.936005
-offset_top = -11.4640045
+offset_top = -10.4640045
 offset_right = 104.063995
-offset_bottom = 11.5359955
+offset_bottom = 12.5359955
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("10_j8k2g")
 theme_override_font_sizes/font_size = 22
@@ -2111,7 +2115,7 @@ libraries = {
 
 [node name="memory4" type="Sprite2D" parent="1_memory"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(585, 317)
+position = Vector2(585, 316.99997)
 rotation = 0.04910541
 scale = Vector2(0.5237761, 0.5237761)
 texture = ExtResource("26_e0ntj")
@@ -2345,6 +2349,7 @@ scale = Vector2(0.18, 0.18)
 texture = ExtResource("33_p7m1b")
 
 [node name="tutoriallayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="tutorialart1" type="Sprite2D" parent="tutoriallayer"]
 position = Vector2(591, 325)
@@ -2911,35 +2916,11 @@ shape = SubResource("BoxShape3D_2bc57")
 transform = Transform3D(4.6528926, 4.452525, -0.1050486, 0.3582881, 4.268102, 0.25173318, 3.8230228, -5.8190427, 0.10425959, 1.8999996, 2.9, -2.6000004)
 shape = SubResource("BoxShape3D_2bc57")
 
-[node name="KEYPAD" type="CanvasLayer" parent="."]
-script = ExtResource("61_occbs")
+[node name="FPS" type="CanvasLayer" parent="."]
 
-[node name="Panel" type="Panel" parent="KEYPAD"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="LineEdit" type="LineEdit" parent="KEYPAD/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -15.5
-offset_right = 60.0
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("33_8gymk")
-theme_override_font_sizes/font_size = 25
-max_length = 7
+[node name="Label" type="Label" parent="FPS"]
+offset_left = 92.0
+offset_top = 580.0
+offset_right = 132.0
+offset_bottom = 603.0
+theme = SubResource("Theme_8yb7u")

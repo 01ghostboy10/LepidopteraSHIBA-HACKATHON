@@ -1,0 +1,19 @@
+key,en,jp
+collect_butterflies,Butterflies collected:,蝶の収集数：
+move,WASD / movement,WASD / 移動
+crouch,SHIFT / crouch,SHIFT / しゃがむ
+collect,E / collect butterfly,E / 蝶を集める
+close,ENTER / close popups,ENTER / ポップアップを閉じる
+quit,ESC / quit,ESC / 終了
+very_safe,VERY SAFE,とても安全
+safe,SAFE,安全
+unsafe,UNSAFE,危険
+very_unsafe,VERY UNSAFE,とても危険
+spirits,THE SPIRITS ARE HERE,霊が現れた
+credits,"Emotional support (as a joke): [names], also thank you to the wonderful organisers of Shiba! + my irl friends [names]",クレジット：感情面のサポート（笑）：[names] それから、素晴らしいShibaの運営者たちにも感謝！＋ 現実の友達 [names] にもありがとう！
+tr_collect_butterflies,Collect the butterflies by pressing 'E'.,Eキーで蝶を集めよう。
+tr_interact_orbs,Interact with the orbs to collect memories.,オーブに触れて、記憶を集めよう。
+tr_find_escape,Find the rest of them to escape. But beware of the spirits… they know you are here.,残りの蝶を見つけて脱出しよう。でも気をつけて…霊たちは君の存在に気づいている。
+memory_brother_butterfly,My brother showed me a butterfly for the first time here. Can you see how pretty it is?,初めて兄がここで蝶を見せてくれたんだ。ねぇ、きれいでしょ？
+memory_sister_scarf,"I stole my sister's scarf. She chased me around for hours, so I hid it. I don't think I ever saw it again.",妹のマフラーを盗んじゃってね。何時間も追いかけられたから、隠したんだ。それっきり、二度と見なかった。
+memory_mother_dishes,"My mother let me taste her dishes before anyone else. ""Don't tell anyone,"" she said. I remember the day before I disappeared, her butterfly apron was left on the floor.",母はいつも誰より先に料理を味見させてくれた。『内緒だよ』って言ってね。消える前の日、床に蝶のエプロンが落ちていたのを覚えている。

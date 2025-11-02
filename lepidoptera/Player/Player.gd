@@ -10,7 +10,7 @@ var speed = 4.7
 #crouching stuff again
 var crouch_speed = 2.5
 var jump_speed = 12      # slightly higher so player can still jump
-var mouse_sensitivity = 0.002
+var mouse_sensitivity = 0.007
 
 # crouch height
 var crouch_height = 0.5

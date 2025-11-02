@@ -1,4 +1,3 @@
-@tool
 extends Path3D
 
 

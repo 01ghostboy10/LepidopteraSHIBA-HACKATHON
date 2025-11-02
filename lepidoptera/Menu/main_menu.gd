@@ -45,3 +45,23 @@ func _on_aboutbutton_mouse_entered() -> void:
 func _on_exitbutton_mouse_entered() -> void:
 	$soundeffecthover.play()
 	#pass # Replace with function body.
+
+
+
+
+
+#TRANSLATIONS HHHHHH
+
+func _on_en_pressed():
+	TranslationServer.set_locale("en")
+	update_labels()
+
+func _on_jp_pressed():
+	TranslationServer.set_locale("jp")
+	update_labels()
+
+func update_labels():
+	# refresh any UI labels so they show the new language
+	# if you are using tr() in Label.text it updates automatically
+	for label in get_tree().get_nodes_in_group("translatable"):
+		label.text = tr(label.name)
