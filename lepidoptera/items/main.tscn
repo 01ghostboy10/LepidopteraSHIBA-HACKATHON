@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://0vqqs71lujfu"]
+[gd_scene load_steps=145 format=3 uid="uid://0vqqs71lujfu"]
 
 [ext_resource type="Shader" uid="uid://bwbyvyn4puk3m" path="res://items/stuff/SkyShader.gdshader" id="1_ye7cp"]
 [ext_resource type="Texture2D" uid="uid://d2gv1kbeibdrl" path="res://textures/wood_cabinet_worn_long_disp_2k.png" id="2_w6s3w"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://dnroj5n3pado" path="res://items/butterfly2.gd" id="12_jimur"]
 [ext_resource type="Script" uid="uid://bf0d4oa0yk8p7" path="res://items/path_3d_3.gd" id="13_lupgb"]
 [ext_resource type="Script" uid="uid://8821qbtoqy37" path="res://items/butterfly3.gd" id="14_u8b1p"]
+[ext_resource type="Script" uid="uid://bo057h8sd3ype" path="res://items/butterfly12313.gd" id="15_8yb7u"]
 [ext_resource type="Script" uid="uid://b0wm8tc438apj" path="res://items/shibaaawebwarningpngthing.gd" id="15_j8k2g"]
 [ext_resource type="AudioStream" uid="uid://rhhxyk6vam0w" path="res://musika/noises/816989__luisa_sanchez__soccer-net.wav" id="15_m8s6k"]
 [ext_resource type="Texture2D" uid="uid://dpqg2iwssit18" path="res://items/NOTICE FOR SHIBA PLAYTESTERS! (2).png" id="16_mjcg1"]
@@ -60,6 +61,7 @@
 [ext_resource type="PackedScene" uid="uid://c1mme132a58lv" path="res://furniture/rubber_duck_toy_1k.gltf/rubber_duck_toy_1k.gltf" id="58_2bc57"]
 [ext_resource type="Script" uid="uid://dpfscw8nd1x13" path="res://items/rubberduck.gd" id="59_occbs"]
 [ext_resource type="Texture2D" uid="uid://dp675fkovawrb" path="res://items/Credits.png" id="60_8yb7u"]
+[ext_resource type="Script" uid="uid://buymhhuk3mplx" path="res://items/area_3d_6.gd" id="60_occbs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
 shader = ExtResource("1_ye7cp")
@@ -305,6 +307,9 @@ _data = {
 [sub_resource type="GDScript" id="GDScript_2qx8f"]
 script/source = "#qwertyuiop
 extends Node3D
+
+func _ready():
+	$AnimationPlayer.play(\"hover\")  # plays immediately on scene load
 "
 
 [sub_resource type="Animation" id="Animation_xxkcq"]
@@ -421,6 +426,44 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_8yb7u"),
 &"hover": SubResource("Animation_k0p26")
+}
+
+[sub_resource type="Animation" id="Animation_2bc57"]
+resource_name = "hover"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(11.699999, 8.3, 41.899998), Vector3(11.7, 7.5, 41.9)]
+}
+
+[sub_resource type="Animation" id="Animation_occbs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(11.699999, 8.3, 41.899998)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8yb7u"]
+_data = {
+&"RESET": SubResource("Animation_occbs"),
+&"hover": SubResource("Animation_2bc57")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_voqjq"]
@@ -1684,7 +1727,7 @@ progress = 1.7151568
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D/PathFollow3D" instance=ExtResource("10_mox85")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1.0000001, 0, 2.9802322e-08, 0, 0.39931068, 0, -2.9802322e-08, 5.9604645e-08, 1.3594054, 0, 0, 0)
 
 [node name="Path3D2" type="Path3D" parent="butterflies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 5.4, 15)
@@ -1697,7 +1740,7 @@ progress = 1.7151568
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D2/PathFollow3D" instance=ExtResource("10_mox85")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1.0000002, 0, 5.9604645e-08, 0, 0.42395547, 0, -2.9802322e-08, 1.7881393e-07, 1.4502919, 0, 0, 0)
 script = ExtResource("12_jimur")
 
 [node name="Path3D3" type="Path3D" parent="butterflies"]
@@ -1706,13 +1749,27 @@ curve = SubResource("Curve3D_u8b1p")
 script = ExtResource("13_lupgb")
 
 [node name="PathFollow3Dwhat" type="PathFollow3D" parent="butterflies/Path3D3"]
-transform = Transform3D(0.7513526, -1.2351601, -0.56488776, 0, 3.0977774, -0.51738715, 0.6597154, 1.406729, 0.643353, -8.749795, -1.7626351, 7.8004637)
-progress = 34.298935
+transform = Transform3D(-0.10753151, -1.7956498, 0.87741923, 0, 3.3844087, 0.47097543, -0.9940786, 0.1942391, -0.09491223, -3.196919, -1.0634387, 7.41762)
+progress = 24.11401
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D3/PathFollow3Dwhat" instance=ExtResource("10_mox85")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("14_u8b1p")
+
+[node name="Path3D4" type="Path3D" parent="butterflies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.700003, 19.2, 15.400001)
+curve = SubResource("Curve3D_efxa6")
+script = ExtResource("9_mjcg1")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="butterflies/Path3D4"]
+transform = Transform3D(-0.9246161, 0.8297413, 0.32673398, 0, 3.6422343, -0.5134386, -0.3807249, -2.0150826, -0.7934955, 42.43874, 1.4819777, 20.063055)
+progress = 1.7151568
+rotation_mode = 4
+
+[node name="butterfly" parent="butterflies/Path3D4/PathFollow3D" instance=ExtResource("10_mox85")]
+transform = Transform3D(1.0000002, 0, 5.9604645e-08, 0, 0.42395547, 0, -2.9802322e-08, 1.7881393e-07, 1.4502919, 0, 0, 0)
+script = ExtResource("15_8yb7u")
 
 [node name="Window" type="MeshInstance3D" parent="."]
 transform = Transform3D(6.41519, 0, -0.15481, 0, 8.31005, 0, 7.64533, 0, 0.129901, 37.1545, 6.38061, 5.86424)
@@ -1950,6 +2007,7 @@ stream = SubResource("AudioStreamRandomizer_j8k2g")
 volume_db = -17.0
 
 [node name="shibaaawebwarningpngthing" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("15_j8k2g")
 
 [node name="Sprite2D" type="Sprite2D" parent="shibaaawebwarningpngthing"]
@@ -2127,7 +2185,7 @@ libraries = {
 
 [node name="orbnode" type="Node3D" parent="."]
 script = ExtResource("26_t20jr")
-orb_area_paths = Array[NodePath]([NodePath("orbarea3d"), NodePath("orbarea3d2"), NodePath("orbarea3d3"), NodePath("orbarea3d4"), NodePath("SAFEAREAONE"), NodePath("SAFEAREAONE2"), NodePath("SAFEAREAONE3"), NodePath("SAFEAREAONE4")])
+orb_area_paths = Array[NodePath]([NodePath("orbarea3d"), NodePath("orbarea3d2"), NodePath("orbarea3d3"), NodePath("orbarea3d4"), NodePath("SAFEAREAONE"), NodePath("SAFEAREAONE2"), NodePath("SAFEAREAONE3"), NodePath("SAFEAREAONE4"), NodePath("SAFEAREAONE5"), NodePath("SAFEAREAONE6"), NodePath("SAFEAREAONE7")])
 threat_color_rect_path = NodePath("../Control/ThreatUI/ColorRect")
 threat_color_rect_2_path = NodePath("../Control/ThreatUI/ColorRect2")
 threat_label_path = NodePath("../Control/ThreatUI/ThreatLabel")
@@ -2198,7 +2256,7 @@ libraries = {
 }
 
 [node name="orbarea3d4" type="Area3D" parent="orbnode"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.699999, 8.3, 41.899998)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.699999, 8, 41.899998)
 script = ExtResource("22_3myj0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="orbnode/orbarea3d4"]
@@ -2206,10 +2264,16 @@ shape = SubResource("SphereShape3D_2qx8f")
 
 [node name="orb4" type="MeshInstance3D" parent="orbnode"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.699999, 8.3, 41.899998)
+visible = false
 material_overlay = ExtResource("32_u8b1p")
 mesh = SubResource("SphereMesh_2qx8f")
 skeleton = NodePath("../..")
 script = SubResource("GDScript_2qx8f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="orbnode/orb4"]
+libraries = {
+&"": SubResource("AnimationLibrary_8yb7u")
+}
 
 [node name="SAFEAREAONE" type="MeshInstance3D" parent="orbnode"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7, 17.300001, 52.100002)
@@ -2231,6 +2295,24 @@ skeleton = NodePath("../../1_memory")
 
 [node name="SAFEAREAONE4" type="MeshInstance3D" parent="orbnode"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.300003, 3.0000017, 8.100007)
+material_override = SubResource("StandardMaterial3D_voqjq")
+mesh = SubResource("SphereMesh_qh7mc")
+skeleton = NodePath("../../1_memory")
+
+[node name="SAFEAREAONE5" type="MeshInstance3D" parent="orbnode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1000013, 15.300002, 41.40001)
+material_override = SubResource("StandardMaterial3D_voqjq")
+mesh = SubResource("SphereMesh_qh7mc")
+skeleton = NodePath("../../1_memory")
+
+[node name="SAFEAREAONE6" type="MeshInstance3D" parent="orbnode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1000013, 15.300002, 31.00001)
+material_override = SubResource("StandardMaterial3D_voqjq")
+mesh = SubResource("SphereMesh_qh7mc")
+skeleton = NodePath("../../1_memory")
+
+[node name="SAFEAREAONE7" type="MeshInstance3D" parent="orbnode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.500002, 19.100002, 32.90001)
 material_override = SubResource("StandardMaterial3D_voqjq")
 mesh = SubResource("SphereMesh_qh7mc")
 skeleton = NodePath("../../1_memory")
@@ -2264,7 +2346,7 @@ size = Vector2i(576, 324)
 render_target_update_mode = 4
 
 [node name="Player" type="CharacterBody3D" parent="Control/SubViewportContainer/SubViewport"]
-transform = Transform3D(-0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, -0.984808, 29.099998, 5.3, 4.000003)
+transform = Transform3D(-1.0000002, 0, -2.0861626e-07, 0, 1, 0, 2.0861626e-07, 0, -1.0000002, 29.099998, 5.3, 4.000003)
 script = ExtResource("8_j8k2g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/Player"]
@@ -2877,6 +2959,9 @@ shape = SubResource("BoxShape3D_lupgb")
 [node name="blend_export" parent="." instance=ExtResource("58_2bc57")]
 transform = Transform3D(-0.34202012, 0, 0.9396926, 0, 1, 0, -0.9396926, 0, -0.34202012, 15.000001, 4.1000004, 13.500001)
 
+[node name="To_be_Continued" parent="." instance=ExtResource("58_2bc57")]
+transform = Transform3D(0.8599999, 0, -1.489564, 0, 1.72, 0, 1.489564, 0, 0.8599999, 10.800002, 2.4000003, 28.699999)
+
 [node name="wooden_crate_02_1k" parent="." instance=ExtResource("48_mpcpe")]
 transform = Transform3D(-3.2562554, 0, -1.8800001, 0, 3.76, 0, 1.8800001, 0, -3.2562554, 14.800001, 2.4, 13.9)
 
@@ -2894,6 +2979,13 @@ transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, 15.000001, 4.1000004
 script = ExtResource("59_occbs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D5"]
+shape = SubResource("SphereShape3D_01t5h")
+
+[node name="Area3D6" type="Area3D" parent="."]
+transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, 10.800002, 2.6000004, 28.699999)
+script = ExtResource("60_occbs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D6"]
 shape = SubResource("SphereShape3D_01t5h")
 
 [node name="CREDITSLAYER" type="CanvasLayer" parent="."]
@@ -2924,3 +3016,7 @@ offset_top = 580.0
 offset_right = 132.0
 offset_bottom = 603.0
 theme = SubResource("Theme_8yb7u")
+
+[node name="to-be-continued" type="CanvasLayer" parent="."]
+
+[node name="note" type="Sprite2D" parent="to-be-continued"]

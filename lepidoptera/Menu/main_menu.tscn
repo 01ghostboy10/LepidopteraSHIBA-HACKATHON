@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://chtn01cddnk8u"]
+[gd_scene load_steps=15 format=3 uid="uid://chtn01cddnk8u"]
 
 [ext_resource type="Texture2D" uid="uid://d2xqf4dfed4w0" path="res://buttons + startscreen art/startscreenTHISONE.png" id="1_ohgnh"]
 [ext_resource type="Script" uid="uid://c0owc6i1xac5l" path="res://Menu/main_menu.gd" id="1_rw3mj"]
@@ -20,12 +20,6 @@ texture = ExtResource("2_fw3rq")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ywk15"]
 texture = ExtResource("5_cn2sd")
-
-[sub_resource type="Theme" id="Theme_ws7s4"]
-default_font_size = 35
-
-[sub_resource type="Theme" id="Theme_fduiw"]
-default_font_size = 35
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -117,28 +111,9 @@ stream = ExtResource("11_ws7s4")
 volume_db = -20.0
 autoplay = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 158.0
-offset_top = 416.0
-offset_right = 314.0
-offset_bottom = 535.0
-
-[node name="en_button" type="Button" parent="VBoxContainer2"]
-layout_mode = 2
-theme = SubResource("Theme_ws7s4")
-text = "ENGLISH"
-
-[node name="jp_button" type="Button" parent="VBoxContainer2"]
-layout_mode = 2
-theme = SubResource("Theme_fduiw")
-text = "日本語"
-
 [connection signal="mouse_entered" from="VBoxContainer/startbutton" to="." method="_on_startbutton_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/startbutton" to="." method="_on_start_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/aboutbutton" to="." method="_on_aboutbutton_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/aboutbutton" to="." method="_on_about_pressed"]
 [connection signal="mouse_entered" from="exitbutton" to="." method="_on_exitbutton_mouse_entered"]
 [connection signal="pressed" from="exitbutton" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="VBoxContainer2/en_button" to="." method="_on_en_pressed"]
-[connection signal="pressed" from="VBoxContainer2/jp_button" to="." method="_on_jp_pressed"]
