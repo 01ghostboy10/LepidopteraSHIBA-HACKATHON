@@ -59,9 +59,6 @@ func _physics_process(delta):
 		move_and_slide()
 		return
 
-	# your movement code here
-			
-	#IDK IF THIS IS THE RIGHT PLACE
 	
 	crouch()
 	# apply gravity
@@ -70,7 +67,7 @@ func _physics_process(delta):
 	# get movement input
 	var input = Input.get_vector("left","right","forward","back")
 	var movement = transform.basis * Vector3(input.x,0,input.y)
-	#crouching speed n stuff
+	#crouching speed
 	if !crouching:
 		velocity.x = movement.x * speed
 		velocity.z = movement.z * speed
@@ -91,12 +88,14 @@ func _physics_process(delta):
 			$"../../../AudioStreamPlayer2".play()
 	else:
 		$"../../../AudioStreamPlayer2".stop()
-#
-# mouse character whY IS THIS SO fdhfjdh OVERVOMPLICATED
+
+# mouse character
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		# rotate body left/right
-		rotate_y(-event.relative.x * mouse_sensitivity)
+		if Input.is_action_pressed("look_up"):
+			 
+			rotate_y(-event.relative.x * mouse_sensitivity)
 		
 		# rotate camera up/down using pivot
 		var pivot_rot = $CameraPivot.rotation_degrees
