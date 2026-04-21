@@ -428,6 +428,21 @@ _data = {
 &"hover": SubResource("Animation_k0p26")
 }
 
+[sub_resource type="Animation" id="Animation_occbs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(11.699999, 8.3, 41.899998)]
+}
+
 [sub_resource type="Animation" id="Animation_2bc57"]
 resource_name = "hover"
 length = 2.0
@@ -443,21 +458,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(11.699999, 8.3, 41.899998), Vector3(11.7, 7.5, 41.9)]
-}
-
-[sub_resource type="Animation" id="Animation_occbs"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(11.699999, 8.3, 41.899998)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8yb7u"]
@@ -1124,6 +1124,36 @@ mesh = SubResource("BoxMesh_d13ii")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar19/StaticBody3D"]
 shape = SubResource("BoxShape3D_cegan")
 
+[node name="barrierONE" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.32947677, 8.0185, -1.1601418e-08, 0.9052301, 2.9184947, 3.1874638e-08, -4.8438082e-08, -1.3251409e-21, -0.35717478, 11.2143, 5.5462303, 27.2931)
+material_overlay = SubResource("StandardMaterial3D_ryguw")
+mesh = SubResource("BoxMesh_d13ii")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="barrierONE"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="barrierONE/StaticBody3D"]
+shape = SubResource("BoxShape3D_cegan")
+
+[node name="barrierTWO" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.16727972, 8.403472, 5.890192e-09, 0.9486906, -1.4817592, 3.340496e-08, -4.843809e-08, -2.4612294e-14, -0.35717478, 10.814301, 7.2462306, 27.2931)
+material_overlay = SubResource("StandardMaterial3D_ryguw")
+mesh = SubResource("BoxMesh_d13ii")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="barrierTWO"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="barrierTWO/StaticBody3D"]
+shape = SubResource("BoxShape3D_cegan")
+
+[node name="barrierTHREE" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.16727972, 8.403472, 5.890192e-09, 0.9486906, -1.4817592, 3.340496e-08, -4.843809e-08, -2.4612294e-14, -0.35717478, 10.814301, 3.3462305, 27.2931)
+material_overlay = SubResource("StandardMaterial3D_ryguw")
+mesh = SubResource("BoxMesh_d13ii")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="barrierTHREE"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="barrierTHREE/StaticBody3D"]
+shape = SubResource("BoxShape3D_cegan")
+
 [node name="Pillar20" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.963326, 0, -8.48007e-08, 0, 8.53311, 0, -4.84381e-08, 0, -0.892937, 31.6143, 6.54623, 46.3931)
 material_overlay = SubResource("StandardMaterial3D_ryguw")
@@ -1749,8 +1779,8 @@ curve = SubResource("Curve3D_u8b1p")
 script = ExtResource("13_lupgb")
 
 [node name="PathFollow3Dwhat" type="PathFollow3D" parent="butterflies/Path3D3"]
-transform = Transform3D(-0.10753151, -1.7956498, 0.87741923, 0, 3.3844087, 0.47097543, -0.9940786, 0.1942391, -0.09491223, -3.196919, -1.0634387, 7.41762)
-progress = 24.11401
+transform = Transform3D(-0.107531674, -1.8173913, 0.8774191, 0, 3.425386, 0.4709755, -0.9940784, 0.19659126, -0.09491238, -3.8397186, -1.4084766, 7.487152)
+progress = 24.84615
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D3/PathFollow3Dwhat" instance=ExtResource("10_mox85")]
@@ -1820,21 +1850,20 @@ omni_range = 6.845
 omni_attenuation = 1.3
 
 [node name="OmniLight3D16" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.9, 15.700001, 5.8)
-light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 10.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.9, 14.200001, 5.8)
+light_color = Color(0.5633804, 0.6094343, 0.33839437, 1)
+light_energy = 16.0
 light_indirect_energy = 10.0
 light_size = 0.4
 light_specular = 2.0
 shadow_blur = 3.0
 distance_fade_begin = 0.0
-omni_range = 12.0
 omni_attenuation = 2.424
 
 [node name="OmniLight3D17" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.900002, 15.700001, 6.7000003)
-light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 10.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.900002, 14.600001, 6.1000004)
+light_color = Color(0.54162055, 0.6160005, 0.35109967, 1)
+light_energy = 6.0
 light_indirect_energy = 10.0
 light_size = 0.4
 light_specular = 2.0
@@ -1920,8 +1949,8 @@ libraries = {
 
 [node name="OmniLight3D13" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.800005, 15.2, 20.600002)
-light_color = Color(0.70404, 0.546549, 0.362783, 1)
-light_energy = 16.0
+light_color = Color(0.6229066, 0.5853838, 0.3538217, 1)
+light_energy = 3.0
 light_indirect_energy = 16.0
 light_size = 0.4
 light_specular = 2.0
