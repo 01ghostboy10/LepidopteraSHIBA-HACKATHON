@@ -1779,8 +1779,8 @@ curve = SubResource("Curve3D_u8b1p")
 script = ExtResource("13_lupgb")
 
 [node name="PathFollow3Dwhat" type="PathFollow3D" parent="butterflies/Path3D3"]
-transform = Transform3D(-0.84181577, 1.1172438, 0.46190763, 0, 3.424065, -0.5176211, -0.5395368, -1.7431868, -0.7206944, 4.3642535, -1.324355, 4.718544)
-progress = 7.3725586
+transform = Transform3D(-0.039794184, -2.370577, 0.8049108, 0, 3.222209, 0.5931118, -0.9990848, 0.0944216, -0.032060113, -1.7958237, -0.6137139, 8.551946)
+progress = 20.632765
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D3/PathFollow3Dwhat" instance=ExtResource("10_mox85")]
@@ -2375,7 +2375,7 @@ size = Vector2i(576, 324)
 render_target_update_mode = 4
 
 [node name="Player" type="CharacterBody3D" parent="Control/SubViewportContainer/SubViewport"]
-transform = Transform3D(-1.0000002, 0, -2.0861626e-07, 0, 1, 0, 2.0861626e-07, 0, -1.0000002, 29.099998, 5.3, 4.000003)
+transform = Transform3D(-1.0000002, 0, -2.0861626e-07, 0, 1, 0, 2.0861626e-07, 0, -1.0000002, 29.099998, 5.4, 4.000003)
 script = ExtResource("8_j8k2g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/Player"]
