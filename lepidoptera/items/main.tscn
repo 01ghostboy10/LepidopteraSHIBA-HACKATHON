@@ -1779,8 +1779,8 @@ curve = SubResource("Curve3D_u8b1p")
 script = ExtResource("13_lupgb")
 
 [node name="PathFollow3Dwhat" type="PathFollow3D" parent="butterflies/Path3D3"]
-transform = Transform3D(-0.107531674, -1.8173913, 0.8774191, 0, 3.425386, 0.4709755, -0.9940784, 0.19659126, -0.09491238, -3.8397186, -1.4084766, 7.487152)
-progress = 24.84615
+transform = Transform3D(-0.84181577, 1.1172438, 0.46190763, 0, 3.424065, -0.5176211, -0.5395368, -1.7431868, -0.7206944, 4.3642535, -1.324355, 4.718544)
+progress = 7.3725586
 rotation_mode = 4
 
 [node name="butterfly" parent="butterflies/Path3D3/PathFollow3Dwhat" instance=ExtResource("10_mox85")]
@@ -2460,7 +2460,6 @@ scale = Vector2(0.18, 0.18)
 texture = ExtResource("33_p7m1b")
 
 [node name="tutoriallayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="tutorialart1" type="Sprite2D" parent="tutoriallayer"]
 position = Vector2(591, 325)

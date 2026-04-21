@@ -24,7 +24,7 @@ func interact():
 	var orb_noise = get_node_or_null("../orbnoise")
 	if orb_noise:
 		orb_noise.play()
-		print("Orb noise is playing thank god")
+		print("Orb noise is playing")
 		#memory showing up yYEYEEEEYEEY
 		var _memory_layer = get_node("../../1_memory")
 		$"../../1_memory/memory3".visible = true
